@@ -1,1 +1,2 @@
-# Noshiro_Space_Event_2023
+# Noshiro_Space_Event_2023  
+2023年度能代宇宙イベント　缶サット　ランバック部門のプロジェクトです．
