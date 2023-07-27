@@ -1,10 +1,10 @@
 """
-    TANEGASHIMA ROCKET EVENT 2023
-    PENGUIN_PANM MAIN PROGRAM
+    NOSHIRO SPACE EVENT 2023
+    ASTRUM MAIN PROGRAM
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 05/10/2023
+    Last Update : 07/27/2023
 """
 
 import GYSFDMAXB
@@ -16,8 +16,13 @@ import logger
 import time
 
 print("Initializing")
+GYSFDMAXB.read_GPSData()
+ground.cal_heading_angle()
+floating.cal_altitude()
+time.sleep(1)
 drive = motor.Motor()
-print("start")
+
+print("start!!")
 
 """
 Floating Phase
@@ -34,9 +39,9 @@ state 1 : Rising
 state = 1
 floating_log.state = 1
 start = time.time()
-print("initial altitude")
 data = floating.cal_altitude()
 init_altitude = data[2]
+print("initial altitude : {}." .format(init_altitude()))
 floating_log.floating_logger(data)
 print("Rising phase")
 while phase == 1:
@@ -60,7 +65,8 @@ while phase == 1:
             state = 3
             floating_log.state = 3
             break
-        time.sleep(0.3)
+        print("altitude : {}." .format(altitude))
+        time.sleep(1.5)
     while state == 2:
         data = floating.cal_altitude()
         altitude = data[2]
@@ -75,7 +81,8 @@ while phase == 1:
             state = 3
             floating_log.state = 3
             break
-        time.sleep(0.1)
+        print("altitude : {}." .format(altitude))
+        time.sleep(0.2)
     while state == -1:
         now = time.time()
         if now - start > 900:
@@ -92,7 +99,7 @@ while phase == 1:
     break
 
 reach_the_goal = False
-while reach_the_goal:
+while not reach_the_goal:
     """
     Ground Phase
     """
@@ -102,20 +109,20 @@ while reach_the_goal:
     logger.Ground_logger.state = 'Normal'
     while phase == 2:
         distance = ground.cal_distance(ground.des_lng, ground.des_lat)
-        print("distance :", distance)
+        print("distance : ", distance)
         data = ground.is_heading_goal()
         ground_log.ground_logger(data, distance)
-        if distance <= 10: # Reach the goal within 10m
+        if distance <= 6: # Reach the goal within 6m
             print("Close to the goal")
             drive.stop()
             ground_log.end_of_ground_phase()
             break
-        while data[3] != True:
+        while data[3] != True: # Not heading the goal
             if data[4] == 'Turn Right':
                 drive.turn_right()
             elif data[4] == 'Turn Left':
                 drive.turn_left()
-            time.sleep(0.5)
+            time.sleep(0.3)
             data = ground.is_heading_goal()
             ground_log.ground_logger(data, distance)
         drive.forward()
@@ -159,7 +166,7 @@ while reach_the_goal:
             time.sleep(1.8)
             drive.stop()
             break
-        if distance >= 17:
+        if distance >= 15:
             print('Error')
             img_proc_log.err_logger(distance,gps)
             drive.turn_right()
