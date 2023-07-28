@@ -10,7 +10,8 @@ i2c = board.I2C()
 sensor = adafruit_bno055.BNO055_I2C(i2c)
 
 def read_Mag_AccelData():
-    data = [sensor.magnetic[0], sensor.magnetic[1], sensor.magnetic[2], sensor.acceleration[0], sensor.acceleration[1], sensor.acceleration[2], sensor.calibration_status[3], sensor.calibration_status[2]]
+    # data = [sensor.magnetic[0], sensor.magnetic[1], sensor.magnetic[2], sensor.acceleration[0], sensor.acceleration[1], sensor.acceleration[2], sensor.calibration_status[3], sensor.calibration_status[2]]
+    data = [sensor.acceleration[0], sensor.acceleration[1], sensor.acceleration[2], sensor.gravity, sensor.calibration_status[2]]
     """
     data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
     calib status : 0 ~ 3
