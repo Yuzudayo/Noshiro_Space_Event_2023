@@ -1,13 +1,13 @@
 import cv2
-import picamera
+# import picamera
 import numpy as np
 import time
 import datetime
 
 # Red has two color ranges
-LOW_COLOR1 = np.array([0, 150, 150])
-HIGH_COLOR1 = np.array([6, 255, 255])
-LOW_COLOR2 = np.array([174, 150, 150])
+LOW_COLOR1 = np.array([0, 100, 100])
+HIGH_COLOR1 = np.array([10, 255, 255])
+LOW_COLOR2 = np.array([170, 100, 100])
 HIGH_COLOR2 = np.array([180, 255, 255])
 """
 Hue : Tint. Red is 0 degrees and changes in order of rainbow colors up to 360 degrees.
@@ -22,15 +22,15 @@ Mutual conversion between RGB and HSV
 https://www.petitmonte.com/javascript/rgb_hsv_convert.html
 """
 
-def take_picture():
-    now = datetime.datetime.now()
-    img_name = 'img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
-    with picamera.PiCamera() as camera:
-        camera.resolution = (640, 480)
-        camera.start_preview()
-        time.sleep(1.5)
-        camera.capture(img_name)
-    return img_name
+# def take_picture():
+#     now = datetime.datetime.now()
+#     img_name = 'img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
+#     with picamera.PiCamera() as camera:
+#         camera.resolution = (640, 480)
+#         camera.start_preview()
+#         time.sleep(1.5)
+#         camera.capture(img_name)
+#     return img_name
 
 def detect_cone(img_name):
     img = cv2.imread(img_name)
@@ -74,7 +74,7 @@ def detect_cone(img_name):
         cv2.putText(out_img, "%d,%d"%(mx, my), (x-15, y+h+15), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0))
         cv2.putText(out_img, "%d"%(s), (x, y+h+30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0))
         now = datetime.datetime.now()
-        img_name = 'proc_img/' + now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
+        img_name = now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
         cv2.imwrite(img_name, out_img)
         if mx > W / 3 * 2:
             print("Right")
@@ -94,6 +94,7 @@ def detect_cone(img_name):
 
 
 if __name__ == '__main__':
-    img_name = take_picture()
+    # img_name = take_picture()
+    img_name = "3.jpg"
     cone_location, out_img, p = detect_cone(img_name)
     print(p)
