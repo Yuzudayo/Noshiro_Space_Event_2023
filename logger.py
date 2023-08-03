@@ -31,21 +31,21 @@ class Floating_logger(object):
         with open(Floating_logger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), Floating_logger.state] + data)
+            writer.writerow([now.strftime('%H:%M:%S'), self.state] + data)
         f.close()
         
     def error_logger(self, altitude):
         with open(Floating_logger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), Floating_logger.state, 'altitude', altitude])
+            writer.writerow([now.strftime('%H:%M:%S'), self.state, 'altitude', altitude])
         f.close()
         
     def end_of_floating_phase(self):
         with open(Floating_logger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), Floating_logger.state, 'Separation mechanism activated'])
+            writer.writerow([now.strftime('%H:%M:%S'), self.state, 'Separation mechanism activated'])
         f.close()
         
 class Ground_logger(object):

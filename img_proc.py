@@ -22,15 +22,15 @@ Mutual conversion between RGB and HSV
 https://www.petitmonte.com/javascript/rgb_hsv_convert.html
 """
 
-# def take_picture():
-#     now = datetime.datetime.now()
-#     img_name = 'img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
-#     with picamera.PiCamera() as camera:
-#         camera.resolution = (640, 480)
-#         camera.start_preview()
-#         time.sleep(1.5)
-#         camera.capture(img_name)
-#     return img_name
+def take_picture():
+    now = datetime.datetime.now()
+    img_name = 'img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
+    with picamera.PiCamera() as camera:
+        camera.resolution = (640, 480)
+        camera.start_preview()
+        time.sleep(1.5)
+        camera.capture(img_name)
+    return img_name
 
 def detect_cone(img_name):
     img = cv2.imread(img_name)
@@ -94,7 +94,6 @@ def detect_cone(img_name):
 
 
 if __name__ == '__main__':
-    # img_name = take_picture()
-    img_name = "3.jpg"
+    img_name = take_picture()
     cone_location, out_img, p = detect_cone(img_name)
     print(p)

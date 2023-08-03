@@ -6,8 +6,8 @@ import time
 import logger
 import motor
 
-des_lng = 130.96011666666666
-des_lat = 30.374275
+des_lng = 139.65497333333334
+des_lat = 35.950936666666664
 
 def cal2des_ang(gps_lng, gps_lat):
     des_ang = Geodesic.WGS84.Inverse(gps_lat, gps_lng, des_lat, des_lng)['a12']
@@ -19,7 +19,7 @@ def cal_distance(x2, y2):
         print("Waiting for GPS reception")
         time.sleep(5)
     gps = GYSFDMAXB.read_GPSData()
-    distance = Geodesic.WGS84.Inverse(gps[1], gps[0], y2, x2)['s12'] / 1000 # [m]
+    distance = Geodesic.WGS84.Inverse(gps[1], gps[0], y2, x2)['s12'] # [m]
     return distance
 
 def cal_heading_ang():
