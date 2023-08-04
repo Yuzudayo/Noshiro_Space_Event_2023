@@ -52,20 +52,13 @@ class Motor(object):
         print('Finish stuck processing')
         
     def set_angle(angle):
-        # 角度を500から2500のパルス幅にマッピングする
+        # Mapping angles to pulse widths from 500 to 2500
         pulse_width = (angle / 180) * (2500 - 500) + 500
         
-        # パルス幅を設定してサーボを回転させる
+        # Set the pulse width and rotate the servo
         Motor.pi.set_servo_pulsewidth(SERVO, pulse_width)
     
     def servo(self):
-        # Motor.pi.set_servo_pulsewidth(SERVO, 2400)
-        # time.sleep(1)
-        # Motor.pi.set_servo_pulsewidth(SERVO, 1700)
-        # time.sleep(1)
-        # Motor.pi.set_servo_pulsewidth(SERVO, 500)
-        # time.sleep(1)
-        # Motor.pi.set_servo_pulsewidth(SERVO, 0)
         Motor.set_angle(160)
         print("Separation mechanism activated")
         
@@ -87,9 +80,6 @@ class Motor(object):
         print("Camera motor activated reverse")
         
     def attach_para(self):
-        # Motor.pi.set_servo_pulsewidth(SERVO, 2400)
-        # time.sleep(3)
-        # Motor.pi.set_servo_pulsewidth(SERVO, 0)
         Motor.set_angle(0)
         print("Parachute attached")
         
