@@ -17,10 +17,11 @@ import time
 
 print("Initializing")
 GYSFDMAXB.read_GPSData()
-ground.cal_heading_angle()
-floating.cal_altitude()
+# ground.cal_heading_angle()
+# floating.cal_altitude()
 time.sleep(1)
 drive = motor.Motor()
+drive.stop()
 
 print("start!!")
 
@@ -41,7 +42,7 @@ floating_log.state = 1
 start = time.time()
 data = floating.cal_altitude()
 init_altitude = data[2]
-print("initial altitude : {}." .format(init_altitude()))
+# print("initial altitude : {}." .format(init_altitude()))
 floating_log.floating_logger(data)
 print("Rising phase")
 while phase == 1:
@@ -56,7 +57,7 @@ while phase == 1:
             floating_log.state = -1
             floating_log.error_logger(altitude)
             print("Error")
-        if altitude >= init_altitude + 8:
+        if altitude >= init_altitude + 6:
             state = 2
             floating_log.state = 2
         now = time.time()
@@ -94,9 +95,15 @@ while phase == 1:
     print("Landing")
     time.sleep(5)
     floating_log.end_of_floating_phase()
-    drive.sepa_mecha() # Separation mechanism activated
-    time.sleep(12)
+    drive.servo() # Separation mechanism activated
+    time.sleep(3)
     break
+# drive.forward()
+# time.sleep(7)
+# drive.stop()
+while(True) :
+    print("end")
+    time.sleep(3)
 
 reach_the_goal = False
 while not reach_the_goal:
