@@ -98,12 +98,6 @@ while phase == 1:
     drive.servo() # Separation mechanism activated
     time.sleep(3)
     break
-# drive.forward()
-# time.sleep(7)
-# drive.stop()
-while(True) :
-    print("end")
-    time.sleep(3)
 
 reach_the_goal = False
 while not reach_the_goal:
