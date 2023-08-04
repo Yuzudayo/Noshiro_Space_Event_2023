@@ -109,23 +109,23 @@ while not reach_the_goal:
     ground_log = logger.Ground_logger()
     logger.Ground_logger.state = 'Normal'
     while phase == 2:
-        distance = ground.cal_distance(ground.des_lng, ground.des_lat)
-        print("distance : ", distance)
         data = ground.is_heading_goal()
-        ground_log.ground_logger(data, distance)
-        if distance <= 6: # Reach the goal within 6m
-            print("Close to the goal")
-            drive.stop()
-            ground_log.end_of_ground_phase()
-            break
         while data[3] != True: # Not heading the goal
             if data[4] == 'Turn Right':
                 drive.turn_right()
             elif data[4] == 'Turn Left':
                 drive.turn_left()
-            time.sleep(0.3)
+            time.sleep(1)
             data = ground.is_heading_goal()
             ground_log.ground_logger(data, distance)
+        distance = ground.cal_distance(ground.des_lng, ground.des_lat)
+        print("distance : ", distance)
+        ground_log.ground_logger(data, distance)
+        if distance <= 8: # Reach the goal within 8m
+            print("Close to the goal")
+            drive.stop()
+            ground_log.end_of_ground_phase()
+            break
         drive.forward()
         time.sleep(5)
         later_distance = ground.cal_distance(ground.des_lng, ground.des_lat)
