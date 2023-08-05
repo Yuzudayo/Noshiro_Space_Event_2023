@@ -42,7 +42,7 @@ floating_log.state = 1
 start = time.time()
 data = floating.cal_altitude()
 init_altitude = data[2]
-# print("initial altitude : {}." .format(init_altitude()))
+print("initial altitude : {}." .format(init_altitude))
 floating_log.floating_logger(data)
 print("Rising phase")
 while phase == 1:
