@@ -118,7 +118,7 @@ while not reach_the_goal:
             time.sleep(1)
             data = ground.is_heading_goal()
             ground_log.ground_logger(data, distance)
-        distance = ground.cal_distance(ground.des_lng, ground.des_lat)
+        distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         print("distance : ", distance)
         ground_log.ground_logger(data, distance)
         if distance <= 8: # Reach the goal within 8m
@@ -128,7 +128,7 @@ while not reach_the_goal:
             break
         drive.forward()
         time.sleep(5)
-        later_distance = ground.cal_distance(ground.des_lng, ground.des_lat)
+        later_distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         # Stuck Processing
         if abs(distance - later_distance) < 0.1 and distance != later_distance:
             ground_log.state = 'Stuck'
@@ -155,7 +155,7 @@ while not reach_the_goal:
     while phase == 3:
         img_name = img_proc.take_a_picture()
         cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
-        distance = ground.cal_distance(ground.des_lng, ground.des_lat)
+        distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         print("distance :", distance)
         data = ground.is_heading_goal()
         gps = [data[5], data[6]]

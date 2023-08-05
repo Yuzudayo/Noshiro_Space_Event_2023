@@ -3,7 +3,7 @@ import time
 import logger
 import motor
 
-sea_level_pressure = 1013.25
+SEA_LEVEL_PRESSURE = 1013.25
 
 def cal_altitude():
     bme280.read_BaroData() # discard the first value
@@ -17,7 +17,7 @@ def cal_altitude():
     https://keisan.casio.jp/exec/system/1257609530
     altitude = (Sea level pressure / Current pressure)**(1 / 5.257) - 1) * (Current temperature + 273.15) / 0.0065
     """
-    data[2] = ((sea_level_pressure / data[0])**(1 / 5.257) - 1) * (data[1] + 273.15) / 0.0065
+    data[2] = ((SEA_LEVEL_PRESSURE / data[0])**(1 / 5.257) - 1) * (data[1] + 273.15) / 0.0065
     return data
 
 if __name__ == '__main__':
