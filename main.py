@@ -17,8 +17,8 @@ import time
 
 print("Initializing")
 GYSFDMAXB.read_GPSData()
-# ground.cal_heading_angle()
-# floating.cal_altitude()
+ground.cal_heading_angle()
+floating.cal_altitude()
 time.sleep(1)
 drive = motor.Motor()
 drive.stop()

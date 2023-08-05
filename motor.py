@@ -20,10 +20,17 @@ class Motor(object):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
         print("forward")
         
-    def back(self):
+    def back_reverse(self):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
-        [Motor.pi.set_PWM_dutycycle(pin, 80) for pin in RINS]
-        print("back")
+        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in RINS]
+        print("back reverse")
+        
+    def back(self):
+        Motor.back_turn_left(self)
+        time.sleep(1)
+        Motor.back_turn_right(self)
+        time.sleep(1)
+        print("back")       
     
     def stop(self):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in PINS]
@@ -34,6 +41,11 @@ class Motor(object):
         Motor.pi.set_PWM_dutycycle(16, 100)
         Motor.pi.set_PWM_dutycycle(25, 50)
         print("turn right")
+        
+    def back_turn_right(self):
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
+        Motor.pi.set_PWM_dutycycle(12, 100)
+        Motor.pi.set_PWM_dutycycle(8, 50)
     
     def turn_left(self):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
@@ -41,11 +53,16 @@ class Motor(object):
         Motor.pi.set_PWM_dutycycle(25, 100)
         print("turn left")
         
+    def back_turn_left(self):
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
+        Motor.pi.set_PWM_dutycycle(12, 50)
+        Motor.pi.set_PWM_dutycycle(8, 100)
+        
     def stuck(self):
         Motor.back(self)
         time.sleep(3)
-        Motor.turn_right(self)
-        time.sleep(1)
+        Motor.back_turn_right(self)
+        time.sleep(2)
         Motor.forward(self)
         time.sleep(3)
         Motor.stop(self)
@@ -86,7 +103,7 @@ class Motor(object):
 
 if __name__ == '__main__':
     drive = Motor()
-    movement = {'w': drive.forward, 'a': drive.turn_left, 'd': drive.turn_right, 's': drive.back, 'q': drive.stop, 'st': drive.stuck, 'sep': drive.servo, 'cam': drive.unfold_camera, 'para': drive.attach_para, 'camr': drive.camera_motor_reverse, 'camf': drive.camera_motor}
+    movement = {'w': drive.forward, 'a': drive.turn_left, 'd': drive.turn_right, 's': drive.back, 'r': drive.back_reverse, 'q': drive.stop, 'st': drive.stuck, 'sep': drive.servo, 'cam': drive.unfold_camera, 'para': drive.attach_para, 'camr': drive.camera_motor_reverse, 'camf': drive.camera_motor}
     while True:
         c = input('Enter char : ')
         if c in movement.keys():
@@ -94,4 +111,4 @@ if __name__ == '__main__':
         elif c == 'z':
             break
         else:
-            print('Wrong input')
+            print('Invalid input')
