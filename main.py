@@ -111,13 +111,14 @@ while not reach_the_goal:
     while phase == 2:
         data = ground.is_heading_goal()
         while data[3] != True: # Not heading the goal
+            distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
+            ground_log.ground_logger(data, distance)
             if data[4] == 'Turn Right':
                 drive.turn_right()
             elif data[4] == 'Turn Left':
                 drive.turn_left()
             time.sleep(1)
             data = ground.is_heading_goal()
-            ground_log.ground_logger(data, distance)
         distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         print("distance : ", distance)
         ground_log.ground_logger(data, distance)
