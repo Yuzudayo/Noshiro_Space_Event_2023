@@ -30,7 +30,7 @@ Floating Phase
 """
 phase = 1
 print("phase : ", phase)
-floating_log = logger.Floating_logger()
+floating_log = logger.FloatingLogger()
 """
 state 1 : Rising
       2 : Falling
@@ -106,8 +106,8 @@ while not reach_the_goal:
     """
     phase = 2
     print("phase : ", phase)
-    ground_log = logger.Ground_logger()
-    logger.Ground_logger.state = 'Normal'
+    ground_log = logger.GroundLogger()
+    ground_log.state = 'Normal'
     while phase == 2:
         data = ground.is_heading_goal()
         while data[3] != True: # Not heading the goal
@@ -131,19 +131,19 @@ while not reach_the_goal:
         later_distance = ground.cal_distance(ground.des_lng, ground.des_lat)
         # Stuck Processing
         if abs(distance - later_distance) < 0.1 and distance != later_distance:
-            logger.Ground_logger.state = 'Stuck'
+            ground_log.state = 'Stuck'
             ground_log.stuck_err_logger(distance, later_distance, abs(distance - later_distance))
             print('stuck')
             drive.stuck()
-            logger.Ground_logger.state = 'Normal'
+            ground_log.state = 'Normal'
         # Move away from the goal
         if later_distance - distance > 0.5:
-            logger.Ground_logger.state = 'Error'
+            ground_log.state = 'Error'
             ground_log.stuck_err_logger(distance, later_distance, distance - later_distance)
             print('Error')
             drive.turn_right()
             time.sleep(5)
-            logger.Ground_logger.state = 'Normal'
+            ground_log.state = 'Normal'
             print('Finish Error Processing')
 
     """
@@ -151,7 +151,7 @@ while not reach_the_goal:
     """
     phase = 3
     print("phase : ", phase)
-    img_proc_log = logger.Img_proc_logger()
+    img_proc_log = logger.ImgProcLogger()
     while phase == 3:
         img_name = img_proc.take_a_picture()
         cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)

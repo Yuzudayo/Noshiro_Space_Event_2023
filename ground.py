@@ -53,8 +53,8 @@ def is_heading_goal():
             return [To_des_ang, heading_ang, ang_diff, False, "Turn Right"] + gps + data
 
 if __name__ == '__main__':
-    ground_log = logger.Ground_logger()
-    logger.Ground_logger.state = 'Normal'
+    ground_log = logger.GroundLogger()
+    logger.GroundLogger.state = 'Normal'
     drive = motor.Motor()
     while True:
         distance = cal_distance(des_lng, des_lat)

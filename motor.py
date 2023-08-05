@@ -71,7 +71,6 @@ class Motor(object):
     def set_angle(angle):
         # Mapping angles to pulse widths from 500 to 2500
         pulse_width = (angle / 180) * (2500 - 500) + 500
-        
         # Set the pulse width and rotate the servo
         Motor.pi.set_servo_pulsewidth(SERVO, pulse_width)
     
