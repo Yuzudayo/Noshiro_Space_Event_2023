@@ -6,11 +6,11 @@ import time
 import logger
 import motor
 
-des_lng = 139.65497333333334
-des_lat = 35.950936666666664
+DES_LNG = 139.65497333333334
+DES_LAT = 35.950936666666664
 
 def cal2des_ang(gps_lng, gps_lat):
-    des_ang = Geodesic.WGS84.Inverse(gps_lat, gps_lng, des_lat, des_lng)['a12']
+    des_ang = Geodesic.WGS84.Inverse(gps_lat, gps_lng, DES_LAT, DES_LNG)['a12']
     print("To destination angle :", des_ang)
     return des_ang
 
@@ -53,11 +53,11 @@ def is_heading_goal():
             return [To_des_ang, heading_ang, ang_diff, False, "Turn Right"] + gps + data
 
 if __name__ == '__main__':
-    ground_log = logger.Ground_logger()
-    logger.Ground_logger.state = 'Normal'
+    ground_log = logger.GroundLogger()
+    logger.GroundLogger.state = 'Normal'
     drive = motor.Motor()
     while True:
-        distance = cal_distance(des_lng, des_lat)
+        distance = cal_distance(DES_LNG, DES_LAT)
         print("distance :", distance)
         if distance < 3:
             print("end")
