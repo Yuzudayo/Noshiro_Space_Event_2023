@@ -30,6 +30,7 @@ class Motor(object):
         time.sleep(1)
         Motor.back_turn_right(self)
         time.sleep(1)
+        Motor.stop(self)
         print("back")       
     
     def stop(self):
@@ -59,12 +60,8 @@ class Motor(object):
         Motor.pi.set_PWM_dutycycle(8, 100)
         
     def stuck(self):
-        Motor.back(self)
-        time.sleep(3)
-        Motor.back_turn_right(self)
-        time.sleep(2)
-        Motor.forward(self)
-        time.sleep(3)
+        Motor.turn_right(self)
+        time.sleep(15)
         Motor.stop(self)
         print('Finish stuck processing')
         
@@ -81,7 +78,7 @@ class Motor(object):
     def unfold_camera(self):
         Motor.pi.set_PWM_dutycycle(26, 0)
         Motor.pi.set_PWM_dutycycle(19, 60)
-        time.sleep(20)
+        time.sleep(25)
         Motor.stop(self)
         print("Unfold camera")
     

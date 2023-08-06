@@ -6,12 +6,15 @@ import time
 import logger
 import motor
 
-DES_LNG = 139.65497333333334
-DES_LAT = 35.950936666666664
+DES_LNG = 139.65489833333334
+DES_LAT = 35.95099166666667
 
 def cal2des_ang(gps_lng, gps_lat):
-    des_ang = Geodesic.WGS84.Inverse(gps_lat, gps_lng, DES_LAT, DES_LNG)['a12']
-    print("To destination angle :", des_ang)
+    des_lng = math.radians(DES_LNG)
+    des_lat = math.radians(DES_LAT)
+    dx = des_lng - gps_lng
+    des_ang = 90 - math.degrees(math.atan2(math.cos(gps_lat)*math.tan(des_lat)-math.sin(gps_lat)*math.cos(dx), math.sin(dx)))
+    print("To destination angle : ", des_ang)
     return des_ang
 
 def cal_distance(x2, y2):
@@ -44,7 +47,7 @@ def is_heading_goal():
     To_des_ang = cal2des_ang(gps_lng, gps_lat)
     heading_ang, data = cal_heading_ang()
     ang_diff = abs(To_des_ang - heading_ang)
-    if ang_diff < 20 or 340 < ang_diff:
+    if ang_diff < 25 or 335 < ang_diff:
         return [To_des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data
     else:
         if ((heading_ang > To_des_ang and ang_diff < 180) or (heading_ang < To_des_ang and ang_diff > 180)):
@@ -64,16 +67,17 @@ if __name__ == '__main__':
             drive.stop()
             ground_log.end_of_ground_phase()
             break
+        time.sleep(0.2)
         data = is_heading_goal()
         ground_log.ground_logger(data, distance)
         if data[3] == True:
             print("Heading Goal!!")
-            drive.forward()
+            # drive.forward()
         else:
             if data[4] == 'Turn Right':
                 print("Turn right")
-                drive.turn_right()
+                # drive.turn_right()
             elif data[4] == 'Turn Left':
                 print("Turn left")
-                drive.turn_left()
+                # drive.turn_left()
         time.sleep(0.8)
