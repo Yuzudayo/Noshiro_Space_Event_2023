@@ -4,7 +4,7 @@
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 08/04/2023
+    Last Update : 08/06/2023
 """
 
 import GYSFDMAXB
@@ -17,7 +17,7 @@ import time
 
 print("Initializing")
 GYSFDMAXB.read_GPSData()
-ground.cal_heading_angle()
+ground.cal_heading_ang()
 floating.cal_altitude()
 time.sleep(1)
 drive = motor.Motor()
@@ -100,24 +100,30 @@ while phase == 1:
     break
 
 reach_the_goal = False
+error_mag_sensor = False
 while not reach_the_goal:
     """
     Ground Phase
     """
-    phase = 2
+    # phase = 2
     print("phase : ", phase)
     ground_log = logger.GroundLogger()
     ground_log.state = 'Normal'
     while phase == 2:
         data = ground.is_heading_goal()
-        while data[3] != True: # Not heading the goal
+        count = 0
+        while data[3] != True and error_mag_sensor != True: # Not heading the goal
+            count += 1
+            if count >= 20:
+                error_mag_sensor = True
+                ground_log.state = 'Error Mag'
             distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
             ground_log.ground_logger(data, distance)
             if data[4] == 'Turn Right':
                 drive.turn_right()
             elif data[4] == 'Turn Left':
                 drive.turn_left()
-            time.sleep(1)
+            time.sleep(0.3)
             data = ground.is_heading_goal()
         distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         print("distance : ", distance)
@@ -152,9 +158,10 @@ while not reach_the_goal:
     """
     phase = 3
     print("phase : ", phase)
+    # drive.unfold_camera()
     img_proc_log = logger.ImgProcLogger()
     while phase == 3:
-        img_name = img_proc.take_a_picture()
+        img_name = img_proc.take_picture()
         cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
         distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         print("distance :", distance)
