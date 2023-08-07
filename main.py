@@ -15,6 +15,10 @@ import img_proc
 import logger
 import time
 
+# destination point(lon, lat)
+DESTINATION = [139.65489833333334, 35.95099166666667]
+
+
 print("Initializing")
 GYSFDMAXB.read_GPSData()
 ground.cal_heading_ang()

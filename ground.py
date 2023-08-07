@@ -6,9 +6,6 @@ import time
 import logger
 import motor
 
-# destination point
-DES_LNG = 139.65489833333334
-DES_LAT = 35.95099166666667
 
 def cal_azimuth(lng1, lat1, lng2, lat2):
     lng1 = math.radians(lng1)
@@ -62,6 +59,10 @@ def is_heading_goal(gps, err_mag):
             return [des_ang, heading_ang, ang_diff, False, "Turn Left"] + gps + data
         else:
             return [des_ang, heading_ang, ang_diff, False, "Turn Right"] + gps + data
+
+
+# Test destination point(lon, lat)
+TEST_DESTINATION = [139.65489833333334, 35.95099166666667]
 
 if __name__ == '__main__':
     ground_log = logger.GroundLogger()
