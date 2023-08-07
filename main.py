@@ -4,7 +4,7 @@
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 08/07/2023
+    Last Update : 08/08/2023
 """
 
 import GYSFDMAXB
