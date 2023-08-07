@@ -6,60 +6,62 @@ import time
 import logger
 import motor
 
+# destination point
 DES_LNG = 139.65489833333334
 DES_LAT = 35.95099166666667
 
-#TODO : 2地点入力できるようにする
-#TODO : ライブラリを用いて計算する
-def cal2pos_ang(gps_lng, gps_lat):
-    des_lng = math.radians(DES_LNG)
-    des_lat = math.radians(DES_LAT)
-    dx = des_lng - gps_lng
-    des_ang = 90 - math.degrees(math.atan2(math.cos(gps_lat)*math.tan(des_lat)-math.sin(gps_lat)*math.cos(dx), math.sin(dx)))
-    print("To destination angle : ", des_ang)
+def cal_azimuth(lng1, lat1, lng2, lat2):
+    lng1 = math.radians(lng1)
+    lat1 = math.radians(lat1)
+    lng2 = math.radians(lng2)
+    lat2 = math.radians(lat2)
+    dx = lng2 - lng1
+    des_ang = 90 - math.degrees(math.atan2(math.cos(lat1)*math.tan(lat2)-math.sin(lat1)*math.cos(dx), math.sin(dx)))
+    if des_ang < 0:
+        des_ang += 360
+    """
+    https://keisan.casio.jp/exec/system/1257670779
+    PointA(lng x1, lat y1), PointB(lng x2, lat y2)
+            (gps_lng, gps_lat),     (des_lng, des_lat)
+    ϕ = 90 - atan2(cosy1tany2 - siny1cosΔx, sinΔx)
+    Δx = x2 - x1
+    """
     return des_ang
 
-def cal_distance(x2, y2):
-    while GYSFDMAXB.read_GPSData() == [0,0]:
-        print("Waiting for GPS reception")
-        time.sleep(5)
-    gps = GYSFDMAXB.read_GPSData()
-    distance = Geodesic.WGS84.Inverse(gps[1], gps[0], y2, x2)['s12'] # [m]
+def cal_distance(x1, y1, x2, y2):
+    distance = Geodesic.WGS84.Inverse(y1, x1, y2, x2)['s12'] # [m]
     return distance
 
 #TODO : 地磁気センサの値によって場合分け
-def cal_heading_ang(err_mag):
+def cal_heading_ang(gps, err_mag):
     if err_mag != True:
-        data = bno055.read_Mag_AccelData()
-        """
-        data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
-        """
-        hearding_ang = math.atan2(data[1], data[0])
-        hearding_ang = math.degrees(hearding_ang)
-        if hearding_ang < 0:
-            hearding_ang += 360
-        print("Heading angle :",hearding_ang)
-        return hearding_ang, data
+        try:
+            data = bno055.read_Mag_AccelData()
+            """
+            data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
+            """
+            hearding_ang = math.degrees(math.atan2(data[1], data[0]))
+            if hearding_ang < 0:
+                hearding_ang += 360
+            return hearding_ang, data
+        except:
+            print("Error : Cant read Mag data")
+            return 0, 0
     else:
         
-
-def is_heading_goal():
-    while GYSFDMAXB.read_GPSData() == [0,0]:
-        print("Waiting for GPS reception")
-        time.sleep(5)
-    gps = GYSFDMAXB.read_GPSData()
-    gps_lng = math.radians(gps[0])
-    gps_lat = math.radians(gps[1])
-    To_des_ang = cal2des_ang(gps_lng, gps_lat)
-    heading_ang, data = cal_heading_ang()
-    ang_diff = abs(To_des_ang - heading_ang)
+        
+        
+def is_heading_goal(gps, err_mag):
+    des_ang = cal_azimuth(gps[0], gps[1], DES_LNG, DES_LAT)
+    heading_ang, data = cal_heading_ang(gps, err_mag)
+    ang_diff = abs(des_ang - heading_ang)
     if ang_diff < 25 or 335 < ang_diff:
-        return [To_des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data
+        return [des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data
     else:
-        if ((heading_ang > To_des_ang and ang_diff < 180) or (heading_ang < To_des_ang and ang_diff > 180)):
-            return [To_des_ang, heading_ang, ang_diff, False, "Turn Left"] + gps + data
+        if ((heading_ang > des_ang and ang_diff < 180) or (heading_ang < des_ang and ang_diff > 180)):
+            return [des_ang, heading_ang, ang_diff, False, "Turn Left"] + gps + data
         else:
-            return [To_des_ang, heading_ang, ang_diff, False, "Turn Right"] + gps + data
+            return [des_ang, heading_ang, ang_diff, False, "Turn Right"] + gps + data
 
 if __name__ == '__main__':
     ground_log = logger.GroundLogger()

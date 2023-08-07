@@ -99,9 +99,9 @@ while phase == 1:
     time.sleep(3)
     break
 
-reach_the_goal = False
+reach_goal = False
 error_mag = False
-while not reach_the_goal:
+while not reach_goal:
     """
     Ground Phase
     """
@@ -110,7 +110,11 @@ while not reach_the_goal:
     ground_log = logger.GroundLogger()
     ground_log.state = 'Normal'
     while phase == 2:
-        data = ground.is_heading_goal(error_mag)
+        while GYSFDMAXB.read_GPSData() == [0,0]:
+            print("Waiting for GPS reception")
+            time.sleep(5)
+        gps = GYSFDMAXB.read_GPSData()
+        data = ground.is_heading_goal(gps, error_mag)
         count = 0
         while data[3] != True and error_mag != True: # Not heading the goal
             if error_mag != True:
