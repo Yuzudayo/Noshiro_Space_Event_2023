@@ -4,7 +4,7 @@
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 08/06/2023
+    Last Update : 08/07/2023
 """
 
 import GYSFDMAXB
@@ -100,31 +100,43 @@ while phase == 1:
     break
 
 reach_the_goal = False
-error_mag_sensor = False
+error_mag = False
 while not reach_the_goal:
     """
     Ground Phase
     """
-    # phase = 2
+    phase = 2
     print("phase : ", phase)
     ground_log = logger.GroundLogger()
     ground_log.state = 'Normal'
     while phase == 2:
-        data = ground.is_heading_goal()
+        data = ground.is_heading_goal(error_mag)
         count = 0
-        while data[3] != True and error_mag_sensor != True: # Not heading the goal
-            count += 1
-            if count >= 20:
-                error_mag_sensor = True
-                ground_log.state = 'Error Mag'
-            distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
-            ground_log.ground_logger(data, distance)
-            if data[4] == 'Turn Right':
-                drive.turn_right()
-            elif data[4] == 'Turn Left':
-                drive.turn_left()
-            time.sleep(0.3)
-            data = ground.is_heading_goal()
+        while data[3] != True and error_mag != True: # Not heading the goal
+            if error_mag != True:
+                count += 1
+                if count >= 20:
+                    error_mag = True
+                    ground_log.state = 'Error Mag'
+                distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
+                ground_log.ground_logger(data, distance)
+                if data[4] == 'Turn Right':
+                    drive.turn_right()
+                elif data[4] == 'Turn Left':
+                    drive.turn_left()
+                time.sleep(0.3)
+                data = ground.is_heading_goal(error_mag)
+            else:
+                #TODO : GPSを使って方向を修正するときの処理
+                distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
+                ground_log.ground_logger(data, distance)
+                if data[4] == 'Turn Right':
+                    drive.turn_right()
+                elif data[4] == 'Turn Left':
+                    drive.turn_left()
+                time.sleep(0.5)
+                drive.forward()
+                data = ground.is_heading_goal(error_mag)
         distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         print("distance : ", distance)
         ground_log.ground_logger(data, distance)
@@ -158,7 +170,7 @@ while not reach_the_goal:
     """
     phase = 3
     print("phase : ", phase)
-    # drive.unfold_camera()
+    drive.unfold_camera()
     img_proc_log = logger.ImgProcLogger()
     while phase == 3:
         img_name = img_proc.take_picture()
@@ -178,10 +190,9 @@ while not reach_the_goal:
         if distance >= 15:
             print('Error')
             img_proc_log.err_logger(distance,gps)
-            drive.turn_right()
-            time.sleep(5)
             drive.stop()
-            continue
+            phase = 2
+            break
         if cone_loc == "Front":
             drive.forward()
             if p < 0.001:

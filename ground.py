@@ -9,7 +9,9 @@ import motor
 DES_LNG = 139.65489833333334
 DES_LAT = 35.95099166666667
 
-def cal2des_ang(gps_lng, gps_lat):
+#TODO : 2地点入力できるようにする
+#TODO : ライブラリを用いて計算する
+def cal2pos_ang(gps_lng, gps_lat):
     des_lng = math.radians(DES_LNG)
     des_lat = math.radians(DES_LAT)
     dx = des_lng - gps_lng
@@ -25,17 +27,21 @@ def cal_distance(x2, y2):
     distance = Geodesic.WGS84.Inverse(gps[1], gps[0], y2, x2)['s12'] # [m]
     return distance
 
-def cal_heading_ang():
-    data = bno055.read_Mag_AccelData()
-    """
-    data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
-    """
-    hearding_ang = math.atan2(data[1], data[0])
-    hearding_ang = math.degrees(hearding_ang)
-    if hearding_ang < 0:
-        hearding_ang += 360
-    print("Heading angle :",hearding_ang)
-    return hearding_ang, data
+#TODO : 地磁気センサの値によって場合分け
+def cal_heading_ang(err_mag):
+    if err_mag != True:
+        data = bno055.read_Mag_AccelData()
+        """
+        data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
+        """
+        hearding_ang = math.atan2(data[1], data[0])
+        hearding_ang = math.degrees(hearding_ang)
+        if hearding_ang < 0:
+            hearding_ang += 360
+        print("Heading angle :",hearding_ang)
+        return hearding_ang, data
+    else:
+        
 
 def is_heading_goal():
     while GYSFDMAXB.read_GPSData() == [0,0]:
