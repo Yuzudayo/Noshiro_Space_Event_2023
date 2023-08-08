@@ -60,6 +60,11 @@ def is_heading_goal(gps, err_mag):
         else:
             return [des_ang, heading_ang, ang_diff, False, "Turn Right"] + gps + data
 
+def is_stuck(pre_distance, later_distance):
+    if abs(pre_distance - later_distance) < 0.1 and pre_distance != later_distance:
+        return True
+    else:
+        return False
 
 # Test destination point(lon, lat)
 TEST_DESTINATION = [139.65489833333334, 35.95099166666667]

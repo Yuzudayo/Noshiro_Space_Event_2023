@@ -51,7 +51,7 @@ while phase == 1:
         floating_log.floating_logger(data)
         print("Rising")
         # Incorrect sensor value
-        if altitude <  - 5:
+        if altitude < -5:
             state = 'Error'
             floating_log.state = 'Error'
             floating_log.error_logger(altitude)
@@ -114,6 +114,7 @@ while not reach_goal:
             time.sleep(5)
         gps = GYSFDMAXB.read_GPSData()
         data = ground.is_heading_goal(gps, error_mag)
+        distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         count = 0
         while data[3] != True and error_mag != True: # Not heading the goal
             if error_mag != True:

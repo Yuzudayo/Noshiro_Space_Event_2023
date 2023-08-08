@@ -23,7 +23,6 @@ class FloatingLogger(object):
         with open(FloatingLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
-            writer.writerow(['state', '1:Rising', '2:Falling', '3:Landing', '-1:Error'])
             writer.writerow(['time', 'state', 'pressure', 'temperature', 'altitude'])
         f.close()
     
