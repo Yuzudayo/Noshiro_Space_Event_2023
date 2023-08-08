@@ -46,7 +46,7 @@ def cal_heading_ang(pre_gps, gps, err_mag):
     else:
         return cal_azimuth(pre_gps[0], pre_gps[1], gps[0], gps[1]), 0
 
-def is_heading_goal(pre_gps, gps, des, err_mag):
+def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
     des_ang = cal_azimuth(gps[0], gps[1], des[0], des[1])
     heading_ang, data = cal_heading_ang(pre_gps, gps, err_mag)
     ang_diff = abs(des_ang - heading_ang)
@@ -72,7 +72,8 @@ if __name__ == '__main__':
     logger.GroundLogger.state = 'Normal'
     drive = motor.Motor()
     while True:
-        distance = cal_distance(DES_LNG, DES_LAT)
+        gps = GYSFDMAXB.readGPS()
+        distance = cal_distance(gps[0], gps[1], TEST_DESTINATION[0], TEST_DESTINATION[1])
         print("distance :", distance)
         if distance < 3:
             print("end")

@@ -112,7 +112,7 @@ while not reach_goal:
             print("Waiting for GPS reception")
             time.sleep(5)
     gps = GYSFDMAXB.read_GPSData()
-    data = ground.is_heading_goal([0,0], gps, DESTINATION, error_mag)
+    data = ground.is_heading_goal(gps, DESTINATION, [0,0], error_mag)
     pre_distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
     ground_log.ground_logger(data, pre_distance)
     while phase == 2:
@@ -130,19 +130,19 @@ while not reach_goal:
                 # Stuck Processing
                 if stuck:
                     ground_log.state = 'Stuck'
-                    ground_log.stuck_err_logger(pre_distance, distance, abs(distance - later_distance))
+                    ground_log.stuck_err_logger(pre_distance, distance, abs(distance - pre_distance))
                     print('stuck')
                     drive.stuck()
                     pre_gps = gps
                     gps = GYSFDMAXB.read_GPSData()
                     pre_distance = distance
                     distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
-                    data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
+                    data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
                     ground_log.state = 'Normal'
                 # Move away from the goal
                 if distance - pre_distance > 0:
                     ground_log.state = 'Error'
-                    ground_log.stuck_err_logger(pre_distance, distance, distance - later_distance)
+                    ground_log.stuck_err_logger(pre_distance, distance, distance - pre_distance)
                     print('Error')
                     error_mag = True
                     drive.turn_right()
@@ -152,7 +152,7 @@ while not reach_goal:
                     gps = GYSFDMAXB.read_GPSData()
                     pre_distance = distance
                     distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
-                    data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
+                    data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
                     ground_log.state = 'Normal'
                     print('Finish Error Processing')
             if data[4] == 'Turn Right':
@@ -167,9 +167,10 @@ while not reach_goal:
             gps = GYSFDMAXB.read_GPSData()
             pre_distance = distance
             distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
-            data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
+            data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
             ground_log.ground_logger(data, distance)
-        distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
+        gps = GYSFDMAXB.read_GPSData()
+        distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         print("distance : ", distance)
         ground_log.ground_logger(data, distance)
         if distance <= 8: # Reach the goal within 8m
@@ -180,7 +181,7 @@ while not reach_goal:
         drive.forward()
         time.sleep(5)
         gps = GYSFDMAXB.read_GPSData()
-        data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
+        data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
         pre_distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         ground_log.ground_logger(data, pre_distance)
 
