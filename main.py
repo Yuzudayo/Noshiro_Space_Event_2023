@@ -19,10 +19,9 @@ import time
 DESTINATION = [139.65489833333334, 35.95099166666667]
 
 
+print("Hello World!!")
 drive = motor.Motor()
 drive.stop()
-
-print("Hello World!!")
 
 """
 Floating Phase
@@ -31,13 +30,13 @@ phase = 1
 print("phase : ", phase)
 floating_log = logger.FloatingLogger()
 """
-state 1 : Rising
-      2 : Falling
-      3 : Landing
-     -1 : Error
+state Rising
+      Falling
+      Landing
+      Error
 """
-state = 1
-floating_log.state = 1
+state = 'Rising'
+floating_log.state = 'Rising'
 start = time.time()
 init_altitude = 0
 data = floating.cal_altitude(init_altitude)
@@ -46,50 +45,50 @@ print("initial altitude : {}." .format(init_altitude))
 floating_log.floating_logger(data)
 print("Rising phase")
 while phase == 1:
-    while state == 1:
+    while state == 'Rising':
         data = floating.cal_altitude(init_altitude)
         altitude = data[2]
         floating_log.floating_logger(data)
         print("Rising")
         # Incorrect sensor value
         if altitude <  - 5:
-            state = -1
-            floating_log.state = -1
+            state = 'Error'
+            floating_log.state = 'Error'
             floating_log.error_logger(altitude)
             print("Error")
         if altitude >= 6:
-            state = 2
-            floating_log.state = 2
+            state = 'Ascent Completed'
+            floating_log.state = 'Ascent Completed'
         now = time.time()
         if now - start > 900:
             print('5 minutes passed')
-            state = 3
-            floating_log.state = 3
+            state = 'Landing'
+            floating_log.state = 'Landing'
             break
         print("altitude : {}." .format(altitude))
         time.sleep(1.5)
-    while state == 2:
+    while state == 'Ascent Completed':
         data = floating.cal_altitude(init_altitude)
         altitude = data[2]
         floating_log.floating_logger(data)
         print("Falling")
         if altitude <= 3:
-            state = 3
-            floating_log.state = 3
+            state = 'Landing'
+            floating_log.state = 'Landing'
         now = time.time()
         if now - start > 900:
             print('5 minutes passed')
-            state = 3
-            floating_log.state = 3
+            state = 'Landing'
+            floating_log.state = 'Landing'
             break
         print("altitude : {}." .format(altitude))
         time.sleep(0.2)
-    while state == -1:
+    while state == 'Error':
         now = time.time()
         if now - start > 900:
             print('5 minutes passed')
-            state = 3
-            floating_log.state = 3
+            state = 'Landing'
+            floating_log.state = 'Landing'
             break
         time.sleep(1)
     print("Landing")
