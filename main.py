@@ -20,6 +20,7 @@ DESTINATION = [139.65489833333334, 35.95099166666667]
 
 
 print("Hello World!!")
+error_log = logger.ErrorLogger()
 drive = motor.Motor()
 drive.stop()
 
@@ -53,8 +54,7 @@ while phase == 1:
         # Incorrect sensor value
         if altitude < -5:
             state = 'Error'
-            floating_log.state = 'Error'
-            floating_log.error_logger(altitude)
+            error_log.baro_error_logger(phase, data)
             print("Error")
         if altitude >= 6:
             state = 'Ascent Completed'
@@ -64,6 +64,7 @@ while phase == 1:
             print('5 minutes passed')
             state = 'Landing'
             floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
             break
         print("altitude : {}." .format(altitude))
         time.sleep(1.5)
@@ -75,11 +76,13 @@ while phase == 1:
         if altitude <= 3:
             state = 'Landing'
             floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase()
         now = time.time()
         if now - start > 900:
             print('5 minutes passed')
             state = 'Landing'
             floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
             break
         print("altitude : {}." .format(altitude))
         time.sleep(0.2)
@@ -89,13 +92,12 @@ while phase == 1:
             print('5 minutes passed')
             state = 'Landing'
             floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
             break
         time.sleep(1)
     print("Landing")
     time.sleep(5)
-    floating_log.end_of_floating_phase()
     drive.servo() # Separation mechanism activated
-    time.sleep(3)
     break
 
 reach_goal = False
