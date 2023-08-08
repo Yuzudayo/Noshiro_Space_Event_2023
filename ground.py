@@ -29,8 +29,7 @@ def cal_distance(x1, y1, x2, y2):
     distance = Geodesic.WGS84.Inverse(y1, x1, y2, x2)['s12'] # [m]
     return distance
 
-#TODO : 地磁気センサの値によって場合分け
-def cal_heading_ang(gps, err_mag):
+def cal_heading_ang(pre_gps, gps, err_mag):
     if err_mag != True:
         try:
             data = bno055.read_Mag_AccelData()
@@ -45,12 +44,11 @@ def cal_heading_ang(gps, err_mag):
             print("Error : Cant read Mag data")
             return 0, 0
     else:
-        
-        
-        
-def is_heading_goal(gps, des, err_mag):
+        return cal_azimuth(pre_gps[0], pre_gps[1], gps[0], gps[1]), 0
+
+def is_heading_goal(pre_gps, gps, des, err_mag):
     des_ang = cal_azimuth(gps[0], gps[1], des[0], des[1])
-    heading_ang, data = cal_heading_ang(gps, err_mag)
+    heading_ang, data = cal_heading_ang(pre_gps, gps, err_mag)
     ang_diff = abs(des_ang - heading_ang)
     if ang_diff < 25 or 335 < ang_diff:
         return [des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data

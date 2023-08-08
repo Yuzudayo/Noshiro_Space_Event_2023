@@ -112,56 +112,63 @@ while not reach_goal:
             print("Waiting for GPS reception")
             time.sleep(5)
     gps = GYSFDMAXB.read_GPSData()
-    data = ground.is_heading_goal(gps, DESTINATION, error_mag)
+    data = ground.is_heading_goal([0,0], gps, DESTINATION, error_mag)
     pre_distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
     ground_log.ground_logger(data, pre_distance)
     while phase == 2:
         count = 0
         while data[3] != True: # Not heading the goal
-            if error_mag != True:
-                count += 1
-                if count >= 20:
+            count += 1
+            # Abnormal geomagnetic sensor
+            if count >= 20:
+                error_mag = True
+                ground_log.state = 'Error Mag'
+                break
+            # Check if the position is normal
+            if count % 10 == 0:
+                stuck = ground.is_stuck(pre_distance, distance)
+                # Stuck Processing
+                if stuck:
+                    ground_log.state = 'Stuck'
+                    ground_log.stuck_err_logger(pre_distance, distance, abs(distance - later_distance))
+                    print('stuck')
+                    drive.stuck()
+                    pre_gps = gps
+                    gps = GYSFDMAXB.read_GPSData()
+                    pre_distance = distance
+                    distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                    data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
+                    ground_log.state = 'Normal'
+                # Move away from the goal
+                if distance - pre_distance > 0:
+                    ground_log.state = 'Error'
+                    ground_log.stuck_err_logger(pre_distance, distance, distance - later_distance)
+                    print('Error')
                     error_mag = True
-                    ground_log.state = 'Error Mag'
-                if count % 10 == 0:
-                    stuck = ground.is_stuck(pre_distance, distance)
-                    # Stuck Processing
-                    if stuck:
-                        ground_log.state = 'Stuck'
-                        ground_log.stuck_err_logger(pre_distance, distance, abs(distance - later_distance))
-                        print('stuck')
-                        drive.stuck()
-                        ground_log.state = 'Normal'
-                    # Move away from the goal
-                    if distance - pre_distance > 0:
-                        ground_log.state = 'Error'
-                        ground_log.stuck_err_logger(pre_distance, distance, distance - later_distance)
-                        print('Error')
-                        drive.turn_right()
-                        time.sleep(5)
-                        ground_log.state = 'Normal'
-                        print('Finish Error Processing')
-                if data[4] == 'Turn Right':
                     drive.turn_right()
-                elif data[4] == 'Turn Left':
-                    drive.turn_left()
-                time.sleep(0.3)
-                gps = GYSFDMAXB.read_GPSData()
-                pre_distance = distance
-                distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
-                data = ground.is_heading_goal(gps, DESTINATION, error_mag)
-                ground_log.ground_logger(data, distance)
-            else:
-                #TODO : GPSを使って方向を修正するときの処理
-                distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
-                ground_log.ground_logger(data, distance)
-                if data[4] == 'Turn Right':
-                    drive.turn_right()
-                elif data[4] == 'Turn Left':
-                    drive.turn_left()
-                time.sleep(0.5)
+                    time.sleep(5)
+                    drive.stop()
+                    pre_gps = gps
+                    gps = GYSFDMAXB.read_GPSData()
+                    pre_distance = distance
+                    distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                    data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
+                    ground_log.state = 'Normal'
+                    print('Finish Error Processing')
+            if data[4] == 'Turn Right':
+                drive.turn_right()
+            elif data[4] == 'Turn Left':
+                drive.turn_left()
+            time.sleep(0.3)
+            if error_mag:
                 drive.forward()
-                data = ground.is_heading_goal(error_mag)
+                time.sleep(0.7)
+            pre_gps = gps
+            gps = GYSFDMAXB.read_GPSData()
+            pre_distance = distance
+            distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+            data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
+            ground_log.ground_logger(data, distance)
         distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
         print("distance : ", distance)
         ground_log.ground_logger(data, distance)
@@ -173,7 +180,7 @@ while not reach_goal:
         drive.forward()
         time.sleep(5)
         gps = GYSFDMAXB.read_GPSData()
-        data = ground.is_heading_goal(gps, DESTINATION, error_mag)
+        data = ground.is_heading_goal(pre_gps, gps, DESTINATION, error_mag)
         pre_distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         ground_log.ground_logger(data, pre_distance)
 
@@ -187,10 +194,9 @@ while not reach_goal:
     while phase == 3:
         img_name = img_proc.take_picture()
         cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
-        distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
+        gps = GYSFDMAXB.read_GPSData()
+        distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         print("distance :", distance)
-        data = ground.is_heading_goal()
-        gps = [data[5], data[6]]
         img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps)
         if p > 0.12:
             print("Reach the goal")
