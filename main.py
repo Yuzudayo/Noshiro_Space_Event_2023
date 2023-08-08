@@ -19,15 +19,10 @@ import time
 DESTINATION = [139.65489833333334, 35.95099166666667]
 
 
-print("Initializing")
-GYSFDMAXB.read_GPSData()
-ground.cal_heading_ang()
-floating.cal_altitude()
-time.sleep(1)
+print("Hello World!!")
+error_log = logger.ErrorLogger()
 drive = motor.Motor()
 drive.stop()
-
-print("start!!")
 
 """
 Floating Phase
@@ -36,71 +31,73 @@ phase = 1
 print("phase : ", phase)
 floating_log = logger.FloatingLogger()
 """
-state 1 : Rising
-      2 : Falling
-      3 : Landing
-     -1 : Error
+state Rising
+      Falling
+      Landing
+      Error
 """
-state = 1
-floating_log.state = 1
+state = 'Rising'
+floating_log.state = 'Rising'
 start = time.time()
-data = floating.cal_altitude()
+init_altitude = 0
+data = floating.cal_altitude(init_altitude)
 init_altitude = data[2]
 print("initial altitude : {}." .format(init_altitude))
 floating_log.floating_logger(data)
 print("Rising phase")
 while phase == 1:
-    while state == 1:
-        data = floating.cal_altitude()
+    while state == 'Rising':
+        data = floating.cal_altitude(init_altitude)
         altitude = data[2]
         floating_log.floating_logger(data)
         print("Rising")
         # Incorrect sensor value
-        if altitude < init_altitude - 5:
-            state = -1
-            floating_log.state = -1
-            floating_log.error_logger(altitude)
+        if altitude < -5:
+            state = 'Error'
+            error_log.baro_error_logger(phase, data)
             print("Error")
-        if altitude >= init_altitude + 6:
-            state = 2
-            floating_log.state = 2
+        if altitude >= 6:
+            state = 'Ascent Completed'
+            floating_log.state = 'Ascent Completed'
         now = time.time()
         if now - start > 900:
             print('5 minutes passed')
-            state = 3
-            floating_log.state = 3
+            state = 'Landing'
+            floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
             break
         print("altitude : {}." .format(altitude))
         time.sleep(1.5)
-    while state == 2:
-        data = floating.cal_altitude()
+    while state == 'Ascent Completed':
+        data = floating.cal_altitude(init_altitude)
         altitude = data[2]
         floating_log.floating_logger(data)
         print("Falling")
-        if altitude <= init_altitude + 3:
-            state = 3
-            floating_log.state = 3
+        if altitude <= 3:
+            state = 'Landing'
+            floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase()
         now = time.time()
         if now - start > 900:
             print('5 minutes passed')
-            state = 3
-            floating_log.state = 3
+            state = 'Landing'
+            floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
             break
         print("altitude : {}." .format(altitude))
         time.sleep(0.2)
-    while state == -1:
+    while state == 'Error':
         now = time.time()
         if now - start > 900:
             print('5 minutes passed')
-            state = 3
-            floating_log.state = 3
+            state = 'Landing'
+            floating_log.state = 'Landing'
+            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
             break
         time.sleep(1)
     print("Landing")
     time.sleep(5)
-    floating_log.end_of_floating_phase()
     drive.servo() # Separation mechanism activated
-    time.sleep(3)
     break
 
 reach_goal = False
@@ -113,39 +110,69 @@ while not reach_goal:
     print("phase : ", phase)
     ground_log = logger.GroundLogger()
     ground_log.state = 'Normal'
-    while phase == 2:
-        while GYSFDMAXB.read_GPSData() == [0,0]:
+    while GYSFDMAXB.read_GPSData() == [0,0]:
             print("Waiting for GPS reception")
             time.sleep(5)
-        gps = GYSFDMAXB.read_GPSData()
-        data = ground.is_heading_goal(gps, error_mag)
+    gps = GYSFDMAXB.read_GPSData()
+    data = ground.is_heading_goal(gps, DESTINATION, [0,0], error_mag)
+    pre_distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+    ground_log.ground_logger(data, pre_distance)
+    while phase == 2:
         count = 0
-        while data[3] != True and error_mag != True: # Not heading the goal
-            if error_mag != True:
-                count += 1
-                if count >= 20:
+        while data[3] != True: # Not heading the goal
+            count += 1
+            # Abnormal geomagnetic sensor
+            if count >= 20:
+                error_mag = True
+                ground_log.state = 'Error Mag'
+                break
+            # Check if the position is normal
+            if count % 10 == 0:
+                stuck = ground.is_stuck(pre_distance, distance)
+                # Stuck Processing
+                if stuck:
+                    ground_log.state = 'Stuck'
+                    ground_log.stuck_err_logger(pre_distance, distance, abs(distance - pre_distance))
+                    print('stuck')
+                    drive.stuck()
+                    pre_gps = gps
+                    gps = GYSFDMAXB.read_GPSData()
+                    pre_distance = distance
+                    distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                    data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+                    ground_log.state = 'Normal'
+                # Move away from the goal
+                if distance - pre_distance > 0:
+                    ground_log.state = 'Error'
+                    ground_log.stuck_err_logger(pre_distance, distance, distance - pre_distance)
+                    print('Error')
                     error_mag = True
-                    ground_log.state = 'Error Mag'
-                distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
-                ground_log.ground_logger(data, distance)
-                if data[4] == 'Turn Right':
                     drive.turn_right()
-                elif data[4] == 'Turn Left':
-                    drive.turn_left()
-                time.sleep(0.3)
-                data = ground.is_heading_goal(error_mag)
-            else:
-                #TODO : GPSを使って方向を修正するときの処理
-                distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
-                ground_log.ground_logger(data, distance)
-                if data[4] == 'Turn Right':
-                    drive.turn_right()
-                elif data[4] == 'Turn Left':
-                    drive.turn_left()
-                time.sleep(0.5)
+                    time.sleep(5)
+                    drive.stop()
+                    pre_gps = gps
+                    gps = GYSFDMAXB.read_GPSData()
+                    pre_distance = distance
+                    distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                    data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+                    ground_log.state = 'Normal'
+                    print('Finish Error Processing')
+            if data[4] == 'Turn Right':
+                drive.turn_right()
+            elif data[4] == 'Turn Left':
+                drive.turn_left()
+            time.sleep(0.3)
+            if error_mag:
                 drive.forward()
-                data = ground.is_heading_goal(error_mag)
-        distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
+                time.sleep(0.7)
+            pre_gps = gps
+            gps = GYSFDMAXB.read_GPSData()
+            pre_distance = distance
+            distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+            data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+            ground_log.ground_logger(data, distance)
+        gps = GYSFDMAXB.read_GPSData()
+        distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         print("distance : ", distance)
         ground_log.ground_logger(data, distance)
         if distance <= 8: # Reach the goal within 8m
@@ -155,23 +182,10 @@ while not reach_goal:
             break
         drive.forward()
         time.sleep(5)
-        later_distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
-        # Stuck Processing
-        if abs(distance - later_distance) < 0.1 and distance != later_distance:
-            ground_log.state = 'Stuck'
-            ground_log.stuck_err_logger(distance, later_distance, abs(distance - later_distance))
-            print('stuck')
-            drive.stuck()
-            ground_log.state = 'Normal'
-        # Move away from the goal
-        if later_distance - distance > 0.5:
-            ground_log.state = 'Error'
-            ground_log.stuck_err_logger(distance, later_distance, distance - later_distance)
-            print('Error')
-            drive.turn_right()
-            time.sleep(5)
-            ground_log.state = 'Normal'
-            print('Finish Error Processing')
+        gps = GYSFDMAXB.read_GPSData()
+        data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+        pre_distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+        ground_log.ground_logger(data, pre_distance)
 
     """
     Image Processing Phase
@@ -183,10 +197,9 @@ while not reach_goal:
     while phase == 3:
         img_name = img_proc.take_picture()
         cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
-        distance = ground.cal_distance(ground.DES_LNG, ground.DES_LAT)
+        gps = GYSFDMAXB.read_GPSData()
+        distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         print("distance :", distance)
-        data = ground.is_heading_goal()
-        gps = [data[5], data[6]]
         img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps)
         if p > 0.12:
             print("Reach the goal")

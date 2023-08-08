@@ -9,12 +9,11 @@ phase 1 : Floating
 
 class FloatingLogger(object):
     filename = ''
-    state = 0
+    state = 'None'
     """
-    state 1 : Rising
-          2 : Falling
-          3 : Landing
-         -1 : Error
+    state Rising
+          Ascent Completed
+          Landing
     """
 
     def __init__(self):
@@ -23,8 +22,7 @@ class FloatingLogger(object):
         with open(FloatingLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
-            writer.writerow(['state', '1:Rising', '2:Falling', '3:Landing', '-1:Error'])
-            writer.writerow(['time', 'state', 'pressure', 'temperature', 'altitude'])
+            writer.writerow(['time', 'state', 'pressure', 'temperature', 'altitude', 'other description'])
         f.close()
     
     def floating_logger(self, data):
@@ -34,18 +32,11 @@ class FloatingLogger(object):
             writer.writerow([now.strftime('%H:%M:%S'), self.state] + data)
         f.close()
         
-    def error_logger(self, altitude):
+    def end_of_floating_phase(self, description='Separation mechanism activated'):
         with open(FloatingLogger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), self.state, 'altitude', altitude])
-        f.close()
-        
-    def end_of_floating_phase(self):
-        with open(FloatingLogger.filename, 'a') as f:
-            now = datetime.datetime.now()
-            writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), self.state, 'Separation mechanism activated'])
+            writer.writerow([now.strftime('%H:%M:%S'), self.state, '', '', '', description])
         f.close()
         
 class GroundLogger(object):
@@ -121,3 +112,27 @@ class ImgProcLogger(object):
             writer = csv.writer(f)
             writer.writerow([now.strftime('%H:%M:%S'), 'Reach the goal'])
         f.close()
+        
+class ErrorLogger(object):
+    filename = ''
+    """
+    state Floating
+          Ground
+          Image Processing
+    """
+    def __init__(self):
+        now = datetime.datetime.now()
+        ErrorLogger.filename = 'error/' + now.strftime('%Y%m%d_%H%M%S') + '_error.csv'
+        with open(ErrorLogger.filename, 'w') as f:
+            writer = csv.writer(f)
+            writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
+            writer.writerow(['time', 'phase', 'error description', 'data'])
+        f.close()
+        
+    def baro_error_logger(self, phase, data):
+        with open(ErrorLogger.filename, 'a') as f:
+            now = datetime.datetime.now()
+            writer = csv.writer(f)
+            writer.writerow([now.strftime('%H:%M:%S'), phase, 'Altitude value decreases during ascent','pressure', data[0], 'temperature', data[1],'altitude', data[2]])
+        f.close()
+        
