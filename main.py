@@ -19,15 +19,10 @@ import time
 DESTINATION = [139.65489833333334, 35.95099166666667]
 
 
-print("Initializing")
-GYSFDMAXB.read_GPSData()
-ground.cal_heading_ang()
-floating.cal_altitude(init_altitude)
-time.sleep(1)
 drive = motor.Motor()
 drive.stop()
 
-print("start!!")
+print("Hello World!!")
 
 """
 Floating Phase
