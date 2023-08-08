@@ -9,12 +9,12 @@ phase 1 : Floating
 
 class FloatingLogger(object):
     filename = ''
-    state = 0
+    state = 'None'
     """
-    state 1 : Rising
-          2 : Falling
-          3 : Landing
-         -1 : Error
+    state Rising
+          Ascent Completed
+          Landing
+          Error
     """
 
     def __init__(self):
