@@ -48,8 +48,8 @@ def cal_heading_ang(gps, err_mag):
         
         
         
-def is_heading_goal(gps, err_mag):
-    des_ang = cal_azimuth(gps[0], gps[1], DES_LNG, DES_LAT)
+def is_heading_goal(gps, des, err_mag):
+    des_ang = cal_azimuth(gps[0], gps[1], des[0], des[1])
     heading_ang, data = cal_heading_ang(gps, err_mag)
     ang_diff = abs(des_ang - heading_ang)
     if ang_diff < 25 or 335 < ang_diff:
