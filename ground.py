@@ -5,6 +5,7 @@ import math
 import time
 import logger
 import motor
+import numpy as np
 
 
 def cal_azimuth(lng1, lat1, lng2, lat2):
@@ -36,19 +37,21 @@ def cal_heading_ang(pre_gps, gps, err_mag):
             """
             data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
             """
-            hearding_ang = math.degrees(math.atan2(data[1], data[0]))
+            hearding_ang = np.degrees(np.arctan2(data[1], data[0]))
             if hearding_ang < 0:
                 hearding_ang += 360
             return hearding_ang, data
         except:
             print("Error : Cant read Mag data")
-            return 0, 0
+            return 0, [0, 0, 0, 0, 0, 0, 0, 0]
     else:
-        return cal_azimuth(pre_gps[0], pre_gps[1], gps[0], gps[1]), 0
+        return cal_azimuth(pre_gps[0], pre_gps[1], gps[0], gps[1]), [0, 0, 0, 0, 0, 0, 0, 0]
 
 def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
     des_ang = cal_azimuth(gps[0], gps[1], des[0], des[1])
+    print("des_ang : ", des_ang)
     heading_ang, data = cal_heading_ang(pre_gps, gps, err_mag)
+    print("heading_ang : ", heading_ang)
     ang_diff = abs(des_ang - heading_ang)
     if ang_diff < 25 or 335 < ang_diff:
         return [des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data
@@ -72,7 +75,7 @@ if __name__ == '__main__':
     logger.GroundLogger.state = 'Normal'
     drive = motor.Motor()
     while True:
-        gps = GYSFDMAXB.readGPS()
+        gps = GYSFDMAXB.read_GPSData()
         distance = cal_distance(gps[0], gps[1], TEST_DESTINATION[0], TEST_DESTINATION[1])
         print("distance :", distance)
         if distance < 3:
@@ -81,7 +84,7 @@ if __name__ == '__main__':
             ground_log.end_of_ground_phase()
             break
         time.sleep(0.2)
-        data = is_heading_goal()
+        data = is_heading_goal(gps, TEST_DESTINATION)
         ground_log.ground_logger(data, distance)
         if data[3] == True:
             print("Heading Goal!!")
