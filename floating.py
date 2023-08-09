@@ -23,37 +23,37 @@ def cal_altitude(init_altitude):
 if __name__ == '__main__':
     floating_log = logger.FloatingLogger()
     drive = motor.Motor()
-    state = 1
-    floating_log.state = 1
+    state = 'Rising'
+    floating_log.state = 'Rising'
     print("initial altitude")
-    data = cal_altitude()
+    data = cal_altitude(0)
     init_altitude = data[2]
     floating_log.floating_logger(data)
     print("Rising phase")
-    while state != 3:
+    while state != 'Landing':
         """
-        state 1 : Rising
-              2 : Falling
-              3 : Landing
-             -1 : Error
+        state Rising
+              Ascent Completed
+              Landing
+              Error
         """
-        while state == 1:
-            data = cal_altitude()
+        while state == 'Rising':
+            data = cal_altitude(init_altitude)
             altitude = data[2]
             floating_log.floating_logger(data)
             print("Rising")
-            if altitude >= init_altitude + 10:
-                state = 2
-                floating_log.state = 2
-            time.sleep(0.3)
-        while state == 2:
-            data = cal_altitude()
+            if altitude >= 5:
+                state = 'Ascent Completed'
+                floating_log.state = 'Ascent Completed'
+            time.sleep(1)
+        while state == 'Ascent Completed':
+            data = cal_altitude(init_altitude)
             altitude = data[2]
             floating_log.floating_logger(data)
-            print("Falling")
-            if altitude <= init_altitude + 3:
-                state = 3
-                floating_log.state = 3
+            print("Ascent Completed")
+            if altitude <= 3:
+                state = 'Landing'
+                floating_log.state = 'Landing'
             time.sleep(0.1)
         floating_log.end_of_floating_phase()
-        drive.sepa_mecha() # Separation mechanism activated
+        drive.servo() # Separation mechanism activated
