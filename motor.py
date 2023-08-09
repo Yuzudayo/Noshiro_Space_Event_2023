@@ -3,8 +3,10 @@ import time
 
 # pigpio library : https://abyz.me.uk/rpi/pigpio/python.html
 PINS = [19, 26, 12, 16, 25, 8]
-FINS = [16, 25]
-RINS = [12, 8]
+FINS = [26, 16] # Left, Right
+RINS = [19, 12] # Left, Right
+CAM_FIN = 25
+CAM_RIN = 8
 SERVO = 17
 
 class Motor(object):
@@ -76,20 +78,20 @@ class Motor(object):
         print("Separation mechanism activated")
         
     def unfold_camera(self):
-        Motor.pi.set_PWM_dutycycle(26, 0)
-        Motor.pi.set_PWM_dutycycle(19, 60)
+        Motor.pi.set_PWM_dutycycle(CAM_FIN, 0)
+        Motor.pi.set_PWM_dutycycle(CAM_RIN, 60)
         time.sleep(25)
         Motor.stop(self)
         print("Unfold camera")
     
     def camera_motor(self):
-        Motor.pi.set_PWM_dutycycle(26, 0)
-        Motor.pi.set_PWM_dutycycle(19, 60)
+        Motor.pi.set_PWM_dutycycle(CAM_FIN, 0)
+        Motor.pi.set_PWM_dutycycle(CAM_RIN, 60)
         print("Camera motor activated")
         
     def camera_motor_reverse(self):
-        Motor.pi.set_PWM_dutycycle(26, 60)
-        Motor.pi.set_PWM_dutycycle(19, 0)
+        Motor.pi.set_PWM_dutycycle(CAM_FIN, 60)
+        Motor.pi.set_PWM_dutycycle(CAM_RIN, 0)
         print("Camera motor activated reverse")
         
     def attach_para(self):
