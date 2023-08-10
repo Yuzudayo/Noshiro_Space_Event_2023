@@ -14,6 +14,7 @@ class FloatingLogger(object):
     state Rising
           Ascent Completed
           Landing
+          Error
     """
 
     def __init__(self):
@@ -45,7 +46,7 @@ class GroundLogger(object):
     """
     state Normal
           Stuck
-          Error
+          Something Wrong
     """
     
     def __init__(self):
@@ -54,27 +55,21 @@ class GroundLogger(object):
         with open(GroundLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
-            writer.writerow(['time', 'state', 'Distance to goal', 'To destination angle', 'Heading angle','Angle difference', 'Is heading goal', 'direction', 'longtitude', 'latitude', 'magX', 'magY', 'magZ', 'accelX', 'accelY', 'accelZ', 'calib status mag', 'calib status accel'])
             # calib status : 0 ~ 3
+            writer.writerow(['time', 'state', 'distance to goal', 'destination angle', 'heading angle','angle difference', 'heading goal', 'direction', 'longtitude', 'latitude', 'magX', 'magY', 'magZ', 'accelX', 'accelY', 'accelZ', 'calib status mag', 'calib status accel', 'pre longtitude', 'pre latitude', 'error geomagnetic sensor', 'error heading flags','description'])
         f.close()
     
-    def ground_logger(self, data, distance):
+    def ground_logger(self, data, distance, error_mag=False, error_heading=0, pre_gps=[0,0], description=''):
         with open(GroundLogger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, distance] + data)
-            
-    def stuck_err_logger(self, distance, later_distance, diff_distance):
-        with open(GroundLogger.filename, 'a') as f:
-            now = datetime.datetime.now()
-            writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, 'distance', distance, 'distance after 5 seconds', later_distance, 'distance difference', diff_distance])
+            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, distance] + data + pre_gps + [error_mag, error_heading, description])
 
     def end_of_ground_phase(self):
         with open(GroundLogger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, ' Start image processing'])
+            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','', ' Start image processing'])
         f.close()
         
 class ImgProcLogger(object):
@@ -134,5 +129,19 @@ class ErrorLogger(object):
             now = datetime.datetime.now()
             writer = csv.writer(f)
             writer.writerow([now.strftime('%H:%M:%S'), phase, 'Altitude value decreases during ascent','pressure', data[0], 'temperature', data[1],'altitude', data[2]])
+        f.close()
+        
+    def geomag_error_logger(self, phase, data):
+        with open(ErrorLogger.filename, 'a') as f:
+            now = datetime.datetime.now()
+            writer = csv.writer(f)
+            writer.writerow([now.strftime('%H:%M:%S'), phase, 'The accuracy of the geomagnetic sensor is not good','destination angle', data[0], 'heading angle', data[1],'angle difference', data[2], 'magX', data[6][0], 'magY', data[6][1], 'magZ', data[6][2], 'calib status mag', data[6][6]])
+        f.close()
+        
+    def heading_error_logger(self, phase, pre_gps, gps, pre_distance, distance, error_mag=False, error_heading=0):
+        with open(ErrorLogger.filename, 'a') as f:
+            now = datetime.datetime.now()
+            writer = csv.writer(f)
+            writer.writerow([now.strftime('%H:%M:%S'), phase, 'previous longtitude', pre_gps[0], 'previous latitude', pre_gps[1], 'longtitude', gps[0], 'latitude', gps[1], 'previous distance', pre_distance, 'distance', distance, 'error geomagnetic sensor', error_mag, 'error heading flags', error_heading, 'The heading direction is not correct'])
         f.close()
         
