@@ -74,8 +74,6 @@ def is_stuck(pre_gps, gps):
 TEST_DESTINATION = [139.65489833333334, 35.95099166666667]
 
 if __name__ == '__main__':
-    ground_log = logger.GroundLogger()
-    logger.GroundLogger.state = 'Normal'
     drive = motor.Motor()
     while True:
         gps = GYSFDMAXB.read_GPSData()
@@ -84,19 +82,18 @@ if __name__ == '__main__':
         if distance < 3:
             print("end")
             drive.stop()
-            ground_log.end_of_ground_phase()
             break
         time.sleep(0.2)
         data = is_heading_goal(gps, TEST_DESTINATION)
-        ground_log.ground_logger(data, distance)
         if data[3] == True:
             print("Heading Goal!!")
-            # drive.forward()
+            drive.forward()
+            time.sleep(2.2)
         else:
             if data[4] == 'Turn Right':
                 print("Turn right")
-                # drive.turn_right()
+                drive.turn_right()
             elif data[4] == 'Turn Left':
                 print("Turn left")
-                # drive.turn_left()
+                drive.turn_left()
         time.sleep(0.8)
