@@ -17,7 +17,7 @@ import logger
 import time
 
 # destination point(lon, lat)
-DESTINATION = [139.65489833333334, 35.95099166666667]
+DESTINATION = [139.65490166666666, 35.950921666666666]
 
 
 print("Hello World!!")
@@ -35,7 +35,7 @@ phase 1 : Floating
 """
 Floating Phase
 """
-phase = 1
+phase = 2
 print("phase : ", phase)
 floating_log = logger.FloatingLogger()
 """

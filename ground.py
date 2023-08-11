@@ -71,7 +71,7 @@ def is_stuck(pre_gps, gps):
         return False, diff_distance
 
 # Test destination point(lon, lat)
-TEST_DESTINATION = [139.65489833333334, 35.95099166666667]
+TEST_DESTINATION = [139.65490166666666, 35.950921666666666]
 
 if __name__ == '__main__':
     drive = motor.Motor()
