@@ -29,6 +29,7 @@ drive.stop()
 phase 1 : Floating
       2 : Ground 
       3 : Image Processing
+      4 : Reach the goal
 """
 
 """
@@ -112,6 +113,8 @@ reach_goal = False
 error_mag = False
 # The counter that detects sensor anomalies from the heading direction 
 error_heading = 0
+# The flag that identifies abnormalities in the image processing
+error_img_proc = False
 # Variable used for stack determination and GPS direction determination
 pre_gps = [0,0]
 phase = 2
@@ -188,11 +191,19 @@ while not reach_goal:
             distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
             data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
             ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps)
-        if distance <= 8: # Reach the goal within 8m
+        if distance <= 8 and error_img_proc == False: # Reach the goal within 8m
             print("Close to the goal")
             drive.stop()
             ground_log.end_of_ground_phase()
             phase = 3
+            break
+        if distance <= 1 and error_img_proc: # Reach the goal within 1m
+            print("Reach the goal")
+            phase = 4
+            ground_log.end_of_ground_phase('Reach the goal without image processing')
+            drive.forward()
+            time.sleep(1.8)
+            drive.stop()
             break
         drive.forward()
         time.sleep(5)
@@ -231,7 +242,7 @@ while not reach_goal:
             data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
             ground_log.state = 'Normal' if error_mag == False else 'Something Wrong'
             print('Finish Error Processing')
-        if error_heading >= 5:
+        if error_heading >= 5 and error_img_proc == False:
             ground_log.state = 'Something Wrong'
             print('Error : Poor GPS accuracy')
             error_log.gps_error_logger(phase, pre_gps, gps, pre_distance, distance, error_mag, error_heading)
@@ -273,6 +284,7 @@ while not reach_goal:
             continue
         if p > 0.12:
             print("Reach the goal")
+            phase = 4
             img_proc_log.end_of_img_proc_phase()
             drive.forward()
             time.sleep(1.8)

@@ -5,6 +5,7 @@ import csv
 phase 1 : Floating
       2 : Ground 
       3 : Image Processing
+      4 : Reach the goal
 """
 
 class FloatingLogger(object):
@@ -65,11 +66,11 @@ class GroundLogger(object):
             writer = csv.writer(f)
             writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, distance] + data + pre_gps + [error_mag, error_heading, description])
 
-    def end_of_ground_phase(self):
+    def end_of_ground_phase(self, discription='Start Image Processing'):
         with open(GroundLogger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','', ' Start image processing'])
+            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','', discription])
         f.close()
         
 class ImgProcLogger(object):
@@ -100,7 +101,7 @@ class ImgProcLogger(object):
         with open(ImgProcLogger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), 'Reach the goal'])
+            writer.writerow([now.strftime('%H:%M:%S'), '', '', '', '', '', '', '', '', '', 'Reach the goal'])
         f.close()
         
 class ErrorLogger(object):
