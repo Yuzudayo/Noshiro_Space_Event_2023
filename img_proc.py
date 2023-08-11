@@ -74,7 +74,7 @@ def detect_cone(img_name):
         cv2.putText(out_img, "%d,%d"%(mx, my), (x-15, y+h+15), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0))
         cv2.putText(out_img, "%d"%(s), (x, y+h+30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0))
         now = datetime.datetime.now()
-        img_name = now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
+        img_name = 'proc_img/' + now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
         cv2.imwrite(img_name, out_img)
         if mx > W / 3 * 2:
             print("Right")

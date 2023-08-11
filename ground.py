@@ -53,7 +53,7 @@ def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
     heading_ang, data = cal_heading_ang(pre_gps, gps, err_mag)
     print("heading_ang : ", heading_ang)
     ang_diff = abs(des_ang - heading_ang)
-    if ang_diff < 25 or 335 < ang_diff:
+    if ang_diff < 20 or 340 < ang_diff:
         return [des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data
     else:
         if ((heading_ang > des_ang and ang_diff < 180) or (heading_ang < des_ang and ang_diff > 180)):

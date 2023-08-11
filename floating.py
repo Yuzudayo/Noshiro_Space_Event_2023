@@ -22,6 +22,7 @@ def cal_altitude(init_altitude):
 
 if __name__ == '__main__':
     drive = motor.Motor()
+    state = 'Rising'
     data = cal_altitude(0)
     init_altitude = data[2]
     print("init_altitude : ", init_altitude)

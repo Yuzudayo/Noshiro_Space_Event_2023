@@ -62,7 +62,7 @@ while phase == 1:
         if altitude < -5:
             state = 'Error'
             error_log.baro_error_logger(phase, data)
-            print("Error")
+            print("Error : Altitude value decreases during ascent")
         if altitude >= 6:
             state = 'Ascent Completed'
             floating_log.state = 'Ascent Completed'
@@ -117,13 +117,14 @@ pre_gps = [0,0]
 phase = 2
 # The flag indicating if the camera is deployed
 unfold_camera = False
+ground_log = logger.GroundLogger()
+ground_log.state = 'Normal'
+img_proc_log = logger.ImgProcLogger()
 while not reach_goal:
     """
     Ground Phase
     """
     print("phase : ", phase)
-    ground_log = logger.GroundLogger()
-    ground_log.state = 'Normal'
     while GYSFDMAXB.read_GPSData() == [0,0]:
             print("Waiting for GPS reception")
             time.sleep(5)
@@ -161,7 +162,7 @@ while not reach_goal:
                     ground_log.state = 'Something Wrong'
                     error_heading += 1
                     error_log.heading_error_logger(phase, pre_gps, gps, pre_distance, distance, error_mag, error_heading)
-                    print('Error in heading direction')
+                    print('Error : Heading direction is wrong')
                     drive.turn_right()
                     time.sleep(5)
                     drive.stop()
@@ -207,7 +208,7 @@ while not reach_goal:
         if stuck:
             ground_log.state = 'Stuck'
             ground_log.ground_logger(data, distance, error_mag, pre_gps, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
-            print('stuck')
+            print('Stuck')
             drive.stuck()
             pre_gps = gps
             gps = GYSFDMAXB.read_GPSData()
@@ -220,7 +221,7 @@ while not reach_goal:
             ground_log.state = 'Something Wrong'
             error_heading += 1
             error_log.heading_error_logger(phase, pre_gps, gps, pre_distance, distance, error_mag, error_heading)
-            print('Error in heading direction')
+            print('Error : Heading direction is wrong')
             drive.turn_right()
             time.sleep(5)
             drive.stop()
@@ -232,7 +233,8 @@ while not reach_goal:
             print('Finish Error Processing')
         if error_heading >= 5:
             ground_log.state = 'Something Wrong'
-            print('Poor GPS accuracy')
+            print('Error : Poor GPS accuracy')
+            error_log.gps_error_logger(phase, pre_gps, gps, pre_distance, distance, error_mag, error_heading)
             drive.stop()
             phase = 3
             
@@ -245,14 +247,30 @@ while not reach_goal:
     if unfold_camera == False:
         drive.unfold_camera()
         unfold_camera = True
-    img_proc_log = logger.ImgProcLogger()
     while phase == 3:
-        img_name = img_proc.take_picture()
-        cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
+        try:
+            img_name = img_proc.take_picture()
+            cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
+        except:
+            print("Error : Image processing failed")
+            img_proc_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
+            drive.stop()
+            break
+        pre_gps = gps if gps is not None else [0,0]
         gps = GYSFDMAXB.read_GPSData()
         distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         print("distance :", distance)
-        img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps)
+        img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps)
+        stuck, diff_distance = ground.is_stuck(pre_gps, gps)
+        # Stuck Processing
+        if stuck:
+            img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
+            print('stuck')
+            drive.stuck()
+            pre_gps = gps
+            gps = GYSFDMAXB.read_GPSData()
+            distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+            continue
         if p > 0.12:
             print("Reach the goal")
             img_proc_log.end_of_img_proc_phase()
@@ -261,11 +279,16 @@ while not reach_goal:
             drive.stop()
             break
         if distance >= 15:
-            print('Error')
-            img_proc_log.err_logger(distance,gps)
+            print('Error : The rover is far from the goal')
+            error_log.far_error_logger(phase, gps, distance, error_heading)
             drive.stop()
-            phase = 2
-            break
+            if error_heading < 5:
+                phase = 2
+                break
+            else:
+                drive.turn_right()
+                time.sleep(5)
+                drive.stop()
         if cone_loc == "Front":
             drive.forward()
             if p < 0.001:
@@ -287,7 +310,6 @@ while not reach_goal:
             if p < 0.001:
                 time.sleep(1)
         else: # Not Found
-            drive.forward()
-            time.sleep(1)
+            drive.turn_right()
         time.sleep(2)
         drive.stop()
