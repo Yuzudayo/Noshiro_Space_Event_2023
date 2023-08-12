@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""
     NOSHIRO SPACE EVENT 2023
-    ASTRUM MAIN PROGRAM
+    ASTRUM MAIN FALLBACK PROGRAM
     
     Author : Yuzu
     Language : Python Ver.3.9.2
@@ -11,7 +11,7 @@
 import GYSFDMAXB
 import motor
 import ground
-import floating
+import main
 import img_proc
 import logger
 import time
@@ -19,97 +19,25 @@ import datetime
 import csv
 
 # destination point(lon, lat)
-DESTINATION = [139.65490166666666, 35.950921666666666]
+DESTINATION = main.DESTINATION
 
 
+with open('sys_error.csv', 'a') as f:
+                    now = datetime.datetime.now()
+                    writer = csv.writer(f)
+                    writer.writerow([now.strftime('%H:%M:%S'), 'Launch fallback program'])
+                    f.close()
 print("Hello World!!")
 error_log = logger.ErrorLogger()
 drive = motor.Motor()
 drive.stop()
 
 """
-phase 1 : Floating
+phase (1 : Floating)
       2 : Ground 
       3 : Image Processing
       4 : Reach the goal
 """
-
-
-"""
-Floating Phase
-"""
-phase = 2
-print("phase : ", phase)
-floating_log = logger.FloatingLogger()
-"""
-state Rising
-      Falling
-      Landing
-      Error
-"""
-state = 'Rising'
-floating_log.state = 'Rising'
-start = time.time()
-init_altitude = 0
-data = floating.cal_altitude(init_altitude)
-init_altitude = data[2]
-print("initial altitude : {}." .format(init_altitude))
-floating_log.floating_logger(data)
-print("Rising phase")
-while phase == 1:
-    while state == 'Rising':
-        data = floating.cal_altitude(init_altitude)
-        altitude = data[2]
-        floating_log.floating_logger(data)
-        print("Rising")
-        # Incorrect sensor value
-        if altitude < -5:
-            state = 'Error'
-            error_log.baro_error_logger(phase, data)
-            print("Error : Altitude value decreases during ascent")
-        if altitude >= 6:
-            state = 'Ascent Completed'
-            floating_log.state = 'Ascent Completed'
-        now = time.time()
-        if now - start > 900:
-            print('5 minutes passed')
-            state = 'Landing'
-            floating_log.state = 'Landing'
-            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
-            break
-        print("altitude : {}." .format(altitude))
-        time.sleep(1.5)
-    while state == 'Ascent Completed':
-        data = floating.cal_altitude(init_altitude)
-        altitude = data[2]
-        floating_log.floating_logger(data)
-        print("Falling")
-        if altitude <= 3:
-            state = 'Landing'
-            floating_log.state = 'Landing'
-            floating_log.end_of_floating_phase()
-        now = time.time()
-        if now - start > 900:
-            print('5 minutes passed')
-            state = 'Landing'
-            floating_log.state = 'Landing'
-            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
-            break
-        print("altitude : {}." .format(altitude))
-        time.sleep(0.2)
-    while state == 'Error':
-        now = time.time()
-        if now - start > 900:
-            print('5 minutes passed')
-            state = 'Landing'
-            floating_log.state = 'Landing'
-            floating_log.end_of_floating_phase('Landing judgment by passage of time.')
-            break
-        time.sleep(1)
-    print("Landing")
-    time.sleep(5)
-    drive.servo() # Separation mechanism activated
-    break
 
 
 reach_goal = False
