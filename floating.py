@@ -1,6 +1,5 @@
 import bme280
 import time
-import logger
 import motor
 
 SEA_LEVEL_PRESSURE = 1013.25

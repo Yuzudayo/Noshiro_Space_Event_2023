@@ -3,7 +3,6 @@ import GYSFDMAXB
 from geographiclib.geodesic import Geodesic 
 import math
 import time
-import logger
 import motor
 import numpy as np
 import datetime
