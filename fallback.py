@@ -31,6 +31,7 @@ print("Hello World!!")
 error_log = logger.ErrorLogger()
 drive = motor.Motor()
 drive.stop()
+drive.servo() # Separation mechanism activated
 
 """
 phase (1 : Floating)
