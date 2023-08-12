@@ -35,7 +35,7 @@ def take_picture():
         return img_name
     except Exception as e:
         print("Error : Failed to take a picture")
-        with open('sys_error.txt', 'a') as f:
+        with open('sys_error.csv', 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
             writer.writerow([now.strftime('%H:%M:%S'), 'Failed to take a picture', str(e)])

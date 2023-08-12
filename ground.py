@@ -6,6 +6,8 @@ import time
 import logger
 import motor
 import numpy as np
+import datetime
+import csv
 
 
 def cal_azimuth(lng1, lat1, lng2, lat2):
@@ -41,8 +43,13 @@ def cal_heading_ang(pre_gps, gps, err_mag):
             if hearding_ang < 0:
                 hearding_ang += 360
             return hearding_ang, data
-        except:
-            print("Error : Cant read Mag data")
+        except Exception as e:
+            print("Error : Can't read Mag data")
+            with open('sys_error.csv', 'a') as f:
+                now = datetime.datetime.now()
+                writer = csv.writer(f)
+                writer.writerow([now.strftime('%H:%M:%S'), "Can't read Mag data", str(e)])
+                f.close()
             return 0, [0, 0, 0, 0, 0, 0, 0, 0]
     else:
         return cal_azimuth(pre_gps[0], pre_gps[1], gps[0], gps[1]), [0, 0, 0, 0, 0, 0, 0, 0]

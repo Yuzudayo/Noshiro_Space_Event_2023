@@ -4,7 +4,7 @@
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 08/10/2023
+    Last Update : 08/12/2023
 """""""""""""""""""""""""""""""""""
 
 
@@ -33,6 +33,7 @@ phase 1 : Floating
       3 : Image Processing
       4 : Reach the goal
 """
+
 
 """
 Floating Phase
@@ -110,6 +111,7 @@ while phase == 1:
     drive.servo() # Separation mechanism activated
     break
 
+
 reach_goal = False
 # The flag that identifies abnormalities in the geomagnetic sensor
 error_mag = False
@@ -125,6 +127,7 @@ unfold_camera = False
 ground_log = logger.GroundLogger()
 ground_log.state = 'Normal'
 img_proc_log = logger.ImgProcLogger()
+
 while not reach_goal:
     """
     Ground Phase
@@ -252,7 +255,6 @@ while not reach_goal:
             phase = 3
             
             
-
     """
     Image Processing Phase
     """
@@ -269,7 +271,7 @@ while not reach_goal:
                 print("Error : Image processing failed")
                 error_img_proc = True
                 img_proc_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
-                with open('sys_error.txt', 'a') as f:
+                with open('sys_error.csv', 'a') as f:
                     now = datetime.datetime.now()
                     writer = csv.writer(f)
                     writer.writerow([now.strftime('%H:%M:%S'), 'Image processing failed', str(e)])
