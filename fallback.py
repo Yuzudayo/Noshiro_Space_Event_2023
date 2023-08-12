@@ -22,6 +22,11 @@ import csv
 DESTINATION = main.DESTINATION
 
 
+with open('sys_error.csv', 'a') as f:
+                    now = datetime.datetime.now()
+                    writer = csv.writer(f)
+                    writer.writerow([now.strftime('%H:%M:%S'), 'Launch fallback program'])
+                    f.close()
 print("Hello World!!")
 error_log = logger.ErrorLogger()
 drive = motor.Motor()
