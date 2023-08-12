@@ -3,8 +3,8 @@ import time
 
 # pigpio library : https://abyz.me.uk/rpi/pigpio/python.html
 PINS = [19, 26, 12, 16, 25, 8]
-FINS = [26, 16] # Left, Right
-RINS = [19, 12] # Left, Right
+FINS = [26, 12] # Left, Right
+RINS = [19, 16] # Left, Right
 CAM_FIN = 25
 CAM_RIN = 8
 SERVO = 17
@@ -18,13 +18,13 @@ class Motor(object):
             Motor.pi.set_PWM_range(pin, 100)
     
     def forward(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in FINS]
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in RINS]
         print("forward")
         
     def back_reverse(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
-        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in RINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in FINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
         print("back reverse")
         
     def back(self):
@@ -40,26 +40,26 @@ class Motor(object):
         print("stop")
         
     def turn_right(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
         Motor.pi.set_PWM_dutycycle(16, 100)
-        Motor.pi.set_PWM_dutycycle(25, 50)
+        Motor.pi.set_PWM_dutycycle(19, 50)
         print("turn right")
         
     def back_turn_right(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
         Motor.pi.set_PWM_dutycycle(12, 100)
-        Motor.pi.set_PWM_dutycycle(8, 50)
+        Motor.pi.set_PWM_dutycycle(26, 50)
     
     def turn_left(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
         Motor.pi.set_PWM_dutycycle(16, 50)
-        Motor.pi.set_PWM_dutycycle(25, 100)
+        Motor.pi.set_PWM_dutycycle(19, 100)
         print("turn left")
         
     def back_turn_left(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
         Motor.pi.set_PWM_dutycycle(12, 50)
-        Motor.pi.set_PWM_dutycycle(8, 100)
+        Motor.pi.set_PWM_dutycycle(26, 100)
         
     def stuck(self):
         Motor.turn_right(self)

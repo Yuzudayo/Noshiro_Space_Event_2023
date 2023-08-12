@@ -53,7 +53,7 @@ def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
     heading_ang, data = cal_heading_ang(pre_gps, gps, err_mag)
     print("heading_ang : ", heading_ang)
     ang_diff = abs(des_ang - heading_ang)
-    if ang_diff < 25 or 335 < ang_diff:
+    if ang_diff < 20 or 340 < ang_diff:
         return [des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data
     else:
         if ((heading_ang > des_ang and ang_diff < 180) or (heading_ang < des_ang and ang_diff > 180)):
@@ -71,11 +71,9 @@ def is_stuck(pre_gps, gps):
         return False, diff_distance
 
 # Test destination point(lon, lat)
-TEST_DESTINATION = [139.65489833333334, 35.95099166666667]
+TEST_DESTINATION = [139.65490166666666, 35.950921666666666]
 
 if __name__ == '__main__':
-    ground_log = logger.GroundLogger()
-    logger.GroundLogger.state = 'Normal'
     drive = motor.Motor()
     while True:
         gps = GYSFDMAXB.read_GPSData()
@@ -84,19 +82,18 @@ if __name__ == '__main__':
         if distance < 3:
             print("end")
             drive.stop()
-            ground_log.end_of_ground_phase()
             break
         time.sleep(0.2)
         data = is_heading_goal(gps, TEST_DESTINATION)
-        ground_log.ground_logger(data, distance)
         if data[3] == True:
             print("Heading Goal!!")
-            # drive.forward()
+            drive.forward()
+            time.sleep(2.2)
         else:
             if data[4] == 'Turn Right':
                 print("Turn right")
-                # drive.turn_right()
+                drive.turn_right()
             elif data[4] == 'Turn Left':
                 print("Turn left")
-                # drive.turn_left()
+                drive.turn_left()
         time.sleep(0.8)
