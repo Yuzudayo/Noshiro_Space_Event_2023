@@ -15,6 +15,8 @@ import floating
 import img_proc
 import logger
 import time
+import datetime
+import csv
 
 # destination point(lon, lat)
 DESTINATION = [139.65490166666666, 35.950921666666666]
@@ -258,12 +260,24 @@ while not reach_goal:
     if unfold_camera == False:
         drive.unfold_camera()
         unfold_camera = True
-    while phase == 3:
-        try:
-            img_name = img_proc.take_picture()
-            cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
-        except:
-            print("Error : Image processing failed")
+    while phase == 3 and error_img_proc == False:
+        img_name = img_proc.take_picture()
+        if img_name is not None:
+            try:
+                cone_loc, proc_img_name, p = img_proc.detect_cone(img_name)
+            except Exception as e:
+                print("Error : Image processing failed")
+                error_img_proc = True
+                img_proc_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
+                with open('sys_error.txt', 'a') as f:
+                    now = datetime.datetime.now()
+                    writer = csv.writer(f)
+                    writer.writerow([now.strftime('%H:%M:%S'), 'Image processing failed', str(e)])
+                    f.close()
+                drive.stop()
+                break
+        else:
+            error_img_proc = True
             img_proc_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
             drive.stop()
             break
@@ -303,25 +317,15 @@ while not reach_goal:
                 drive.stop()
         if cone_loc == "Front":
             drive.forward()
-            if p < 0.001:
-                time.sleep(1)
         elif cone_loc == "Right":
             drive.turn_right()
-            time.sleep(0.4)
-            if p < 0.001:
-                time.sleep(0.3)
+            time.sleep(0.5)
             drive.forward()
-            if p < 0.001:
-                time.sleep(1)
         elif cone_loc == "Left":
             drive.turn_left()
-            time.sleep(0.4)
-            if p < 0.001:
-                time.sleep(0.3)
+            time.sleep(0.5)
             drive.forward()
-            if p < 0.001:
-                time.sleep(1)
         else: # Not Found
             drive.turn_right()
-        time.sleep(2)
+        time.sleep(3) if p < 0.001 else time.sleep(2)
         drive.stop()

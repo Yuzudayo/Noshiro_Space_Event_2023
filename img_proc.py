@@ -3,6 +3,7 @@ import picamera
 import numpy as np
 import time
 import datetime
+import csv
 
 # Red has two color ranges
 LOW_COLOR1 = np.array([0, 100, 100])
@@ -23,14 +24,23 @@ https://www.petitmonte.com/javascript/rgb_hsv_convert.html
 """
 
 def take_picture():
-    now = datetime.datetime.now()
-    img_name = 'img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
-    with picamera.PiCamera() as camera:
-        camera.resolution = (640, 480)
-        camera.start_preview()
-        time.sleep(1.5)
-        camera.capture(img_name)
-    return img_name
+    try:
+        now = datetime.datetime.now()
+        img_name = 'img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
+        with picamera.PiCamera() as camera:
+            camera.resolution = (640, 480)
+            camera.start_preview()
+            time.sleep(1.5)
+            camera.capture(img_name)
+        return img_name
+    except Exception as e:
+        print("Error : Failed to take a picture")
+        with open('sys_error.txt', 'a') as f:
+            now = datetime.datetime.now()
+            writer = csv.writer(f)
+            writer.writerow([now.strftime('%H:%M:%S'), 'Failed to take a picture', str(e)])
+        f.close()
+        return None
 
 def detect_cone(img_name):
     img = cv2.imread(img_name)
@@ -95,5 +105,6 @@ def detect_cone(img_name):
 
 if __name__ == '__main__':
     img_name = take_picture()
-    cone_location, out_img, p = detect_cone(img_name)
-    print(p)
+    if img_name is not None:
+        cone_location, out_img, p = detect_cone(img_name)
+        print(p)
