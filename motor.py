@@ -2,11 +2,11 @@ import pigpio
 import time
 
 # pigpio library : https://abyz.me.uk/rpi/pigpio/python.html
-PINS = [19, 26, 12, 16, 25, 8]
-FINS = [26, 12] # Left, Right
-RINS = [19, 16] # Left, Right
-CAM_FIN = 25
-CAM_RIN = 8
+FRONT = [8, 26] # Left, Right
+REAR = [25, 19] # Left, Right
+CAM_FIN = 12
+CAM_RIN = 16
+PINS = FRONT + REAR + [CAM_FIN, CAM_RIN]
 SERVO = 17
 
 class Motor(object):
@@ -18,13 +18,13 @@ class Motor(object):
             Motor.pi.set_PWM_range(pin, 100)
     
     def forward(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
-        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in RINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in FRONT]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in REAR]
         print("forward")
         
     def back_reverse(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in FINS]
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FRONT]
+        [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in REAR]
         print("back reverse")
         
     def back(self):
@@ -40,30 +40,33 @@ class Motor(object):
         print("stop")
         
     def turn_right(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
-        Motor.pi.set_PWM_dutycycle(16, 100)
-        Motor.pi.set_PWM_dutycycle(19, 50)
+        Motor.pi.set_PWM_dutycycle(FRONT[0], 50) # Left
+        Motor.pi.set_PWM_dutycycle(FRONT[1], 100) # Right
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in REAR]
         print("turn right")
         
-    def back_turn_right(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
-        Motor.pi.set_PWM_dutycycle(12, 100)
-        Motor.pi.set_PWM_dutycycle(26, 50)
+    def moment_right(self):
+        Motor.pi.set_PWM_dutycycle(REAR[0], 0) # Left
+        Motor.pi.set_PWM_dutycycle(REAR[1], 100) # Right
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FRONT]
     
     def turn_left(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FINS]
-        Motor.pi.set_PWM_dutycycle(16, 50)
-        Motor.pi.set_PWM_dutycycle(19, 100)
+        Motor.pi.set_PWM_dutycycle(FRONT[0], 100) # Left
+        Motor.pi.set_PWM_dutycycle(FRONT[1], 50) # Right
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in REAR]
         print("turn left")
         
-    def back_turn_left(self):
-        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in RINS]
-        Motor.pi.set_PWM_dutycycle(12, 50)
-        Motor.pi.set_PWM_dutycycle(26, 100)
+    def moment_left(self):
+        Motor.pi.set_PWM_dutycycle(REAR[0], 100) # Left
+        Motor.pi.set_PWM_dutycycle(REAR[1], 0) # Right
+        [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FRONT]
         
     def stuck(self):
-        Motor.turn_right(self)
-        time.sleep(15)
+        for i in range(20):
+            Motor.moment_right(self)
+            time.sleep(0.2)
+            Motor.moment_left(self)
+            time.sleep(0.2)
         Motor.stop(self)
         print('Finish stuck processing')
         
@@ -79,18 +82,18 @@ class Motor(object):
         
     def unfold_camera(self):
         Motor.pi.set_PWM_dutycycle(CAM_FIN, 0)
-        Motor.pi.set_PWM_dutycycle(CAM_RIN, 60)
-        time.sleep(25)
+        Motor.pi.set_PWM_dutycycle(CAM_RIN, 90)
+        time.sleep(15)
         Motor.stop(self)
         print("Unfold camera")
     
     def camera_motor(self):
         Motor.pi.set_PWM_dutycycle(CAM_FIN, 0)
-        Motor.pi.set_PWM_dutycycle(CAM_RIN, 60)
+        Motor.pi.set_PWM_dutycycle(CAM_RIN, 90)
         print("Camera motor activated")
         
     def camera_motor_reverse(self):
-        Motor.pi.set_PWM_dutycycle(CAM_FIN, 60)
+        Motor.pi.set_PWM_dutycycle(CAM_FIN, 90)
         Motor.pi.set_PWM_dutycycle(CAM_RIN, 0)
         print("Camera motor activated reverse")
         

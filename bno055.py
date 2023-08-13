@@ -1,13 +1,12 @@
 import time
 import board
+import busio
 import adafruit_bno055
-import datetime
 import numpy as np
-import csv
 
 # Adafruit BNO055 library : https://github.com/adafruit/Adafruit_CircuitPython_BNO055/blob/main/adafruit_bno055.py
 
-i2c = board.I2C()
+i2c = busio.I2C(3, 2)
 sensor = adafruit_bno055.BNO055_I2C(i2c)
 
 def read_Mag_AccelData():
@@ -29,6 +28,7 @@ if __name__ == '__main__':
         if hearding_ang < 0:
             hearding_ang += 360
         print("heading_ang : ", hearding_ang)
+        print("Accelerometer (m/s^2): {}".format(sensor.acceleration))
         time.sleep(1)
     
     

@@ -11,7 +11,6 @@
 import GYSFDMAXB
 import motor
 import ground
-import main
 import img_proc
 import logger
 import time
@@ -19,7 +18,7 @@ import datetime
 import csv
 
 # destination point(lon, lat)
-DESTINATION = main.DESTINATION
+DESTINATION = [139.65490166666666, 35.950921666666666]
 
 
 with open('sys_error.csv', 'a') as f:
