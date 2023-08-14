@@ -157,7 +157,7 @@ while not reach_goal:
                 # Stuck Processing
                 if stuck:
                     ground_log.state = 'Stuck'
-                    ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
+                    ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
                     print('stuck')
                     drive.stuck()
                     pre_gps = gps
@@ -165,6 +165,7 @@ while not reach_goal:
                     pre_distance = distance
                     distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
                     print("distance : ", distance)
+                    diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
                     data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
                     ground_log.state = 'Normal' if error_mag == False else 'Something Wrong'
                 # Move away from the goal
@@ -180,6 +181,7 @@ while not reach_goal:
                     gps = GYSFDMAXB.read_GPSData()
                     distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
                     print("distance : ", distance)
+                    diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
                     data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
                     ground_log.state = 'Normal'
                     print('Finish Error Processing')
@@ -198,8 +200,9 @@ while not reach_goal:
             pre_distance = distance
             distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
             print("distance : ", distance)
+            diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
             data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
-            ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps)
+            ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance)
         if distance <= 8 and error_img_proc == False: # Reach the goal within 8m
             print("Close to the goal")
             drive.stop()
@@ -221,13 +224,13 @@ while not reach_goal:
         data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
         pre_distance = distance
         distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
-        ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps)
+        ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance)
         # Check the stack and position
         stuck, diff_distance = ground.is_stuck(pre_gps, gps)
         # Stuck Processing
         if stuck:
             ground_log.state = 'Stuck'
-            ground_log.ground_logger(data, distance, error_mag, pre_gps, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
+            ground_log.ground_logger(data, distance, error_mag, pre_gps, diff_distance, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
             print('Stuck')
             drive.stuck()
             pre_gps = gps
@@ -274,7 +277,7 @@ while not reach_goal:
             except Exception as e:
                 print("Error : Image processing failed")
                 error_img_proc = True
-                img_proc_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
+                error_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
                 with open('sys_error.csv', 'a') as f:
                     now = datetime.datetime.now()
                     writer = csv.writer(f)
@@ -284,23 +287,25 @@ while not reach_goal:
                 break
         else:
             error_img_proc = True
-            img_proc_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
+            error_log.img_proc_error_logger(phase, error_mag, error_heading, distance=0)
             drive.stop()
             break
         pre_gps = gps if gps is not None else [0,0]
         gps = GYSFDMAXB.read_GPSData()
         distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
         print("distance :", distance)
-        img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps)
+        diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
+        img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance)
         stuck, diff_distance = ground.is_stuck(pre_gps, gps)
         # Stuck Processing
         if stuck:
-            img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
+            img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
             print('stuck')
             drive.stuck()
             pre_gps = gps
             gps = GYSFDMAXB.read_GPSData()
             distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+            diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
             continue
         if p > 0.12:
             print("Reach the goal")
