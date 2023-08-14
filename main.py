@@ -39,23 +39,24 @@ phase 1 : Floating
 Floating Phase
 """
 phase = 2
-print("phase : ", phase)
-floating_log = logger.FloatingLogger()
-"""
-state Rising
-      Falling
-      Landing
-      Error
-"""
-state = 'Rising'
-floating_log.state = 'Rising'
-start = time.time()
-init_altitude = 0
-data = floating.cal_altitude(init_altitude)
-init_altitude = data[2]
-print("initial altitude : {}." .format(init_altitude))
-floating_log.floating_logger(data)
-print("Rising phase")
+if phase == 1:
+    print("phase : ", phase)
+    floating_log = logger.FloatingLogger()
+    """
+    state Rising
+        Falling
+        Landing
+        Error
+    """
+    state = 'Rising'
+    floating_log.state = 'Rising'
+    start = time.time()
+    init_altitude = 0
+    data = floating.cal_altitude(init_altitude)
+    init_altitude = data[2]
+    print("initial altitude : {}." .format(init_altitude))
+    floating_log.floating_logger(data)
+    print("Rising phase")
 while phase == 1:
     while state == 'Rising':
         data = floating.cal_altitude(init_altitude)
