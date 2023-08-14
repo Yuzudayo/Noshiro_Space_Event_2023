@@ -67,7 +67,7 @@ class Motor(object):
         #TODO 角度を変える
         accelZ = bno055.read_Mag_AccelData()[5]
         while accelZ < 0:
-            Motor.florward(self)
+            Motor.forward(self)
             accelZ = bno055.read_Mag_AccelData()[5]
         Motor.stop(self)
         print('Finish stuck processing')
