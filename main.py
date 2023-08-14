@@ -19,7 +19,7 @@ import datetime
 import csv
 
 # destination point(lon, lat)
-DESTINATION = [139.65490166666666, 35.950921666666666]
+DESTINATION = [139.65469333333334, 35.950788333333335]
 
 
 print("Hello World!!")
@@ -163,6 +163,7 @@ while not reach_goal:
                     gps = GYSFDMAXB.read_GPSData()
                     pre_distance = distance
                     distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                    print("distance : ", distance)
                     data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
                     ground_log.state = 'Normal' if error_mag == False else 'Something Wrong'
                 # Move away from the goal
@@ -177,6 +178,7 @@ while not reach_goal:
                     pre_gps = gps
                     gps = GYSFDMAXB.read_GPSData()
                     distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                    print("distance : ", distance)
                     data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
                     ground_log.state = 'Normal'
                     print('Finish Error Processing')
@@ -194,6 +196,7 @@ while not reach_goal:
             # The value used to check if the rover is heading towards the goal
             pre_distance = distance
             distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+            print("distance : ", distance)
             data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
             ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps)
         if distance <= 8 and error_img_proc == False: # Reach the goal within 8m

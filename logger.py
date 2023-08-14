@@ -64,13 +64,13 @@ class GroundLogger(object):
         with open(GroundLogger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, distance] + data + pre_gps + [error_mag, error_heading, description])
+            writer.writerow([now.strftime('%H:%M:%S'), self.state, distance] + data + pre_gps + [error_mag, error_heading, description])
 
     def end_of_ground_phase(self, discription='Start Image Processing'):
         with open(GroundLogger.filename, 'a') as f:
             now = datetime.datetime.now()
             writer = csv.writer(f)
-            writer.writerow([now.strftime('%H:%M:%S'), GroundLogger.state, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','', discription])
+            writer.writerow([now.strftime('%H:%M:%S'), self.state, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','', discription])
         f.close()
         
 class ImgProcLogger(object):
