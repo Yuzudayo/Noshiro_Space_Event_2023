@@ -269,6 +269,7 @@ while not reach_goal:
             time.sleep(1.8)
             drive.stop()
             break
+        # The rover is far from the goal
         if distance >= 15:
             print('Error : The rover is far from the goal')
             error_log.far_error_logger(phase, gps, distance, error_heading)
@@ -292,5 +293,6 @@ while not reach_goal:
             drive.forward()
         else: # Not Found
             drive.turn_right()
+        # Change the time to advance according to the proximity of the goal
         time.sleep(3) if p < 0.001 else time.sleep(2)
         drive.stop()
