@@ -1,5 +1,6 @@
 import pigpio
 import time
+import bno055
 
 # pigpio library : https://abyz.me.uk/rpi/pigpio/python.html
 FRONT = [8, 26] # Left, Right
@@ -28,12 +29,12 @@ class Motor(object):
         print("back reverse")
         
     def back(self):
-        Motor.back_turn_left(self)
-        time.sleep(1)
-        Motor.back_turn_right(self)
-        time.sleep(1)
-        Motor.stop(self)
-        print("back")       
+        print("back")      
+        for i in range(20):
+            Motor.back_right(self)
+            time.sleep(0.2)
+            Motor.back_left(self)
+            time.sleep(0.2) 
     
     def stop(self):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in PINS]
@@ -45,7 +46,7 @@ class Motor(object):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in REAR]
         print("turn right")
         
-    def moment_right(self):
+    def back_right(self):
         Motor.pi.set_PWM_dutycycle(REAR[0], 0) # Left
         Motor.pi.set_PWM_dutycycle(REAR[1], 100) # Right
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FRONT]
@@ -56,17 +57,18 @@ class Motor(object):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in REAR]
         print("turn left")
         
-    def moment_left(self):
+    def back_left(self):
         Motor.pi.set_PWM_dutycycle(REAR[0], 100) # Left
         Motor.pi.set_PWM_dutycycle(REAR[1], 0) # Right
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FRONT]
         
     def stuck(self):
-        for i in range(20):
-            Motor.moment_right(self)
-            time.sleep(0.2)
-            Motor.moment_left(self)
-            time.sleep(0.2)
+        Motor.back(self)
+        #TODO 角度を変える
+        accelZ = bno055.read_Mag_AccelData()[5]
+        while accelZ < 0:
+            Motor.forward(self)
+            accelZ = bno055.read_Mag_AccelData()[5]
         Motor.stop(self)
         print('Finish stuck processing')
         
