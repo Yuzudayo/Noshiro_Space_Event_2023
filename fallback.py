@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 """""""""""""""""""""""""""""""""""
     NOSHIRO SPACE EVENT 2023
     ASTRUM MAIN FALLBACK PROGRAM
@@ -7,7 +9,8 @@
     Last Update : 08/15/2023
 """""""""""""""""""""""""""""""""""
 
-
+import sys
+sys.path.append('/home/astrum/Noshiro_Space_Event_2023')
 import GYSFDMAXB
 import motor
 import ground

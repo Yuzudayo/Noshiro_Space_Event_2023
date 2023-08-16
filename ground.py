@@ -70,12 +70,7 @@ def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
 
 def is_stuck(pre_gps, gps, accel):
     diff_distance = cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
-    # If the movement distance is within 10 cm, it will be judged as stuck
-    # Do not judge when the movement distance is 0 (location information may not be updated)
-    # if diff_distance < 0.1 and diff_distance != 0:
-    #     return True, diff_distance
-    # else:
-    #     return False, diff_distance
+    # Changed to judgment of stuck by acceleration instead of displacement of position
     if accel >= 4.5:
         return True, diff_distance
     else:
