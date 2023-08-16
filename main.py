@@ -437,3 +437,9 @@ while not reach_goal:
         # Change the time to advance according to the proximity of the goal
         time.sleep(4) if p < 0.01 else time.sleep(2)
         drive.stop()
+        
+    if error_mag and error_heading >= 15 and error_img_proc:
+        print('Error : All sensors are dead')
+        error_log.all_sensor_error_logger(phase, error_mag, error_heading, error_img_proc)
+        phase = 4
+        drive.stop()
