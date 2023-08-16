@@ -36,7 +36,7 @@ def cal_heading_ang(pre_gps, gps, err_mag):
         try:
             data = bno055.read_Mag_AccelData()
             """
-            data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
+            data = [magX, magY, magZ, accelX, accelY, accelZ, accel, calib_mag, calib_accel]
             """
             hearding_ang = np.degrees(np.arctan2(data[1], data[0]))
             if hearding_ang < 0:
@@ -49,9 +49,10 @@ def cal_heading_ang(pre_gps, gps, err_mag):
                 writer = csv.writer(f)
                 writer.writerow([now.strftime('%H:%M:%S'), "Can't read Mag data", str(e)])
                 f.close()
-            return 0, [0, 0, 0, 0, 0, 0, 0, 0]
+            return 0, [0, 0, 0, 0, 0, 0, 0, 0, 0]
     else:
-        return cal_azimuth(pre_gps[0], pre_gps[1], gps[0], gps[1]), [0, 0, 0, 0, 0, 0, 0, 0]
+        data = bno055.read_Mag_AccelData()
+        return cal_azimuth(pre_gps[0], pre_gps[1], gps[0], gps[1]), data
 
 def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
     des_ang = cal_azimuth(gps[0], gps[1], des[0], des[1])
@@ -59,7 +60,7 @@ def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
     heading_ang, data = cal_heading_ang(pre_gps, gps, err_mag)
     print("heading_ang : ", heading_ang)
     ang_diff = abs(des_ang - heading_ang)
-    if ang_diff < 20 or 340 < ang_diff:
+    if ang_diff < 15 or 335 < ang_diff:
         return [des_ang, heading_ang, ang_diff, True, "Go Straight"] + gps + data
     else:
         if ((heading_ang > des_ang and ang_diff < 180) or (heading_ang < des_ang and ang_diff > 180)):
@@ -67,11 +68,15 @@ def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
         else:
             return [des_ang, heading_ang, ang_diff, False, "Turn Right"] + gps + data
 
-def is_stuck(pre_gps, gps):
+def is_stuck(pre_gps, gps, accel):
     diff_distance = cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
     # If the movement distance is within 10 cm, it will be judged as stuck
     # Do not judge when the movement distance is 0 (location information may not be updated)
-    if diff_distance < 0.1 and diff_distance != 0:
+    # if diff_distance < 0.1 and diff_distance != 0:
+    #     return True, diff_distance
+    # else:
+    #     return False, diff_distance
+    if accel >= 4.5:
         return True, diff_distance
     else:
         return False, diff_distance

@@ -6,9 +6,9 @@ import datetime
 import csv
 
 # Red has two color ranges
-LOW_COLOR1 = np.array([0, 100, 100])
-HIGH_COLOR1 = np.array([10, 255, 255])
-LOW_COLOR2 = np.array([170, 100, 100])
+LOW_COLOR1 = np.array([0, 87, 87])
+HIGH_COLOR1 = np.array([8, 255, 255])
+LOW_COLOR2 = np.array([172, 87, 87])
 HIGH_COLOR2 = np.array([180, 255, 255])
 """
 Hue : Tint. Red is 0 degrees and changes in order of rainbow colors up to 360 degrees.
