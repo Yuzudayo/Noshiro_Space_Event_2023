@@ -344,13 +344,14 @@ while not reach_goal:
             distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
             diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
             continue
+        # Goal judgment(Supports too close to the goal)
         if p > 0.12 or (pre_p - p >= 0.02 and cone_loc != "Not Found"):
             print("Reach the goal")
             phase = 4
             reach_goal = True
             img_proc_log.end_of_img_proc_phase()
             drive.forward()
-            time.sleep(1.8)
+            time.sleep(2.0)
             drive.stop()
             break
         # The rover is far from the goal
@@ -358,7 +359,7 @@ while not reach_goal:
             print('Error : The rover is far from the goal')
             error_log.far_error_logger(phase, gps, distance, error_heading)
             drive.stop()
-            if error_heading < 5:
+            if error_heading < 15:
                 phase = 2
                 break
             else:
@@ -369,20 +370,66 @@ while not reach_goal:
             drive.forward()
         elif cone_loc == "Right":
             drive.turn_right()
-            time.sleep(1)
+            time.sleep(1.5) if p < 0.01 else time.sleep(1)
             drive.forward()
         elif cone_loc == "Left":
             drive.turn_left()
-            time.sleep(1)
+            time.sleep(1.5) if p < 0.01 else time.sleep(1)
             drive.forward()
         else: # Not Found
             not_found += 1
-            if not_found >= 5:
+            if not_found >= 8:
                 print('Error : Cone not found')
-                phase = 2
-                error_log.not_found_error_logger(phase, img_name, proc_img_name, p)
-                drive.stop()
-                break
+                # when GPS is enabled
+                if error_heading < 15:
+                    # when the geomagnetic sensor is enabled
+                    if error_mag == False:
+                        gps = GYSFDMAXB.read_GPSData()
+                        data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+                        error_log.not_found_error_logger(phase, img_name, proc_img_name, p, not_found, data, pre_gps, error_mag, error_heading)
+                        while data[3] != True: # Not heading the goal
+                            if data[4] == 'Turn Right':
+                                drive.turn_right()
+                            elif data[4] == 'Turn Left':
+                                drive.turn_left()
+                            time.sleep(0.3)
+                            pre_gps = gps
+                            gps = GYSFDMAXB.read_GPSData()
+                            data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+                            error_log.not_found_error_logger(phase, img_name, proc_img_name, p, not_found, data, pre_gps, error_mag, error_heading)
+                        drive.forward()
+                        time.sleep(5)
+                        drive.stop()
+                        pre_gps = gps
+                        gps = GYSFDMAXB.read_GPSData()
+                    # when the geomagnetic sensor is NOT enabled
+                    else:
+                        pre_gps = GYSFDMAXB.read_GPSData()
+                        drive.forward()
+                        time.sleep(5)
+                        gps = GYSFDMAXB.read_GPSData()
+                        data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+                        error_log.not_found_error_logger(phase, img_name, proc_img_name, p, not_found, data, pre_gps, error_mag, error_heading)
+                        while data[3] != True: # Not heading the goal
+                            if data[4] == 'Turn Right':
+                                drive.turn_right()
+                            elif data[4] == 'Turn Left':
+                                drive.turn_left()
+                            time.sleep(0.3)
+                            pre_gps = gps
+                            gps = GYSFDMAXB.read_GPSData()
+                            data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+                            error_log.not_found_error_logger(phase, img_name, proc_img_name, p, not_found, data, pre_gps, error_mag, error_heading)
+                        pre_gps = gps
+                        gps = GYSFDMAXB.read_GPSData()
+                # when GPS is NOT enabled
+                else:
+                    error_log.not_found_error_logger(phase, img_name, proc_img_name, p, not_found, [0]*15, [0,0], error_mag, error_heading)
+                    drive.turn_right()
+                    time.sleep(2)
+                    drive.forward()
+                    time.sleep(5)
+                    drive.stop()
             drive.turn_right()
             time.sleep(1.7)
             drive.stop()
