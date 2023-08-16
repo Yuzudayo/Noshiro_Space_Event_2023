@@ -10,12 +10,16 @@ i2c = busio.I2C(3, 2)
 sensor = adafruit_bno055.BNO055_I2C(i2c)
 
 def read_Mag_AccelData():
-    data = [sensor.magnetic[0], sensor.magnetic[1], sensor.magnetic[2], sensor.acceleration[0], sensor.acceleration[1], sensor.acceleration[2], sensor.calibration_status[3], sensor.calibration_status[2]]
+    accelX, accelY, accelZ = sensor.acceleration
+    accelZ = accelZ - 9.8
+    accel = np.sqrt(accelX**2 + accelY**2 + accelZ**2)
+    data = [sensor.magnetic[0], sensor.magnetic[1], sensor.magnetic[2], sensor.acceleration[0], sensor.acceleration[1], sensor.acceleration[2], accel, sensor.calibration_status[3], sensor.calibration_status[2]]
     """
-    data = [magX, magY, magZ, accelX, accelY, accelZ, calib_mag, calib_accel]
+    data = [magX, magY, magZ, accelX, accelY, accelZ, accel, calib_mag, calib_accel]
     calib status : 0 ~ 3
     """
     return data
+
 
 if __name__ == '__main__':
     read_Mag_AccelData()
@@ -29,6 +33,7 @@ if __name__ == '__main__':
             hearding_ang += 360
         print("heading_ang : ", hearding_ang)
         print("Accelerometer (m/s^2): {}".format(sensor.acceleration))
+        print("accel : ", data[6])
         time.sleep(1)
     
     

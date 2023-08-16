@@ -1,12 +1,13 @@
 import pigpio
 import time
 import bno055
+import numpy as np
 
 # pigpio library : https://abyz.me.uk/rpi/pigpio/python.html
-FRONT = [8, 26] # Left, Right
-REAR = [25, 19] # Left, Right
-CAM_FIN = 12
-CAM_RIN = 16
+FRONT = [16, 26] # Left, Right
+REAR = [12, 19] # Left, Right
+CAM_FIN = 20
+CAM_RIN = 21
 PINS = FRONT + REAR + [CAM_FIN, CAM_RIN]
 SERVO = 17
 
@@ -23,18 +24,10 @@ class Motor(object):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in REAR]
         print("forward")
         
-    def back_reverse(self):
+    def back(self):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FRONT]
         [Motor.pi.set_PWM_dutycycle(pin, 100) for pin in REAR]
-        print("back reverse")
-        
-    def back(self):
-        print("back")      
-        for i in range(20):
-            Motor.back_right(self)
-            time.sleep(0.2)
-            Motor.back_left(self)
-            time.sleep(0.2) 
+        print("back")
     
     def stop(self):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in PINS]
@@ -64,11 +57,24 @@ class Motor(object):
         
     def stuck(self):
         Motor.back(self)
-        #TODO 角度を変える
+        time.sleep(8)
+        Motor.turn_right(self)
+        time.sleep(3)
         accelZ = bno055.read_Mag_AccelData()[5]
+        count = 0
         while accelZ < 0:
+            count += 1
             Motor.forward(self)
             accelZ = bno055.read_Mag_AccelData()[5]
+            time.sleep(0.2)
+            if count % 10 == 0:
+                Motor.turn_right(self)
+                time.sleep(3)
+            if count % 20 == 0:
+                Motor.back(self)
+                time.sleep(5)
+            if count >= 30:
+                break
         Motor.stop(self)
         print('Finish stuck processing')
         
@@ -106,7 +112,7 @@ class Motor(object):
 
 if __name__ == '__main__':
     drive = Motor()
-    movement = {'w': drive.forward, 'a': drive.turn_left, 'd': drive.turn_right, 's': drive.back, 'r': drive.back_reverse, 'q': drive.stop, 'st': drive.stuck, 'sep': drive.servo, 'cam': drive.unfold_camera, 'para': drive.attach_para, 'camr': drive.camera_motor_reverse, 'camf': drive.camera_motor}
+    movement = {'w': drive.forward, 'a': drive.turn_left, 'd': drive.turn_right, 's': drive.back, 'q': drive.stop, 'st': drive.stuck, 'sep': drive.servo, 'cam': drive.unfold_camera, 'para': drive.attach_para, 'camr': drive.camera_motor_reverse, 'camf': drive.camera_motor}
     while True:
         c = input('Enter char : ')
         if c in movement.keys():
