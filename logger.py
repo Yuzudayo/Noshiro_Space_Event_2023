@@ -20,7 +20,7 @@ class FloatingLogger(object):
 
     def __init__(self):
         now = datetime.datetime.now()
-        FloatingLogger.filename = 'floating/' + now.strftime('%Y%m%d_%H%M%S') + '_floating.csv'
+        FloatingLogger.filename = '/home/astrum/Noshiro_Space_Event_2023/floating/' + now.strftime('%Y%m%d_%H%M%S') + '_floating.csv'
         with open(FloatingLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
@@ -52,7 +52,7 @@ class GroundLogger(object):
     
     def __init__(self):
         now = datetime.datetime.now()
-        GroundLogger.filename = 'ground/' + now.strftime('%Y%m%d_%H%M%S') + '_ground.csv'
+        GroundLogger.filename = '/home/astrum/Noshiro_Space_Event_2023/ground/' + now.strftime('%Y%m%d_%H%M%S') + '_ground.csv'
         with open(GroundLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
@@ -83,7 +83,7 @@ class ImgProcLogger(object):
     """
     def __init__(self):
         now = datetime.datetime.now()
-        ImgProcLogger.filename = 'img_proc/' + now.strftime('%Y%m%d_%H%M%S') + '_img_proc.csv'
+        ImgProcLogger.filename = '/home/astrum/Noshiro_Space_Event_2023/img_proc/' + now.strftime('%Y%m%d_%H%M%S') + '_img_proc.csv'
         with open(ImgProcLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
@@ -113,7 +113,7 @@ class ErrorLogger(object):
     """
     def __init__(self):
         now = datetime.datetime.now()
-        ErrorLogger.filename = 'error/' + now.strftime('%Y%m%d_%H%M%S') + '_error.csv'
+        ErrorLogger.filename = '/home/astrum/Noshiro_Space_Event_2023/error/' + now.strftime('%Y%m%d_%H%M%S') + '_error.csv'
         with open(ErrorLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
