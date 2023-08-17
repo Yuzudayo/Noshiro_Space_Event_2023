@@ -140,14 +140,12 @@ get_calib_param()
 
 
 if __name__ == '__main__':
-    try:
+    while True:
         read_BaroData()
         data = read_BaroData()
         print("pressure : %10.5f hpa" % data[0])
         print("temperature : %-8.4f ℃" % data[1])
-    except KeyboardInterrupt:
-        pass
-
+        time.sleep(0.5)
 
 
 

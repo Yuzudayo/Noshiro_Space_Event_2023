@@ -24,7 +24,7 @@ import csv
 DESTINATION = [139.987590, 40.14271]
 
 
-with open('sys_error.csv', 'a') as f:
+with open('/home/astrum/Noshiro_Space_Event_2023/sys_error.csv', 'a') as f:
                     now = datetime.datetime.now()
                     writer = csv.writer(f)
                     writer.writerow([now.strftime('%H:%M:%S'), 'Launch fallback program'])
@@ -92,7 +92,7 @@ while not reach_goal:
         while data[3] != True: # Not heading the goal
             count += 1
             # Abnormal geomagnetic sensor
-            if count >= 35:
+            if count >= 25:
                 # error_mag = True
                 # ground_log.state = 'Something Wrong'
                 # error_log.geomag_error_logger(phase, data)
@@ -223,7 +223,7 @@ while not reach_goal:
             print("distance : ", distance)
             diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
             data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
-            ground_log.state = 'Normal' if error_mag == False and error_heading < 15 else 'Something Wrong'
+            ground_log.state = 'Normal' if error_mag == False and error_heading < 35 else 'Something Wrong'
             print('Finish Error Processing')
         # Since the accuracy of GPS is poor, go to the goal by image processing.
         if error_heading >= 35 and error_img_proc == False:

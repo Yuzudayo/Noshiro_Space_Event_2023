@@ -51,6 +51,8 @@ if phase == 1:
     state = 'Rising'
     floating_log.state = 'Rising'
     start = time.time()
+    # The flag that identifies abnormalities in the barometric pressure sensor
+    error_baro = 0
     init_altitude = 0
     data = floating.cal_altitude(init_altitude)
     init_altitude = data[2]
@@ -67,15 +69,15 @@ while phase == 1:
         print("Rising")
         # Incorrect sensor value
         if altitude < -5:
-            state = 'Error'
-            error_log.baro_error_logger(phase, data)
-            print("Error : Altitude value decreases during ascent")
-            
-        if abs(altitude - pre_altitude) >= 5:
-            error_log.baro_error_logger(phase, data)
-            print("Error : Altitude value decreases during ascent")
+            error_baro += 1
+            if error_baro >= 5:
+                state = 'Error'
+                floating_log.state = 'Error'
+                error_log.baro_error_logger(phase, data)
+                print("Error : Altitude value decreases during ascent")
+            time.sleep(1.5)
             continue
-        if altitude >= 8:
+        if altitude >= 15:
             state = 'Ascent Completed'
             floating_log.state = 'Ascent Completed'
         now = time.time()
@@ -89,10 +91,11 @@ while phase == 1:
         time.sleep(1.5)
     while state == 'Ascent Completed':
         data = floating.cal_altitude(init_altitude)
+        pre_altitude = altitude
         altitude = data[2]
         floating_log.floating_logger(data)
         print("Falling")
-        if altitude <= 3:
+        if altitude <= 2.5:
             state = 'Landing'
             floating_log.state = 'Landing'
             floating_log.end_of_floating_phase()
@@ -106,6 +109,9 @@ while phase == 1:
         print("altitude : {}." .format(altitude))
         time.sleep(0.2)
     while state == 'Error':
+        data = floating.cal_altitude(init_altitude)
+        altitude = data[2]
+        floating_log.floating_logger(data)
         now = time.time()
         if now - start > 480:
             print('8 minutes passed')
@@ -169,7 +175,7 @@ while not reach_goal:
         while data[3] != True: # Not heading the goal
             count += 1
             # Abnormal geomagnetic sensor
-            if count >= 35:
+            if count >= 25:
                 # error_mag = True
                 # ground_log.state = 'Something Wrong'
                 # error_log.geomag_error_logger(phase, data)
