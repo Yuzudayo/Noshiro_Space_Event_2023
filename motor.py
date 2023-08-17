@@ -56,25 +56,13 @@ class Motor(object):
         [Motor.pi.set_PWM_dutycycle(pin, 0) for pin in FRONT]
         
     def stuck(self):
-        Motor.back(self)
-        time.sleep(8)
-        Motor.turn_right(self)
+        Motor.pi.set_PWM_dutycycle(FRONT[0], 100) # Left
+        Motor.pi.set_PWM_dutycycle(REAR[0], 0)
+        Motor.pi.set_PWM_dutycycle(FRONT[1], 0) # Right
+        Motor.pi.set_PWM_dutycycle(REAR[1], 100)
         time.sleep(3)
-        accelZ = bno055.read_Mag_AccelData()[5]
-        count = 0
-        while accelZ < 0:
-            count += 1
-            Motor.forward(self)
-            accelZ = bno055.read_Mag_AccelData()[5]
-            time.sleep(0.2)
-            if count % 10 == 0:
-                Motor.turn_right(self)
-                time.sleep(3)
-            if count % 20 == 0:
-                Motor.back(self)
-                time.sleep(5)
-            if count >= 30:
-                break
+        Motor.forward(self)
+        time.sleep(5)
         Motor.stop(self)
         print('Finish stuck processing')
         
