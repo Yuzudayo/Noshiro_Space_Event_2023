@@ -26,7 +26,7 @@ https://www.petitmonte.com/javascript/rgb_hsv_convert.html
 def take_picture():
     try:
         now = datetime.datetime.now()
-        img_name = 'img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
+        img_name = '/home/astrum/Noshiro_Space_Event_2023/img/' + now.strftime('%Y%m%d_%H%M%S') + '_img.jpg'
         with picamera.PiCamera() as camera:
             camera.resolution = (640, 480)
             camera.start_preview()
@@ -84,7 +84,7 @@ def detect_cone(img_name):
         cv2.putText(out_img, "%d,%d"%(mx, my), (x-15, y+h+15), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0))
         cv2.putText(out_img, "%d"%(s), (x, y+h+30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0))
         now = datetime.datetime.now()
-        img_name = 'proc_img/' + now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
+        img_name = '/home/astrum/Noshiro_Space_Event_2023/proc_img/' + now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
         cv2.imwrite(img_name, out_img)
         if mx > W / 3 * 2:
             print("Right")
@@ -97,7 +97,7 @@ def detect_cone(img_name):
             return "Front", img_name, p
     else:
         now = datetime.datetime.now()
-        img_name = 'proc_img/' + now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
+        img_name = '/home/astrum/Noshiro_Space_Event_2023/proc_img/' + now.strftime('%Y%m%d_%H%M%S') + '_proc_img.jpg'
         cv2.imwrite(img_name, out_img)
         print("Not Found")
         return "Not Found", img_name, 0

@@ -4,7 +4,7 @@
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 08/15/2023
+    Last Update : 08/17/2023
 """""""""""""""""""""""""""""""""""
 
 
@@ -19,7 +19,7 @@ import datetime
 import csv
 
 # destination point(lon, lat)
-DESTINATION = [139.654925, 35.950986666666665]
+DESTINATION = [139.987590, 40.14271]
 
 
 print("Hello World!!")
@@ -38,7 +38,7 @@ phase 1 : Floating
 """
 Floating Phase
 """
-phase = 2
+phase = 1
 if phase == 1:
     print("phase : ", phase)
     floating_log = logger.FloatingLogger()
@@ -54,12 +54,14 @@ if phase == 1:
     init_altitude = 0
     data = floating.cal_altitude(init_altitude)
     init_altitude = data[2]
+    altitude = init_altitude
     print("initial altitude : {}." .format(init_altitude))
     floating_log.floating_logger(data)
     print("Rising phase")
 while phase == 1:
     while state == 'Rising':
         data = floating.cal_altitude(init_altitude)
+        pre_altitude = altitude
         altitude = data[2]
         floating_log.floating_logger(data)
         print("Rising")
@@ -68,12 +70,17 @@ while phase == 1:
             state = 'Error'
             error_log.baro_error_logger(phase, data)
             print("Error : Altitude value decreases during ascent")
+            
+        if abs(altitude - pre_altitude) >= 5:
+            error_log.baro_error_logger(phase, data)
+            print("Error : Altitude value decreases during ascent")
+            continue
         if altitude >= 8:
             state = 'Ascent Completed'
             floating_log.state = 'Ascent Completed'
         now = time.time()
-        if now - start > 900:
-            print('15 minutes passed')
+        if now - start > 480:
+            print('8 minutes passed')
             state = 'Landing'
             floating_log.state = 'Landing'
             floating_log.end_of_floating_phase('Landing judgment by passage of time.')
@@ -90,8 +97,8 @@ while phase == 1:
             floating_log.state = 'Landing'
             floating_log.end_of_floating_phase()
         now = time.time()
-        if now - start > 900:
-            print('15 minutes passed')
+        if now - start > 480:
+            print('8 minutes passed')
             state = 'Landing'
             floating_log.state = 'Landing'
             floating_log.end_of_floating_phase('Landing judgment by passage of time.')
@@ -100,8 +107,8 @@ while phase == 1:
         time.sleep(0.2)
     while state == 'Error':
         now = time.time()
-        if now - start > 900:
-            print('15 minutes passed')
+        if now - start > 480:
+            print('8 minutes passed')
             state = 'Landing'
             floating_log.state = 'Landing'
             floating_log.end_of_floating_phase('Landing judgment by passage of time.')
@@ -142,7 +149,7 @@ while not reach_goal:
     distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
     print("distance : ", distance)
     ground_log.ground_logger(data, distance, error_mag, error_heading)
-    while phase == 2 and error_heading < 15:
+    while phase == 2 and error_heading < 35:
         count = 0 # Counter for geomagnetic sensor abnormalities
         # Goal judgment
         if distance <= 8 and error_img_proc == False: # Reach the goal within 8m
@@ -163,9 +170,21 @@ while not reach_goal:
             count += 1
             # Abnormal geomagnetic sensor
             if count >= 35:
-                error_mag = True
-                ground_log.state = 'Something Wrong'
-                error_log.geomag_error_logger(phase, data)
+                # error_mag = True
+                # ground_log.state = 'Something Wrong'
+                # error_log.geomag_error_logger(phase, data)
+                ground_log.state = 'Stuck'
+                ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance, 'Stuck judgment because the angle cannot be adjusted')
+                print('stuck')
+                drive.stuck()
+                pre_gps = gps
+                gps = GYSFDMAXB.read_GPSData()
+                pre_distance = distance
+                distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                print("distance : ", distance)
+                diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
+                data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
+                ground_log.state = 'Normal' if error_mag == False and error_heading < 35 else 'Something Wrong'
                 break
             # Check the stack and position when there are many position adjustments
             if count % 5 == 0:
@@ -174,7 +193,7 @@ while not reach_goal:
                 # Stuck Processing
                 if stuck:
                     ground_log.state = 'Stuck'
-                    ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
+                    ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance, 'Stuck judgment because the value of acceleration is {}m/s^2'.format(data[13]))
                     print('stuck')
                     drive.stuck()
                     pre_gps = gps
@@ -184,9 +203,9 @@ while not reach_goal:
                     print("distance : ", distance)
                     diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
                     data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
-                    ground_log.state = 'Normal' if error_mag == False and error_heading < 15 else 'Something Wrong'
+                    ground_log.state = 'Normal' if error_mag == False and error_heading < 35 else 'Something Wrong'
                 # Move away from the goal
-                elif distance - pre_distance > 0.15:
+                elif distance - pre_distance > 0.22:
                     ground_log.state = 'Something Wrong'
                     error_heading += 1
                     error_log.heading_error_logger(phase, pre_gps, gps, pre_distance, distance, error_mag, error_heading)
@@ -200,7 +219,7 @@ while not reach_goal:
                     print("distance : ", distance)
                     diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
                     data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
-                    ground_log.state = 'Normal' if error_mag == False and error_heading < 15 else 'Something Wrong'
+                    ground_log.state = 'Normal' if error_mag == False and error_heading < 35 else 'Something Wrong'
                     print('Finish Error Processing')
             if data[4] == 'Turn Right':
                 drive.turn_right()
@@ -255,7 +274,7 @@ while not reach_goal:
         # Stuck Processing
         if stuck:
             ground_log.state = 'Stuck'
-            ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
+            ground_log.ground_logger(data, distance, error_mag, error_heading, pre_gps, diff_distance, 'Stuck judgment because the value of acceleration is {}m/s^2'.format(data[13]))
             print('Stuck')
             drive.stuck()
             pre_gps = gps
@@ -265,9 +284,9 @@ while not reach_goal:
             print("distance : ", distance)
             diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
             data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
-            ground_log.state = 'Normal' if error_mag == False and error_heading < 15 else 'Something Wrong'
+            ground_log.state = 'Normal' if error_mag == False and error_heading < 35 else 'Something Wrong'
         # Move away from the goal
-        elif distance - pre_distance > 0.15:
+        elif distance - pre_distance > 0.22:
             ground_log.state = 'Something Wrong'
             error_heading += 1
             error_log.heading_error_logger(phase, pre_gps, gps, pre_distance, distance, error_mag, error_heading)
@@ -281,10 +300,10 @@ while not reach_goal:
             print("distance : ", distance)
             diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
             data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
-            ground_log.state = 'Normal' if error_mag == False and error_heading < 15 else 'Something Wrong'
+            ground_log.state = 'Normal' if error_mag == False and error_heading < 35 else 'Something Wrong'
             print('Finish Error Processing')
         # Since the accuracy of GPS is poor, go to the goal by image processing.
-        if error_heading >= 15 and error_img_proc == False:
+        if error_heading >= 35 and error_img_proc == False:
             ground_log.state = 'Something Wrong'
             print('Error : Poor GPS accuracy')
             error_log.gps_error_logger(phase, pre_gps, gps, pre_distance, distance, error_mag, error_heading)
@@ -336,7 +355,7 @@ while not reach_goal:
         stuck, diff_distance = ground.is_stuck(pre_gps, gps, data[13])
         # Stuck Processing
         if stuck:
-            img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance, 'Stuck judgment because the movement distance is {}m'.format(diff_distance))
+            img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance, 'Stuck judgment because the value of acceleration is {}m/s^2'.format(data[13]))
             print('stuck')
             drive.stuck()
             pre_gps = gps
@@ -359,7 +378,7 @@ while not reach_goal:
             print('Error : The rover is far from the goal')
             error_log.far_error_logger(phase, gps, distance, error_heading)
             drive.stop()
-            if error_heading < 15:
+            if error_heading < 35:
                 phase = 2
                 break
             else:
@@ -381,7 +400,7 @@ while not reach_goal:
             if not_found >= 8:
                 print('Error : Cone not found')
                 # when GPS is enabled
-                if error_heading < 15:
+                if error_heading < 35:
                     # when the geomagnetic sensor is enabled
                     if error_mag == False:
                         gps = GYSFDMAXB.read_GPSData()
@@ -438,7 +457,7 @@ while not reach_goal:
         time.sleep(4) if p < 0.01 else time.sleep(2)
         drive.stop()
         
-    if error_mag and error_heading >= 15 and error_img_proc:
+    if error_mag and error_heading >= 35 and error_img_proc:
         print('Error : All sensors are dead')
         error_log.all_sensor_error_logger(phase, error_mag, error_heading, error_img_proc)
         phase = 4
