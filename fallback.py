@@ -6,7 +6,7 @@
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 08/17/2023
+    Last Update : 08/18/2023
 """""""""""""""""""""""""""""""""""
 
 import sys

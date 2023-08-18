@@ -60,9 +60,9 @@ class Motor(object):
         Motor.pi.set_PWM_dutycycle(REAR[0], 0)
         Motor.pi.set_PWM_dutycycle(FRONT[1], 0) # Right
         Motor.pi.set_PWM_dutycycle(REAR[1], 100)
-        time.sleep(2.5)
+        time.sleep(3.7)
         Motor.forward(self)
-        time.sleep(5)
+        time.sleep(2)
         Motor.stop(self)
         print('Finish stuck processing')
         
