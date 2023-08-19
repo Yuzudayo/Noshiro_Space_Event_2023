@@ -1,0 +1,3400 @@
+Hello World!!
+stop
+phase :  1
+initial altitude : 26.95653321311936.
+Rising phase
+Rising
+altitude : 0.0.
+Rising
+altitude : 0.1742480161390496.
+Rising
+altitude : -0.046579784393212975.
+Rising
+altitude : -0.2005777905828161.
+Rising
+altitude : -0.34443805745108946.
+Rising
+altitude : -0.26743138359238117.
+Rising
+altitude : -0.7295018052688533.
+Rising
+altitude : -0.5551639421669528.
+Rising
+altitude : -0.8632560398864939.
+Rising
+altitude : -0.2063289349412507.
+Rising
+altitude : -0.6786864903896266.
+Rising
+altitude : -0.03183177174784646.
+Rising
+altitude : 0.055436728913946354.
+Rising
+altitude : -0.011332768693851136.
+Rising
+altitude : -0.5608123388480557.
+Rising
+altitude : -0.3092053814259259.
+Rising
+altitude : -0.38624475757946897.
+Rising
+altitude : -1.0230841571998255.
+Rising
+altitude : 14.204101685095555.
+Rising
+altitude : -1.0899184355237637.
+Rising
+altitude : -1.2338114755082863.
+Rising
+altitude : -1.4650085336278522.
+Rising
+altitude : -0.7406954898718361.
+Rising
+altitude : -0.7304164328482692.
+Rising
+altitude : -0.478638738078363.
+Rising
+altitude : -1.1157462931637099.
+Rising
+altitude : -1.6655409284015583.
+Rising
+altitude : -0.5608123388480557.
+Rising
+altitude : -0.8433457192535307.
+Rising
+altitude : -1.6450351009788946.
+Rising
+altitude : -1.316133019186065.
+Rising
+altitude : -1.6244887926733256.
+Rising
+altitude : -1.614200453115398.
+Rising
+altitude : -1.1310251049055147.
+Rising
+altitude : -1.932876929097521.
+Rising
+altitude : -1.6039019872434004.
+Rising
+altitude : -1.1977830524358701.
+Rising
+altitude : -1.4958408468550957.
+Rising
+altitude : -0.9354330557373025.
+Rising
+altitude : -1.3312902036902443.
+Rising
+altitude : -0.5291872112548077.
+Rising
+altitude : -0.9146628504435803.
+Rising
+altitude : -1.3980394004439844.
+Rising
+altitude : -3.727142687107623.
+Rising
+Rising
+Rising
+Rising
+altitude : 1.3802896756430734.
+Rising
+altitude : 2.5895423157312614.
+Rising
+altitude : 4.689641458544532.
+Rising
+altitude : 7.747444263585965.
+Rising
+altitude : 9.276686872788783.
+Rising
+altitude : 12.512514640433185.
+Rising
+altitude : 14.7693092887362.
+Rising
+altitude : 17.026650573498546.
+Rising
+altitude : 18.161445946966015.
+Rising
+altitude : 19.680538199108288.
+Rising
+altitude : 21.70863238692178.
+Rising
+altitude : 23.482704955815567.
+Rising
+altitude : 26.96759230043786.
+Falling
+altitude : 29.713506274368246.
+Falling
+altitude : 29.713506274368246.
+Falling
+altitude : 30.60769918830025.
+Falling
+altitude : 30.60769918830025.
+Falling
+altitude : 30.60769918830025.
+Falling
+altitude : 31.65532309636387.
+Falling
+altitude : 31.65532309636387.
+Falling
+altitude : 31.65532309636387.
+Falling
+altitude : 33.03538384930687.
+Falling
+altitude : 33.03538384930687.
+Falling
+altitude : 33.03538384930687.
+Falling
+altitude : 34.73521403646487.
+Falling
+altitude : 34.73521403646487.
+Falling
+altitude : 34.73521403646487.
+Falling
+altitude : 35.93645142929623.
+Falling
+altitude : 35.93645142929623.
+Falling
+altitude : 36.75489980561504.
+Falling
+altitude : 36.75489980561504.
+Falling
+altitude : 36.75489980561504.
+Falling
+altitude : 39.1079122747516.
+Falling
+altitude : 39.1079122747516.
+Falling
+altitude : 39.1079122747516.
+Falling
+altitude : 40.55252727184171.
+Falling
+altitude : 40.55252727184171.
+Falling
+altitude : 40.55252727184171.
+Falling
+altitude : 41.5246818369657.
+Falling
+altitude : 41.5246818369657.
+Falling
+altitude : 41.5246818369657.
+Falling
+altitude : 42.01080467949083.
+Falling
+altitude : 42.01080467949083.
+Falling
+altitude : 42.01080467949083.
+Falling
+altitude : 43.54582300045243.
+Falling
+altitude : 43.54582300045243.
+Falling
+altitude : 43.54582300045243.
+Falling
+altitude : 44.76147347652649.
+Falling
+altitude : 44.76147347652649.
+Falling
+altitude : 46.053744518715305.
+Falling
+altitude : 46.053744518715305.
+Falling
+altitude : 46.053744518715305.
+Falling
+altitude : 47.02653974408928.
+Falling
+altitude : 47.02653974408928.
+Falling
+altitude : 47.02653974408928.
+Falling
+altitude : 47.756215994125185.
+Falling
+altitude : 47.756215994125185.
+Falling
+altitude : 47.756215994125185.
+Falling
+altitude : 47.102954340869076.
+Falling
+altitude : 47.102954340869076.
+Falling
+altitude : 47.102954340869076.
+Falling
+altitude : 47.756215994125185.
+Falling
+altitude : 47.756215994125185.
+Falling
+altitude : 47.756215994125185.
+Falling
+altitude : 47.58939058796021.
+Falling
+altitude : 47.58939058796021.
+Falling
+altitude : 47.58939058796021.
+Falling
+altitude : 47.5129829736173.
+Falling
+altitude : 47.5129829736173.
+Falling
+altitude : 48.07585725054649.
+Falling
+altitude : 48.07585725054649.
+Falling
+altitude : 48.07585725054649.
+Falling
+altitude : 47.83262011708926.
+Falling
+altitude : 47.83262011708926.
+Falling
+altitude : 47.83262011708926.
+Falling
+altitude : 48.166305684036274.
+Falling
+altitude : 48.166305684036274.
+Falling
+altitude : 48.166305684036274.
+Falling
+altitude : 48.07585725054649.
+Falling
+altitude : 48.07585725054649.
+Falling
+altitude : 48.07585725054649.
+Falling
+altitude : 48.56235433216804.
+Falling
+altitude : 48.56235433216804.
+Falling
+altitude : 48.56235433216804.
+Falling
+altitude : 47.58939058796021.
+Falling
+altitude : 47.58939058796021.
+Falling
+altitude : 47.58939058796021.
+Falling
+altitude : 47.99945661905413.
+Falling
+altitude : 47.99945661905413.
+Falling
+altitude : 48.56235433216804.
+Falling
+altitude : 48.56235433216804.
+Falling
+altitude : 48.56235433216804.
+Falling
+altitude : 45.69255439789032.
+Falling
+altitude : 45.69255439789032.
+Falling
+altitude : 45.69255439789032.
+Falling
+altitude : 37.13505784157945.
+Falling
+altitude : 37.13505784157945.
+Falling
+altitude : 37.13505784157945.
+Falling
+altitude : 32.47223634258148.
+Falling
+altitude : 32.47223634258148.
+Falling
+altitude : 32.47223634258148.
+Falling
+altitude : 28.822005676025807.
+Falling
+altitude : 28.822005676025807.
+Falling
+altitude : 28.822005676025807.
+Falling
+altitude : 25.913271338510537.
+Falling
+altitude : 25.913271338510537.
+Falling
+altitude : 25.913271338510537.
+Falling
+altitude : 22.57379636359578.
+Falling
+altitude : 22.57379636359578.
+Falling
+altitude : 29.159629913103355.
+Falling
+altitude : 29.159629913103355.
+Falling
+altitude : 29.159629913103355.
+Falling
+altitude : 16.179143814419024.
+Falling
+altitude : 16.179143814419024.
+Falling
+altitude : 16.179143814419024.
+Falling
+altitude : 13.25337324924281.
+Falling
+altitude : 13.25337324924281.
+Falling
+altitude : 13.25337324924281.
+Falling
+altitude : 9.923052885646829.
+Falling
+altitude : 9.923052885646829.
+Falling
+altitude : 9.923052885646829.
+Falling
+altitude : 6.826131493129832.
+Falling
+altitude : 6.826131493129832.
+Falling
+altitude : 6.826131493129832.
+Falling
+altitude : 3.1827665303916675.
+Landing
+Separation mechanism activated
+forward
+stop
+phase :  2
+des_ang :  125.11880879871501
+heading_ang :  104.145795494103
+distance :  16.127104937690824
+turn right
+distance :  16.127104937690824
+des_ang :  125.11880879871501
+heading_ang :  108.29277596456505
+turn right
+distance :  16.127104937690824
+des_ang :  125.11880879871501
+heading_ang :  99.0017551225613
+turn right
+distance :  16.127104937690824
+des_ang :  125.11880879871501
+heading_ang :  102.08523634271737
+turn right
+distance :  16.127104937690824
+des_ang :  125.11880879871501
+heading_ang :  87.39743779750019
+accel :  8.573995567995123
+stuck
+stop
+Finish stuck processing
+distance :  16.003732298972487
+des_ang :  126.24643802366029
+heading_ang :  323.55555824341286
+turn right
+distance :  16.22770405259496
+des_ang :  126.47865939008487
+heading_ang :  357.042699384836
+turn right
+distance :  16.22770405259496
+des_ang :  126.47865939008487
+heading_ang :  354.97592474146046
+turn right
+distance :  16.33812780643988
+des_ang :  127.00181751463484
+heading_ang :  1.6003970533799579
+turn right
+distance :  16.33812780643988
+des_ang :  127.00181751463484
+heading_ang :  348.3631647618455
+turn right
+distance :  16.33812780643988
+des_ang :  127.00181751463484
+heading_ang :  316.8813017707042
+accel :  12.601960164990206
+stuck
+stop
+Finish stuck processing
+distance :  16.675242724159517
+des_ang :  127.72670560612994
+heading_ang :  284.5438339934557
+turn left
+distance :  16.675242724159517
+des_ang :  127.72670560612994
+heading_ang :  260.3450229043438
+turn left
+distance :  16.675242724159517
+des_ang :  127.72670560612994
+heading_ang :  207.43972794819928
+turn left
+distance :  16.675242724159517
+des_ang :  127.72670560612994
+heading_ang :  188.7461622625552
+turn left
+distance :  16.787965683132743
+des_ang :  127.4305326943902
+heading_ang :  231.90771354942626
+turn left
+distance :  16.787965683132743
+des_ang :  127.4305326943902
+heading_ang :  237.77124256490146
+accel :  6.5502213703049765
+turn left
+distance :  16.787965683132743
+des_ang :  127.4305326943902
+heading_ang :  242.22202722077608
+turn left
+distance :  16.900808301381907
+des_ang :  127.92996012575205
+heading_ang :  252.9759919974607
+turn left
+distance :  16.900808301381907
+des_ang :  127.92996012575205
+heading_ang :  255.13171864150178
+turn left
+distance :  17.013222384368532
+des_ang :  127.63637433416639
+heading_ang :  258.69006752597977
+turn left
+distance :  17.013222384368532
+des_ang :  127.63637433416639
+heading_ang :  262.5685920288275
+accel :  6.609357003521598
+turn left
+distance :  17.013222384368532
+des_ang :  127.63637433416639
+heading_ang :  234.0534386621738
+turn left
+distance :  17.013222384368532
+des_ang :  127.63637433416639
+heading_ang :  243.751496870195
+turn left
+distance :  17.013222384368532
+des_ang :  127.63637433416639
+heading_ang :  235.98865109649398
+turn left
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  254.09244806947413
+turn left
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  186.06178878872862
+stuck
+stop
+Finish stuck processing
+distance :  17.353069987963522
+des_ang :  126.7784779190124
+heading_ang :  52.29382390738709
+forward
+des_ang :  125.73419326985525
+heading_ang :  165.54970209951074
+distance :  17.47327747041663
+accel :  6.166765764969512
+turn left
+distance :  17.47327747041663
+des_ang :  125.73419326985525
+heading_ang :  159.85012098155144
+turn left
+distance :  17.35803259948769
+des_ang :  126.0076180650757
+heading_ang :  151.0405836898557
+turn left
+distance :  17.35803259948769
+des_ang :  126.0076180650757
+heading_ang :  144.77904972608553
+turn left
+distance :  17.35803259948769
+des_ang :  126.0076180650757
+heading_ang :  142.81131273808066
+accel :  7.195234534050992
+turn left
+distance :  17.25016703692104
+des_ang :  125.50907683774967
+heading_ang :  147.2221515963994
+turn left
+distance :  17.25016703692104
+des_ang :  125.50907683774967
+heading_ang :  147.19162503146654
+turn left
+distance :  17.134598796836013
+des_ang :  125.78455632072951
+heading_ang :  145.14554443389636
+turn left
+distance :  17.134598796836013
+des_ang :  125.78455632072951
+heading_ang :  142.84646219839817
+turn left
+distance :  17.134598796836013
+des_ang :  125.78455632072951
+heading_ang :  150.5006924664173
+accel :  9.541849925459948
+stuck
+stop
+Finish stuck processing
+distance :  16.904671871815882
+des_ang :  126.34675187412348
+heading_ang :  204.02565089416316
+turn left
+distance :  16.904671871815882
+des_ang :  126.34675187412348
+heading_ang :  225.2114225810393
+turn left
+distance :  16.790329754640247
+des_ang :  126.63359396374724
+heading_ang :  315.18744462956255
+turn right
+distance :  16.790329754640247
+des_ang :  126.63359396374724
+heading_ang :  316.03410754488345
+turn right
+distance :  16.904671871815882
+des_ang :  126.34675187412348
+heading_ang :  305.317079100906
+turn left
+distance :  16.904671871815882
+des_ang :  126.34675187412348
+heading_ang :  291.14609417940767
+accel :  19.306366825480136
+stuck
+stop
+Finish stuck processing
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  289.7129162189425
+turn left
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  321.4506146966702
+turn right
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  258.5180086452519
+turn left
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  182.01162809364845
+turn left
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  197.46492313227105
+turn left
+distance :  17.238692496124305
+des_ang :  127.83682855635963
+heading_ang :  180.30049958479725
+accel :  8.84349478430332
+stuck
+stop
+Finish stuck processing
+distance :  17.464222376575815
+des_ang :  127.26599306257673
+heading_ang :  270.5371321970091
+turn left
+distance :  17.464222376575815
+des_ang :  127.26599306257673
+heading_ang :  328.84440563731596
+turn right
+distance :  17.464222376575815
+des_ang :  127.26599306257673
+heading_ang :  318.03556912505553
+turn right
+distance :  17.464222376575815
+des_ang :  127.26599306257673
+heading_ang :  318.08264488196465
+turn right
+distance :  17.464222376575815
+des_ang :  127.26599306257673
+heading_ang :  253.07248693585296
+turn left
+distance :  17.464222376575815
+des_ang :  127.26599306257673
+heading_ang :  201.32100600005427
+stuck
+stop
+Finish stuck processing
+distance :  17.47327747041663
+des_ang :  125.73419326985525
+heading_ang :  294.02650657867923
+forward
+des_ang :  124.70437579756859
+heading_ang :  163.59557120042425
+distance :  17.59919548538005
+accel :  6.202910607126304
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  164.98370863027043
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  157.9298347972132
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  170.1791689026183
+turn left
+distance :  17.82133196965298
+des_ang :  124.93516508888165
+heading_ang :  159.44395478041653
+accel :  6.527258229915529
+turn left
+distance :  17.82133196965298
+des_ang :  124.93516508888165
+heading_ang :  166.6947634939089
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  167.8021312535365
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  163.676381802654
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  174.96753207826706
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  171.72410717292482
+accel :  7.05599036280521
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  162.9542628352745
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  165.79946800881228
+turn left
+distance :  17.704934744844675
+des_ang :  125.1980244331055
+heading_ang :  173.74596725608353
+turn left
+distance :  17.704934744844675
+des_ang :  125.1980244331055
+heading_ang :  172.82336584568176
+turn left
+distance :  17.704934744844675
+des_ang :  125.1980244331055
+heading_ang :  164.97773052866486
+accel :  7.900999936716872
+turn left
+distance :  17.704934744844675
+des_ang :  125.1980244331055
+heading_ang :  170.08724855327617
+turn left
+distance :  17.704934744844675
+des_ang :  125.1980244331055
+heading_ang :  176.72101374114558
+turn left
+distance :  17.696650170697776
+des_ang :  125.95362368631308
+heading_ang :  167.58326634798067
+turn left
+distance :  17.696650170697776
+des_ang :  125.95362368631308
+heading_ang :  166.3218504913971
+turn left
+distance :  17.696650170697776
+des_ang :  125.95362368631308
+heading_ang :  172.2482208457033
+accel :  8.35964712173905
+stuck
+stop
+Finish stuck processing
+distance :  17.696650170697776
+des_ang :  125.95362368631308
+heading_ang :  48.366460663429805
+turn right
+distance :  17.588914078745816
+des_ang :  125.46434809051985
+heading_ang :  62.91644913563134
+turn right
+distance :  17.588914078745816
+des_ang :  125.46434809051985
+heading_ang :  90.13232258117384
+turn right
+distance :  17.588914078745816
+des_ang :  125.46434809051985
+heading_ang :  97.57230293061012
+turn right
+distance :  17.704934744844675
+des_ang :  125.1980244331055
+heading_ang :  108.7661346113374
+turn right
+distance :  17.704934744844675
+des_ang :  125.1980244331055
+heading_ang :  120.48032965494279
+forward
+des_ang :  124.96904667743627
+heading_ang :  163.6714017945661
+distance :  17.482473102342652
+accel :  6.816010563372097
+turn left
+distance :  17.482473102342652
+des_ang :  124.96904667743627
+heading_ang :  152.52556837372288
+turn left
+distance :  17.482473102342652
+des_ang :  124.96904667743627
+heading_ang :  150.21454096231145
+turn left
+distance :  17.482473102342652
+des_ang :  124.96904667743627
+heading_ang :  152.13455111491282
+turn left
+distance :  17.482473102342652
+des_ang :  124.96904667743627
+heading_ang :  164.06579905390012
+accel :  6.78978644730451
+turn left
+distance :  17.482473102342652
+des_ang :  124.96904667743627
+heading_ang :  171.30089791537392
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  170.21198288503106
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  165.51879085896257
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  165.42578380196127
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  163.66519145427534
+accel :  6.970724496062084
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  164.65974647176202
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  162.99782291545617
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  164.95767164061868
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  169.1983817643093
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  165.78199400624658
+accel :  7.082068906753167
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  168.8695837412151
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  166.46414363086578
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  166.84433123272368
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  170.15661300415255
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  168.17851165939277
+accel :  7.715212245946316
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  167.0843615414433
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  170.0677206063857
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  173.75368437900988
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  173.29445822818053
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  166.21568358730352
+stuck
+stop
+Finish stuck processing
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  158.88787125739748
+forward
+des_ang :  124.70437579756859
+heading_ang :  160.28756952992902
+distance :  17.59919548538005
+accel :  7.351231189399502
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  152.320002854854
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  140.07627470757134
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  143.60984049278338
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  161.8524420977473
+accel :  5.0429059083032675
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  162.95762856221623
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  162.23235953291308
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  150.03781590358224
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  158.96799765444902
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  156.9797152785169
+accel :  3.380192302221872
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  158.8365413199302
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  160.76135548309156
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  161.51891931948376
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  160.26254015861576
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  148.43259978010778
+accel :  4.6469882719886435
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  150.0141856189882
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  150.67088897410693
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  147.30123946199836
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  159.45953698822194
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  159.38812650512952
+accel :  5.977323815889516
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  153.90457584261168
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  153.53012444885798
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  148.80545823932513
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  150.67698520366727
+turn left
+distance :  17.59919548538005
+des_ang :  124.70437579756859
+heading_ang :  163.0160432064096
+stuck
+stop
+Finish stuck processing
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  119.86627047869301
+forward
+des_ang :  124.44318917353074
+heading_ang :  151.63826635004344
+distance :  17.7162874418546
+accel :  6.413844400981365
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  154.34808640760735
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  155.97830590104013
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  156.00554239740265
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  152.55893483380405
+accel :  3.815979559693684
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  159.5568341868546
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  160.06746343806049
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  148.4084842989593
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  153.434948822922
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  159.09837663249814
+accel :  4.046887693030287
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  146.93815049450484
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  158.31255511623863
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  154.68419150161924
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  161.2599147199734
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  154.0440742484792
+accel :  3.2184157593449614
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  159.01215302990624
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  155.65010481064698
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  155.27268561330987
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  155.3764352138364
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  155.97599363715565
+accel :  2.747598951812291
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  156.6344885324846
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  156.2294419895384
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  153.50239526559176
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  159.23557296663898
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  151.21723231630835
+stuck
+stop
+Finish stuck processing
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  270.0
+forward
+des_ang :  124.44318917353074
+heading_ang :  216.51648113694958
+distance :  17.7162874418546
+accel :  5.296272273967795
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  209.54933332067137
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  231.3401917459099
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  236.54201537489544
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  204.64996489333896
+accel :  6.950460416404082
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  203.24979316267462
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  219.63172855261513
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  207.83535026914802
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  212.9977051012163
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  198.8951459909007
+accel :  6.648992404868576
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  200.13354802863918
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  203.6293777306568
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  183.86763228692206
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  197.22610765515827
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  184.4732121784248
+accel :  3.8905269565959832
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  167.20953100374115
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  170.02007885425544
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  170.1847670748069
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  153.47259387631783
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  149.67639313745002
+accel :  6.337862415672969
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  152.20297142028227
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  149.77509890126873
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  146.55322519228505
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  139.62048335521064
+turn left
+distance :  17.7162874418546
+des_ang :  124.44318917353074
+heading_ang :  128.8972203463442
+forward
+des_ang :  123.69916110804425
+heading_ang :  107.301671848413
+distance :  17.39169643262981
+accel :  7.466639136854011
+turn right
+distance :  17.39169643262981
+des_ang :  123.69916110804425
+heading_ang :  109.05770451012833
+forward
+des_ang :  123.18753617497447
+heading_ang :  93.854102618412
+distance :  16.950965241692867
+accel :  2.746525077256714
+turn right
+distance :  16.950965241692867
+des_ang :  123.18753617497447
+heading_ang :  114.50265945199817
+forward
+des_ang :  123.9917910170882
+heading_ang :  112.30399115307284
+distance :  16.595597629468408
+accel :  8.516583822167195
+Stuck
+stop
+Finish stuck processing
+distance :  16.46593604965348
+des_ang :  125.07905721646819
+heading_ang :  34.843517977085156
+turn right
+distance :  16.46593604965348
+des_ang :  125.07905721646819
+heading_ang :  30.534728761279453
+turn right
+distance :  16.46593604965348
+des_ang :  125.07905721646819
+heading_ang :  25.81878956098594
+turn right
+distance :  16.46593604965348
+des_ang :  125.07905721646819
+heading_ang :  44.625523113277175
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  82.54467294383767
+accel :  4.118846926021893
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  99.72458363323419
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  107.4693810355211
+turn right
+distance :  16.24363216668249
+des_ang :  124.83098211437698
+heading_ang :  96.06811252704067
+turn right
+distance :  16.24363216668249
+des_ang :  124.83098211437698
+heading_ang :  102.57713817386998
+turn right
+distance :  16.24363216668249
+des_ang :  124.83098211437698
+heading_ang :  95.48023853997164
+accel :  6.857907844233546
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  99.93638994342834
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  90.70442081138009
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  97.70651543033996
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  79.4581825881048
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  89.05108834934036
+accel :  5.6068886202599035
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  80.45547443444187
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  91.97093932501289
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  83.4032617021058
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  71.11391263029071
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  85.30713749441017
+accel :  6.72432152711335
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  73.92890972043492
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  68.40741247563406
+turn right
+distance :  16.349759473647534
+des_ang :  125.36472359462856
+heading_ang :  67.91469483039903
+turn right
+distance :  16.233994045601385
+des_ang :  125.65446066040494
+heading_ang :  58.73626830562258
+turn right
+distance :  16.233994045601385
+des_ang :  125.65446066040494
+heading_ang :  29.74488129694222
+stuck
+stop
+Finish stuck processing
+distance :  16.57270632634389
+des_ang :  125.6040187690154
+heading_ang :  21.015816297373775
+forward
+des_ang :  124.46768284032197
+heading_ang :  169.27615265219046
+distance :  17.377351039749076
+accel :  5.449220127687998
+Error : Heading direction is wrong
+turn right
+stop
+distance :  17.26029710261903
+des_ang :  124.73416324502719
+heading_ang :  162.5076754748896
+Finish Error Processing
+turn left
+distance :  17.26029710261903
+des_ang :  124.73416324502719
+heading_ang :  178.58832747013233
+turn left
+distance :  17.26029710261903
+des_ang :  124.73416324502719
+heading_ang :  187.93826452354548
+turn left
+distance :  17.26029710261903
+des_ang :  124.73416324502719
+heading_ang :  171.56203001297254
+turn left
+distance :  17.26029710261903
+des_ang :  124.73416324502719
+heading_ang :  163.49289876651062
+accel :  6.5784344642171515
+turn left
+distance :  17.26029710261903
+des_ang :  124.73416324502719
+heading_ang :  165.0739536298251
+turn left
+distance :  17.26029710261903
+des_ang :  124.73416324502719
+heading_ang :  175.51863516027305
+turn left
+distance :  17.143620563788254
+des_ang :  125.00426747645113
+heading_ang :  176.34946115149373
+turn left
+distance :  17.143620563788254
+des_ang :  125.00426747645113
+heading_ang :  178.2376089763395
+turn left
+distance :  17.143620563788254
+des_ang :  125.00426747645113
+heading_ang :  164.33183957824752
+accel :  6.2021528520345255
+turn left
+distance :  17.143620563788254
+des_ang :  125.00426747645113
+heading_ang :  174.04016088928694
+turn left
+distance :  17.143620563788254
+des_ang :  125.00426747645113
+heading_ang :  178.87826793697036
+turn left
+distance :  17.134598796836013
+des_ang :  125.78455632072951
+heading_ang :  172.07862451670331
+turn left
+distance :  17.134598796836013
+des_ang :  125.78455632072951
+heading_ang :  183.1984962796577
+turn left
+distance :  17.134598796836013
+des_ang :  125.78455632072951
+heading_ang :  172.55889785834083
+accel :  9.153802488583638
+stuck
+stop
+Finish stuck processing
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  151.1481995951412
+turn left
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  158.56658403738354
+turn left
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  167.7264056564571
+turn left
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  161.3440226911598
+turn left
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  169.43097799398072
+turn left
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  152.55214004746375
+accel :  9.23376954444933
+stuck
+stop
+Finish stuck processing
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  182.66300076606714
+turn left
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  312.69857126800497
+turn right
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  327.20477333628656
+turn right
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  327.76373214008527
+turn right
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  292.8488540129537
+turn left
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  301.06516488549863
+stuck
+stop
+Finish stuck processing
+distance :  16.91143089742434
+des_ang :  125.5555971368371
+heading_ang :  353.8298249049704
+forward
+des_ang :  125.83695002061654
+heading_ang :  83.418055344822
+distance :  16.79593385425
+accel :  4.951504821768833
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  87.61405596961119
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  80.7633394038445
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  104.57854416415303
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  104.95863607372088
+accel :  9.489199123213718
+stuck
+stop
+Finish stuck processing
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  24.72954366433869
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  79.79005890032676
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  89.68576669990331
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  104.18909007813431
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  106.61442448912639
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  110.52147415810322
+accel :  7.4440983335794275
+turn right
+distance :  16.79593385425
+des_ang :  125.83695002061654
+heading_ang :  114.28273165377287
+forward
+des_ang :  125.89149962704965
+heading_ang :  131.0621969305169
+distance :  16.457283490729377
+accel :  4.358784234164385
+forward
+des_ang :  126.24643802366029
+heading_ang :  138.1363583683326
+distance :  16.003732298972487
+accel :  9.026898692241982
+Stuck
+stop
+Finish stuck processing
+distance :  15.66520523362104
+des_ang :  126.31259333370244
+heading_ang :  305.1645725766101
+turn left
+distance :  15.66520523362104
+des_ang :  126.31259333370244
+heading_ang :  285.4154111091194
+turn left
+distance :  15.780030264552314
+des_ang :  126.00762122446866
+heading_ang :  189.80356760434503
+turn left
+distance :  15.780030264552314
+des_ang :  126.00762122446866
+heading_ang :  176.4824963309816
+turn left
+distance :  15.788281894794098
+des_ang :  125.16026631985176
+heading_ang :  170.23935636782207
+accel :  2.856238785535971
+turn left
+distance :  15.788281894794098
+des_ang :  125.16026631985176
+heading_ang :  154.61339520538326
+turn left
+distance :  15.788281894794098
+des_ang :  125.16026631985176
+heading_ang :  153.27818921539875
+turn left
+distance :  15.89529484778614
+des_ang :  125.70705185804802
+heading_ang :  143.59277692302766
+turn left
+distance :  15.89529484778614
+des_ang :  125.70705185804802
+heading_ang :  134.2222770057364
+forward
+des_ang :  124.04429468974325
+heading_ang :  179.07865606779217
+distance :  15.578646517083468
+accel :  4.088691722299445
+turn left
+distance :  15.476083564697207
+des_ang :  123.47501808172439
+heading_ang :  161.73935331498967
+turn left
+distance :  15.476083564697207
+des_ang :  123.47501808172439
+heading_ang :  171.62254691615504
+turn left
+distance :  15.476083564697207
+des_ang :  123.47501808172439
+heading_ang :  159.81419699053518
+turn left
+distance :  15.375064025495107
+des_ang :  122.89816171952583
+heading_ang :  157.86450812189966
+accel :  4.777834237392503
+turn left
+distance :  15.375064025495107
+des_ang :  122.89816171952583
+heading_ang :  156.07593361858463
+turn left
+distance :  15.375064025495107
+des_ang :  122.89816171952583
+heading_ang :  148.08722842383668
+turn left
+distance :  15.375064025495107
+des_ang :  122.89816171952583
+heading_ang :  153.18016104374746
+turn left
+distance :  15.375064025495107
+des_ang :  122.89816171952583
+heading_ang :  148.19685703990237
+turn left
+distance :  15.275618522582235
+des_ang :  122.31369249453763
+heading_ang :  144.79940067809778
+accel :  7.109781993844819
+turn left
+distance :  15.275618522582235
+des_ang :  122.31369249453763
+heading_ang :  136.97493401088198
+forward
+des_ang :  121.3612764319196
+heading_ang :  132.54095600989538
+distance :  14.621189326204192
+accel :  3.6702316003217024
+forward
+des_ang :  121.91980580379423
+heading_ang :  142.55064520052122
+distance :  14.040195411485326
+accel :  6.48936052319487
+turn left
+distance :  13.822186931782346
+des_ang :  121.57776391537527
+heading_ang :  138.1698823603404
+turn left
+distance :  13.822186931782346
+des_ang :  121.57776391537527
+heading_ang :  136.59114027119458
+turn left
+distance :  13.822186931782346
+des_ang :  121.57776391537527
+heading_ang :  136.51741412501215
+forward
+des_ang :  121.49472928553583
+heading_ang :  152.23156603317327
+distance :  13.144428943744206
+accel :  6.762314692470323
+turn left
+distance :  12.92706383913086
+des_ang :  121.12181580233084
+heading_ang :  148.17044051336313
+turn left
+distance :  12.92706383913086
+des_ang :  121.12181580233084
+heading_ang :  147.98043115726875
+turn left
+distance :  12.92706383913086
+des_ang :  121.12181580233084
+heading_ang :  142.62419250445186
+turn left
+distance :  12.92706383913086
+des_ang :  121.12181580233084
+heading_ang :  148.695056129851
+accel :  6.447619715833124
+turn left
+distance :  12.92706383913086
+des_ang :  121.12181580233084
+heading_ang :  137.90776286349626
+turn left
+distance :  12.710263007575007
+des_ang :  120.7361461554861
+heading_ang :  133.81991675590353
+forward
+des_ang :  121.35277428986693
+heading_ang :  142.4234291688967
+distance :  12.127850707399919
+accel :  7.88944864993746
+turn left
+distance :  12.127850707399919
+des_ang :  121.35277428986693
+heading_ang :  143.48819631347956
+turn left
+distance :  12.127850707399919
+des_ang :  121.35277428986693
+heading_ang :  139.6014122355664
+turn left
+distance :  12.006660351881813
+des_ang :  121.7050333717207
+heading_ang :  125.1664360357929
+forward
+des_ang :  122.03147281659068
+heading_ang :  112.58832020200043
+distance :  11.546978997437813
+accel :  6.5925260712415845
+forward
+des_ang :  124.3822475843754
+heading_ang :  118.3766287107232
+distance :  11.17208162800549
+accel :  5.862397120632481
+forward
+des_ang :  127.3466512715548
+heading_ang :  129.93791914449014
+distance :  10.703799493498186
+accel :  7.407097947239527
+forward
+des_ang :  131.09153432457325
+heading_ang :  137.91741951317124
+distance :  10.15901651254507
+accel :  3.885421470059587
+forward
+des_ang :  133.05734586779562
+heading_ang :  139.0567378612949
+distance :  9.50713811600469
+accel :  12.416819238436227
+Stuck
+stop
+Finish stuck processing
+distance :  9.3310451493164
+des_ang :  135.67277386102353
+heading_ang :  237.62822191739042
+turn left
+distance :  9.3310451493164
+des_ang :  135.67277386102353
+heading_ang :  215.53767779197437
+turn left
+distance :  9.3310451493164
+des_ang :  135.67277386102353
+heading_ang :  189.51480687686887
+turn left
+distance :  9.3310451493164
+des_ang :  135.67277386102353
+heading_ang :  194.93141717813754
+turn left
+distance :  9.3310451493164
+des_ang :  135.67277386102353
+heading_ang :  201.03751102542182
+accel :  8.000268745485991
+stuck
+stop
+Finish stuck processing
+distance :  9.43103147145898
+des_ang :  135.0567277413887
+heading_ang :  140.08775781010513
+distance :  9.30122271427449
+des_ang :  134.249777004502
+heading_ang :  177.81945054780272
+turn left
+distance :  9.30122271427449
+des_ang :  134.249777004502
+heading_ang :  76.45682335755525
+turn right
+distance :  9.30122271427449
+des_ang :  134.249777004502
+heading_ang :  354.05077052526485
+turn right
+distance :  9.30122271427449
+des_ang :  134.249777004502
+heading_ang :  346.1216440735203
+turn right
+distance :  9.30122271427449
+des_ang :  134.249777004502
+heading_ang :  340.7043693968608
+accel :  2.5115931199141315
+turn right
+distance :  9.277172175280013
+des_ang :  132.81823489556803
+heading_ang :  357.1375947738882
+turn right
+distance :  9.277172175280013
+des_ang :  132.81823489556803
+heading_ang :  32.11036848594003
+turn right
+distance :  9.277172175280013
+des_ang :  132.81823489556803
+heading_ang :  83.95308329847042
+turn right
+distance :  9.277172175280013
+des_ang :  132.81823489556803
+heading_ang :  51.916837202186336
+turn right
+distance :  9.277172175280013
+des_ang :  132.81823489556803
+heading_ang :  112.0006983505406
+accel :  8.092329701637224
+stuck
+stop
+Finish stuck processing
+distance :  9.382033934159319
+des_ang :  132.22975062711177
+heading_ang :  106.20599868899428
+turn right
+distance :  9.382033934159319
+des_ang :  132.22975062711177
+heading_ang :  79.14883175700196
+turn right
+distance :  9.382033934159319
+des_ang :  132.22975062711177
+heading_ang :  37.253420127481505
+turn right
+distance :  9.382033934159319
+des_ang :  132.22975062711177
+heading_ang :  34.18612248637504
+turn right
+distance :  9.382033934159319
+des_ang :  132.22975062711177
+heading_ang :  41.41630081341721
+turn right
+distance :  9.366158373690128
+des_ang :  130.80648950209402
+heading_ang :  40.638841022010766
+accel :  17.886279657883023
+stuck
+stop
+Finish stuck processing
+distance :  9.487862822029728
+des_ang :  131.65428914683434
+heading_ang :  33.33122599963105
+turn right
+distance :  9.487862822029728
+des_ang :  131.65428914683434
+heading_ang :  71.32829310517087
+turn right
+distance :  9.487862822029728
+des_ang :  131.65428914683434
+heading_ang :  24.904768808095188
+turn right
+distance :  9.716994312587255
+des_ang :  131.9157611361735
+heading_ang :  19.98855703363326
+turn right
+distance :  9.716994312587255
+des_ang :  131.9157611361735
+heading_ang :  16.26876526099188
+turn right
+distance :  9.716994312587255
+des_ang :  131.9157611361735
+heading_ang :  14.470294100065887
+stuck
+stop
+Finish stuck processing
+distance :  9.841320485823898
+des_ang :  132.7192355219754
+heading_ang :  11.387098460378033
+forward
+des_ang :  130.82268904848414
+heading_ang :  162.4649108919824
+distance :  9.93054147103138
+accel :  6.382671854325585
+turn left
+distance :  9.810837867931529
+des_ang :  130.00290945367203
+heading_ang :  165.75653942645218
+turn left
+distance :  9.810837867931529
+des_ang :  130.00290945367203
+heading_ang :  167.51275111782988
+turn left
+distance :  9.810837867931529
+des_ang :  130.00290945367203
+heading_ang :  154.99419102157077
+turn left
+distance :  9.583314261905711
+des_ang :  129.6983642103562
+heading_ang :  139.50398535402925
+forward
+des_ang :  125.78457364678293
+heading_ang :  172.728322419761
+distance :  8.567301250737161
+accel :  8.205492063246421
+Stuck
+stop
+Finish stuck processing
+distance :  8.005496363776029
+des_ang :  125.41082318423983
+heading_ang :  259.0597125878268
+turn left
+distance :  8.005496363776029
+des_ang :  125.41082318423983
+heading_ang :  323.6003223106462
+turn right
+distance :  7.890016703015376
+des_ang :  126.00763705571974
+heading_ang :  329.7150716505978
+turn right
+distance :  7.890016703015376
+des_ang :  126.00763705571974
+heading_ang :  333.27710960922013
+turn right
+distance :  7.890016703015376
+des_ang :  126.00763705571974
+heading_ang :  334.9580186088378
+accel :  18.579962325042533
+stuck
+stop
+Finish stuck processing
+distance :  8.136465121402738
+des_ang :  123.18755574445144
+heading_ang :  279.1124005507032
+turn left
+distance :  8.136465121402738
+des_ang :  123.18755574445144
+heading_ang :  324.8319672698726
+turn right
+distance :  8.255828384568995
+des_ang :  122.64862483623779
+heading_ang :  334.9121630144152
+turn right
+distance :  8.255828384568995
+des_ang :  122.64862483623779
+heading_ang :  330.6463372596802
+turn right
+distance :  8.475484428163861
+des_ang :  123.18755499027185
+heading_ang :  330.66210634532604
+turn right
+distance :  8.475484428163861
+des_ang :  123.18755499027185
+heading_ang :  329.5344550805401
+accel :  16.024949297891713
+stuck
+stop
+Finish stuck processing
+distance :  9.360703114153262
+des_ang :  125.08885553501706
+heading_ang :  202.37033252348155
+turn left
+distance :  9.360703114153262
+des_ang :  125.08885553501706
+heading_ang :  326.0564129802482
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  326.0138328903514
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  321.3781862890894
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  292.61986494804046
+turn left
+distance :  9.594816156423313
+des_ang :  124.1149360546371
+heading_ang :  330.70863782901574
+accel :  4.306146769444814
+turn right
+distance :  9.594816156423313
+des_ang :  124.1149360546371
+heading_ang :  334.722277764447
+turn right
+distance :  9.594816156423313
+des_ang :  124.1149360546371
+heading_ang :  17.102728969052375
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  47.42927332349997
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  79.39738689452405
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  65.38512692789487
+accel :  7.157492577711835
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  67.6090727501057
+turn right
+distance :  9.477418341104485
+des_ang :  124.59589656985169
+heading_ang :  46.86952488703843
+turn right
+distance :  9.583427988499913
+des_ang :  125.5090925009564
+heading_ang :  66.68229161324494
+turn right
+distance :  9.583427988499913
+des_ang :  125.5090925009564
+heading_ang :  52.57088890083429
+turn right
+distance :  9.583427988499913
+des_ang :  125.5090925009564
+heading_ang :  47.50629628198809
+stuck
+stop
+Finish stuck processing
+distance :  9.699542805090385
+des_ang :  125.02242025870773
+heading_ang :  333.7185889786798
+forward
+des_ang :  125.91019822579095
+heading_ang :  142.99293761735822
+distance :  9.806643680306259
+accel :  5.988129925110176
+turn left
+distance :  9.806643680306259
+des_ang :  125.91019822579095
+heading_ang :  142.52639622444488
+turn left
+distance :  9.806643680306259
+des_ang :  125.91019822579095
+heading_ang :  132.45221967984193
+forward
+des_ang :  100.02492208022704
+heading_ang :  146.2257977628144
+distance :  10.671649243949675
+accel :  5.289328879924182
+Error : Heading direction is wrong
+turn right
+stop
+distance :  10.267688152136152
+des_ang :  95.19065344966732
+heading_ang :  224.79943216285054
+Finish Error Processing
+turn left
+distance :  9.277980458465606
+des_ang :  95.74609422259279
+heading_ang :  219.1796309471766
+turn left
+distance :  9.277980458465606
+des_ang :  95.74609422259279
+heading_ang :  202.1193628235823
+turn left
+distance :  9.277980458465606
+des_ang :  95.74609422259279
+heading_ang :  205.03752573486506
+turn left
+distance :  9.520571112623962
+des_ang :  100.1141889424561
+heading_ang :  207.91976642810863
+accel :  6.8802688900943405
+Error : Heading direction is wrong
+turn right
+stop
+distance :  11.817884272254163
+des_ang :  114.10957596287506
+heading_ang :  203.02549200852803
+Finish Error Processing
+turn left
+distance :  11.817884272254163
+des_ang :  114.10957596287506
+heading_ang :  199.21709517697866
+turn left
+distance :  11.758147432636038
+des_ang :  107.46441745110484
+heading_ang :  199.78373396375926
+turn left
+distance :  11.758147432636038
+des_ang :  107.46441745110484
+heading_ang :  204.28582515565128
+turn left
+distance :  11.758147432636038
+des_ang :  107.46441745110484
+heading_ang :  205.61309410832393
+turn left
+distance :  11.614030152341584
+des_ang :  102.00088121286721
+heading_ang :  189.2479831395662
+accel :  8.272182299732036
+stuck
+stop
+Finish stuck processing
+distance :  11.976716755236344
+des_ang :  106.20903626101412
+heading_ang :  48.54476645559488
+turn right
+distance :  11.976716755236344
+des_ang :  106.20903626101412
+heading_ang :  12.287297423372248
+turn right
+distance :  11.976716755236344
+des_ang :  106.20903626101412
+heading_ang :  38.869511268759275
+turn right
+distance :  10.939495817896034
+des_ang :  110.88391860887543
+heading_ang :  56.309932474020215
+turn right
+distance :  10.939495817896034
+des_ang :  110.88391860887543
+heading_ang :  354.19771273488516
+turn right
+distance :  10.939495817896034
+des_ang :  110.88391860887543
+heading_ang :  351.1193408494797
+accel :  0.6612110101926617
+turn right
+distance :  10.372754110475658
+des_ang :  115.43987597596914
+heading_ang :  26.819132790969228
+turn right
+distance :  10.372754110475658
+des_ang :  115.43987597596914
+heading_ang :  326.54049774660933
+turn right
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  332.65012421993015
+turn right
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  289.37800405539303
+turn right
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  249.04422326936782
+accel :  7.289746223292002
+turn left
+distance :  10.545331512768813
+des_ang :  109.5482703361511
+heading_ang :  239.93141717813754
+turn left
+distance :  10.545331512768813
+des_ang :  109.5482703361511
+heading_ang :  243.96219571458934
+turn left
+distance :  9.662750533538418
+des_ang :  119.96214366781916
+heading_ang :  229.12759170251172
+turn left
+distance :  9.662750533538418
+des_ang :  119.96214366781916
+heading_ang :  231.84277341263095
+turn left
+distance :  9.662750533538418
+des_ang :  119.96214366781916
+heading_ang :  225.11168753789795
+stuck
+stop
+Finish stuck processing
+distance :  10.595990034232157
+des_ang :  105.24456087465265
+heading_ang :  113.85047390807692
+forward
+des_ang :  105.02070163627407
+heading_ang :  36.555196906589096
+distance :  11.466955361671051
+accel :  18.23338147464699
+Stuck
+stop
+Finish stuck processing
+distance :  11.976716755236344
+des_ang :  106.20903626101412
+heading_ang :  300.62067213255
+turn right
+distance :  11.976716755236344
+des_ang :  106.20903626101412
+heading_ang :  310.6457789369304
+turn right
+distance :  12.113203656053214
+des_ang :  106.02156590022952
+heading_ang :  323.59215507558673
+turn right
+distance :  12.113203656053214
+des_ang :  106.02156590022952
+heading_ang :  328.725740347725
+turn right
+distance :  12.113203656053214
+des_ang :  106.02156590022952
+heading_ang :  338.0813947644521
+accel :  16.858021829384374
+stuck
+stop
+Finish stuck processing
+distance :  11.976716755236344
+des_ang :  106.20903626101412
+heading_ang :  266.7567077172238
+turn left
+distance :  11.704138422509885
+des_ang :  106.59707534830844
+heading_ang :  322.66874721611885
+turn right
+distance :  11.704138422509885
+des_ang :  106.59707534830844
+heading_ang :  334.86389423283794
+turn right
+distance :  11.704138422509885
+des_ang :  106.59707534830844
+heading_ang :  339.67686317033707
+turn right
+distance :  11.568056310538973
+des_ang :  106.79794339731916
+heading_ang :  336.36575100770614
+turn right
+distance :  11.568056310538973
+des_ang :  106.79794339731916
+heading_ang :  339.00400764811764
+accel :  17.45831034206919
+stuck
+stop
+Finish stuck processing
+distance :  11.243149830796012
+des_ang :  106.31002617883084
+heading_ang :  310.81871317616975
+turn right
+distance :  11.243149830796012
+des_ang :  106.31002617883084
+heading_ang :  326.16078978394125
+turn right
+distance :  11.1068680463605
+des_ang :  106.51571787462129
+heading_ang :  317.55832263633675
+turn right
+distance :  11.1068680463605
+des_ang :  106.51571787462129
+heading_ang :  318.63508204103516
+turn right
+distance :  11.1068680463605
+des_ang :  106.51571787462129
+heading_ang :  326.15044567782775
+turn right
+distance :  10.970731994657925
+des_ang :  106.72651391010571
+heading_ang :  308.4865602047363
+accel :  17.084583694079292
+stuck
+stop
+Finish stuck processing
+distance :  10.619841159065746
+des_ang :  108.34766081428364
+heading_ang :  239.34933204294714
+turn left
+distance :  10.619841159065746
+des_ang :  108.34766081428364
+heading_ang :  343.1056420800734
+turn right
+distance :  10.619841159065746
+des_ang :  108.34766081428364
+heading_ang :  338.61918819145905
+turn right
+distance :  10.485077073599887
+des_ang :  108.59186924560586
+heading_ang :  345.22183826706265
+turn right
+distance :  10.485077073599887
+des_ang :  108.59186924560586
+heading_ang :  354.74619724873776
+turn right
+distance :  10.411540463445231
+des_ang :  109.80967414973725
+heading_ang :  337.53678751059283
+accel :  4.112298627288636
+turn right
+distance :  10.411540463445231
+des_ang :  109.80967414973725
+heading_ang :  233.13010235415598
+turn left
+distance :  10.411540463445231
+des_ang :  109.80967414973725
+heading_ang :  27.89727103094763
+turn right
+distance :  10.277970421211501
+des_ang :  110.07787171299958
+heading_ang :  69.44395478041653
+turn right
+distance :  10.277970421211501
+des_ang :  110.07787171299958
+heading_ang :  7.973271232570362
+turn right
+distance :  10.277970421211501
+des_ang :  110.07787171299958
+heading_ang :  13.128235438472048
+stuck
+stop
+Finish stuck processing
+distance :  10.342743724241224
+des_ang :  111.04410859147494
+heading_ang :  106.09587691936657
+forward
+des_ang :  110.49346827314409
+heading_ang :  123.76687147396234
+distance :  10.608472479302664
+accel :  5.599294598429342
+Error : Heading direction is wrong
+turn right
+stop
+distance :  10.411540463445231
+des_ang :  109.80967414973725
+heading_ang :  154.345643184555
+Finish Error Processing
+turn left
+distance :  10.350507198678711
+des_ang :  108.8424272033769
+heading_ang :  152.3109575652355
+turn left
+distance :  10.350507198678711
+des_ang :  108.8424272033769
+heading_ang :  144.7380751674815
+turn left
+distance :  10.350507198678711
+des_ang :  108.8424272033769
+heading_ang :  150.73880143744944
+turn left
+distance :  10.157303815632055
+des_ang :  108.10957405757266
+heading_ang :  146.80243420778356
+accel :  6.794137178479693
+turn left
+distance :  10.157303815632055
+des_ang :  108.10957405757266
+heading_ang :  157.75097634278765
+turn left
+distance :  10.101516588287245
+des_ang :  107.10825720204011
+heading_ang :  158.45545991366342
+turn left
+distance :  10.101516588287245
+des_ang :  107.10825720204011
+heading_ang :  165.42578380196127
+turn left
+distance :  10.101516588287245
+des_ang :  107.10825720204011
+heading_ang :  180.07957742037735
+turn left
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  178.38190546726253
+accel :  5.200394215826335
+turn left
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  186.48146872414466
+turn left
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  186.76359358276954
+turn left
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  185.59360344911224
+turn left
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  178.0299145783857
+turn left
+distance :  9.830293402831952
+des_ang :  107.59513219145785
+heading_ang :  192.97493879171262
+accel :  6.541689384249302
+turn left
+distance :  9.830293402831952
+des_ang :  107.59513219145785
+heading_ang :  174.60526746554532
+turn left
+distance :  9.830293402831952
+des_ang :  107.59513219145785
+heading_ang :  186.19064355824085
+turn left
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  189.6224404111689
+turn left
+distance :  9.965815640411703
+des_ang :  107.34838439871334
+heading_ang :  195.8558013226386
+turn left
+distance :  9.912406062991955
+des_ang :  106.32358818684452
+heading_ang :  161.97466549974203
+accel :  7.09084621184242
+turn left
+distance :  9.912406062991955
+des_ang :  106.32358818684452
+heading_ang :  179.291709137831
+turn left
+distance :  9.912406062991955
+des_ang :  106.32358818684452
+heading_ang :  176.63353933657018
+turn left
+distance :  9.912406062991955
+des_ang :  106.32358818684452
+heading_ang :  174.69169547372687
+turn left
+distance :  9.912406062991955
+des_ang :  106.32358818684452
+heading_ang :  170.83026026847617
+turn left
+distance :  9.912406062991955
+des_ang :  106.32358818684452
+heading_ang :  176.04532980842828
+stuck
+stop
+Finish stuck processing
+distance :  9.99928791471388
+des_ang :  105.07342121252822
+heading_ang :  295.84438755456034
+forward
+des_ang :  102.63961682936923
+heading_ang :  203.32535088097583
+distance :  10.186864402370071
+accel :  5.951890455981192
+turn left
+distance :  10.287307183897338
+des_ang :  101.45692607489418
+heading_ang :  218.5131783003368
+turn left
+distance :  10.287307183897338
+des_ang :  101.45692607489418
+heading_ang :  190.73155054632164
+turn left
+distance :  10.287307183897338
+des_ang :  101.45692607489418
+heading_ang :  180.34463211144688
+turn left
+distance :  10.426563079569105
+des_ang :  101.30192438210497
+heading_ang :  194.7683426029013
+accel :  2.8849610049357692
+turn left
+distance :  10.426563079569105
+des_ang :  101.30192438210497
+heading_ang :  186.97276928602645
+turn left
+distance :  10.392016700489435
+des_ang :  100.29751409222494
+heading_ang :  169.22419542907147
+turn left
+distance :  10.392016700489435
+des_ang :  100.29751409222494
+heading_ang :  171.11462980036086
+turn left
+distance :  10.392016700489435
+des_ang :  100.29751409222494
+heading_ang :  159.7935814370439
+turn left
+distance :  10.500865318291465
+des_ang :  99.16162165972047
+heading_ang :  168.5535409070615
+accel :  4.544711211947356
+turn left
+distance :  10.500865318291465
+des_ang :  99.16162165972047
+heading_ang :  165.66558262915626
+turn left
+distance :  10.500865318291465
+des_ang :  99.16162165972047
+heading_ang :  148.65662719925723
+turn left
+distance :  10.500865318291465
+des_ang :  99.16162165972047
+heading_ang :  155.88163103725748
+turn left
+distance :  10.500865318291465
+des_ang :  99.16162165972047
+heading_ang :  153.6779835456424
+turn left
+distance :  10.473106424380633
+des_ang :  98.15819835363419
+heading_ang :  142.90716270295846
+accel :  8.269897218224662
+stuck
+stop
+Finish stuck processing
+distance :  10.307636398372292
+des_ang :  97.24796543781498
+heading_ang :  40.674939565261546
+turn right
+distance :  10.332525651936969
+des_ang :  98.26995103607122
+heading_ang :  23.446249735905205
+turn right
+distance :  10.332525651936969
+des_ang :  98.26995103607122
+heading_ang :  21.532932825279875
+turn right
+distance :  10.332525651936969
+des_ang :  98.26995103607122
+heading_ang :  7.841703215103066
+turn right
+distance :  10.332525651936969
+des_ang :  98.26995103607122
+heading_ang :  3.5238045035141226
+turn right
+distance :  10.332525651936969
+des_ang :  98.26995103607122
+heading_ang :  109.02095917792656
+forward
+des_ang :  96.30824620196051
+heading_ang :  135.8288142212377
+distance :  10.144832038763024
+accel :  10.211767721604327
+Stuck
+stop
+Finish stuck processing
+distance :  9.827748069368962
+des_ang :  94.33665540222698
+heading_ang :  342.7904424794521
+turn right
+distance :  9.686130922770854
+des_ang :  94.40018216808251
+heading_ang :  353.83594755717115
+turn right
+distance :  9.686130922770854
+des_ang :  94.40018216808251
+heading_ang :  350.2175929681927
+turn right
+distance :  9.531958943787133
+des_ang :  93.35215453586099
+heading_ang :  348.5142651279966
+turn right
+distance :  9.531958943787133
+des_ang :  93.35215453586099
+heading_ang :  343.5584120380291
+accel :  18.973078295310966
+stuck
+stop
+Finish stuck processing
+distance :  9.381054810014012
+des_ang :  92.2700222819092
+heading_ang :  318.86546116985176
+turn right
+distance :  9.381054810014012
+des_ang :  92.2700222819092
+heading_ang :  345.3560680353456
+turn right
+distance :  9.239140574153538
+des_ang :  92.30490940258797
+heading_ang :  350.7344901622997
+turn right
+distance :  9.239140574153538
+des_ang :  92.30490940258797
+heading_ang :  333.6088353285489
+turn right
+distance :  9.239140574153538
+des_ang :  92.30490940258797
+heading_ang :  141.55774993904387
+turn left
+distance :  9.106636539104194
+des_ang :  93.50890622873725
+heading_ang :  167.9796529844177
+accel :  5.320798812208558
+turn left
+distance :  9.106636539104194
+des_ang :  93.50890622873725
+heading_ang :  175.1207262169933
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  163.69666442008116
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  165.96375653207352
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  169.75591255354135
+turn left
+distance :  9.261354706801335
+des_ang :  94.60241742000039
+heading_ang :  165.94197934592606
+accel :  5.189922928136795
+turn left
+distance :  9.261354706801335
+des_ang :  94.60241742000039
+heading_ang :  160.13084674772486
+turn left
+distance :  9.261354706801335
+des_ang :  94.60241742000039
+heading_ang :  163.6821809581126
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  168.16875254187292
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  172.27817419986903
+turn left
+distance :  9.261354706801335
+des_ang :  94.60241742000039
+heading_ang :  163.35496178532406
+accel :  6.303974936498401
+turn left
+distance :  9.261354706801335
+des_ang :  94.60241742000039
+heading_ang :  161.39401950742808
+turn left
+distance :  9.261354706801335
+des_ang :  94.60241742000039
+heading_ang :  166.49742011835096
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  171.08300033802675
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  157.4153983288421
+turn left
+distance :  9.248402928379088
+des_ang :  93.45505378368435
+heading_ang :  162.55023845148878
+stuck
+stop
+Finish stuck processing
+distance :  9.091581197965642
+des_ang :  91.1709139257066
+heading_ang :  330.577825774311
+forward
+des_ang :  91.20867649485125
+heading_ang :  145.39432444836143
+distance :  8.807588903083934
+accel :  5.0323851203976835
+turn left
+distance :  8.663618035830211
+des_ang :  89.99996722685444
+heading_ang :  136.93058744116698
+turn left
+distance :  8.663618035830211
+des_ang :  89.99996722685444
+heading_ang :  126.52885536698517
+turn left
+distance :  8.663618035830211
+des_ang :  89.99996722685444
+heading_ang :  135.77684431897555
+turn left
+distance :  8.665594460622804
+des_ang :  88.77144857575188
+heading_ang :  138.3664606634298
+accel :  6.3931916911664715
+turn left
+distance :  8.665594460622804
+des_ang :  88.77144857575188
+heading_ang :  136.7427416534365
+turn left
+distance :  8.523600865025522
+des_ang :  88.75098023369785
+heading_ang :  137.05480894483455
+turn left
+distance :  8.523600865025522
+des_ang :  88.75098023369785
+heading_ang :  133.07065036948597
+turn left
+distance :  8.523600865025522
+des_ang :  88.75098023369785
+heading_ang :  134.61023880468193
+turn left
+distance :  8.529625879056303
+des_ang :  87.50317861984676
+heading_ang :  133.4573985247743
+accel :  4.902101590134583
+turn left
+distance :  8.529625879056303
+des_ang :  87.50317861984676
+heading_ang :  121.37010276538255
+turn left
+distance :  8.397937063902205
+des_ang :  86.19449990206154
+heading_ang :  122.8356986943415
+turn left
+distance :  8.397937063902205
+des_ang :  86.19449990206154
+heading_ang :  117.56608524253224
+turn left
+distance :  8.397937063902205
+des_ang :  86.19449990206154
+heading_ang :  116.99459626302448
+turn left
+distance :  8.256226577687604
+des_ang :  86.12908670049822
+heading_ang :  109.92017008749774
+accel :  4.38882672248518
+turn left
+distance :  8.256226577687604
+des_ang :  86.12908670049822
+heading_ang :  106.45606215228894
+turn left
+distance :  8.256226577687604
+des_ang :  86.12908670049822
+heading_ang :  109.11972632993115
+turn left
+distance :  8.129285867029603
+des_ang :  84.75494213126419
+heading_ang :  109.44457562540184
+turn left
+distance :  8.129285867029603
+des_ang :  84.75494213126419
+heading_ang :  109.09679930708047
+turn left
+distance :  8.129285867029603
+des_ang :  84.75494213126419
+heading_ang :  104.07378984493278
+accel :  8.518204036063002
+stuck
+stop
+Finish stuck processing
+distance :  7.705074126470831
+des_ang :  84.46531547174635
+heading_ang :  120.83006167085486
+turn left
+distance :  7.563716872536087
+des_ang :  84.36155527787588
+heading_ang :  117.13188590551833
+turn left
+distance :  7.563716872536087
+des_ang :  84.36155527787588
+heading_ang :  99.5710839974979
+turn left
+distance :  7.422385174135817
+des_ang :  84.25384355578362
+heading_ang :  43.1966805973549
+turn right
+distance :  7.422385174135817
+des_ang :  84.25384355578362
+heading_ang :  34.89962760043403
+turn right
+distance :  7.422385174135817
+des_ang :  84.25384355578362
+heading_ang :  12.104867502090341
+stuck
+stop
+Finish stuck processing
+distance :  7.110965426313259
+des_ang :  87.0046599053743
+heading_ang :  96.78304885520114
+Close to the goal
+stop
+phase :  3
+Front
+percentage of cone in img :  0.013802083333333333
+distance : 6.9691353373285745
+forward
+stuck
+stop
+Finish stuck processing
+Not Found
+percentage of cone in img :  0
+distance : 7.16135755827025
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 7.584065320196624
+turn right
+stop
+Front
+percentage of cone in img :  0.0003125
+distance : 7.725050239336377
+forward
+stuck
+stop
+Finish stuck processing
+Not Found
+percentage of cone in img :  0
+distance : 6.40190207961075
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 6.685499855477755
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 7.078841644785821
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 7.250920909817509
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 7.902514874445559
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 8.353823516633787
+Error : Cone not found
+des_ang :  110.83434454139699
+heading_ang :  45.254646232272854
+turn right
+des_ang :  110.83434454139699
+heading_ang :  47.73195868038508
+turn right
+des_ang :  110.83434454139699
+heading_ang :  50.991287440531345
+turn right
+des_ang :  111.65874917550227
+heading_ang :  47.7684324930359
+turn right
+des_ang :  111.65874917550227
+heading_ang :  47.479537052944096
+stuck
+stop
+Finish stuck processing
+turn right
+des_ang :  110.49347487638279
+heading_ang :  343.0936488109805
+turn right
+des_ang :  110.83434454139699
+heading_ang :  333.72174398918105
+turn right
+des_ang :  110.83434454139699
+heading_ang :  313.94817607746575
+turn right
+des_ang :  110.83434454139699
+heading_ang :  269.84597945832763
+turn left
+des_ang :  112.38297017093097
+heading_ang :  205.23757906760525
+turn left
+des_ang :  112.38297017093097
+heading_ang :  186.8268623384737
+turn left
+des_ang :  112.38297017093097
+heading_ang :  179.61023880468196
+turn left
+des_ang :  112.01520113043215
+heading_ang :  210.31121322668162
+turn left
+des_ang :  112.01520113043215
+heading_ang :  197.75825848264267
+turn left
+des_ang :  112.01520113043215
+heading_ang :  184.24422583564137
+turn left
+des_ang :  113.17670220569526
+heading_ang :  172.37108540859128
+turn left
+des_ang :  113.17670220569526
+heading_ang :  172.33952466553367
+turn left
+des_ang :  111.31312620703287
+heading_ang :  158.23289935955538
+turn left
+des_ang :  111.31312620703287
+heading_ang :  167.15229514128234
+stuck
+stop
+Finish stuck processing
+turn left
+des_ang :  110.1631219265514
+heading_ang :  4.563822418106599
+turn right
+des_ang :  110.1631219265514
+heading_ang :  4.639135056472309
+turn right
+des_ang :  108.9959149796419
+heading_ang :  2.719505461272505
+turn right
+des_ang :  108.9959149796419
+heading_ang :  3.7299531258803458
+stuck
+stop
+Finish stuck processing
+turn right
+des_ang :  108.69132284364231
+heading_ang :  20.91513662903316
+turn right
+des_ang :  107.52394592143318
+heading_ang :  11.309932474020213
+turn right
+des_ang :  107.52394592143318
+heading_ang :  11.00523539154296
+turn right
+des_ang :  107.52394592143318
+heading_ang :  5.72429534446384
+stuck
+stop
+Finish stuck processing
+Error : Can't get out of stack
+forward
+stop
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 7.987050061907513
+Error : Cone not found
+des_ang :  102.08235882779486
+heading_ang :  202.1509726591798
+turn left
+des_ang :  102.08235882779486
+heading_ang :  188.22790046853896
+turn left
+des_ang :  100.7731716463961
+heading_ang :  186.1008433530793
+turn left
+des_ang :  100.7731716463961
+heading_ang :  185.68189263254678
+turn left
+des_ang :  100.7731716463961
+heading_ang :  173.03376014750802
+turn left
+des_ang :  102.29935566442046
+heading_ang :  164.91920868855752
+turn left
+des_ang :  102.29935566442046
+heading_ang :  172.84970981969244
+turn left
+des_ang :  102.29935566442046
+heading_ang :  156.76915440652803
+turn left
+des_ang :  100.9678800821646
+heading_ang :  167.3063805586113
+turn left
+des_ang :  100.9678800821646
+heading_ang :  155.67644243103234
+turn left
+des_ang :  99.80240542450994
+heading_ang :  154.6576486211284
+turn left
+des_ang :  99.80240542450994
+heading_ang :  154.96633538972807
+turn left
+des_ang :  99.80240542450994
+heading_ang :  162.2888660552108
+turn left
+des_ang :  99.80240542450994
+heading_ang :  153.96161876429824
+turn left
+des_ang :  99.80240542450994
+heading_ang :  160.73473569081997
+turn left
+des_ang :  99.80240542450994
+heading_ang :  155.35003510666104
+turn left
+des_ang :  98.423779968474
+heading_ang :  148.09842905249047
+turn left
+des_ang :  98.423779968474
+heading_ang :  145.1566227182404
+turn left
+des_ang :  97.03526099178099
+heading_ang :  139.86302208812648
+turn left
+des_ang :  97.03526099178099
+heading_ang :  135.82846854603838
+turn left
+des_ang :  97.03526099178099
+heading_ang :  127.2568386580844
+turn left
+des_ang :  97.16916088174536
+heading_ang :  126.8860055395757
+turn left
+des_ang :  97.16916088174536
+heading_ang :  124.0929218369342
+turn left
+des_ang :  97.16916088174536
+heading_ang :  127.67428807833868
+turn left
+des_ang :  94.31589397102734
+heading_ang :  115.3573447097415
+turn left
+des_ang :  94.31589397102734
+heading_ang :  108.1349736606181
+forward
+stop
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 6.391193631441177
+Error : Cone not found
+des_ang :  89.99997582384026
+heading_ang :  164.06579905390012
+turn left
+des_ang :  89.99997582384026
+heading_ang :  156.91486632719173
+turn left
+des_ang :  88.29704334105396
+heading_ang :  156.84352324540723
+turn left
+des_ang :  88.29704334105396
+heading_ang :  154.01000601085957
+turn left
+des_ang :  88.25746492458576
+heading_ang :  147.211508376476
+turn left
+des_ang :  88.25746492458576
+heading_ang :  142.2957567786092
+turn left
+des_ang :  88.25746492458576
+heading_ang :  142.2811352527601
+turn left
+des_ang :  86.51817041447391
+heading_ang :  134.58610579964517
+turn left
+des_ang :  86.51817041447391
+heading_ang :  129.2007823709016
+turn left
+des_ang :  86.51817041447391
+heading_ang :  134.2272714077036
+turn left
+des_ang :  86.43548205997865
+heading_ang :  122.9560692252801
+turn left
+des_ang :  86.43548205997865
+heading_ang :  113.11718799959564
+turn left
+des_ang :  86.43548205997865
+heading_ang :  118.09309878117769
+turn left
+des_ang :  86.34877607533409
+heading_ang :  117.28571479959565
+turn left
+des_ang :  86.34877607533409
+heading_ang :  123.71899017850195
+turn left
+des_ang :  86.25775279198899
+heading_ang :  121.3711729064257
+turn left
+des_ang :  86.25775279198899
+heading_ang :  126.7485513122467
+turn left
+des_ang :  86.25775279198899
+heading_ang :  106.1083527411466
+turn left
+des_ang :  86.06139907364883
+heading_ang :  108.02771394540692
+turn left
+des_ang :  86.06139907364883
+heading_ang :  102.25998751292458
+turn left
+des_ang :  86.06139907364883
+heading_ang :  80.62790729142093
+forward
+stop
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 5.0018356260104495
+Error : Cone not found
+des_ang :  96.39764165887439
+heading_ang :  129.8214424989266
+turn left
+des_ang :  96.39764165887439
+heading_ang :  121.01063062538992
+turn left
+des_ang :  96.39764165887439
+heading_ang :  125.60453398043312
+turn left
+des_ang :  96.39764165887439
+heading_ang :  127.12907950030998
+turn left
+des_ang :  94.2749521510271
+heading_ang :  121.74147952633714
+turn left
+des_ang :  94.2749521510271
+heading_ang :  117.12492696723966
+turn left
+des_ang :  94.2749521510271
+heading_ang :  118.09309878117769
+turn left
+des_ang :  94.2749521510271
+heading_ang :  101.62059593351226
+forward
+stop
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 3.7341917921572816
+Error : Cone not found
+des_ang :  98.58339981858995
+heading_ang :  125.08347387909274
+turn left
+des_ang :  98.58339981858995
+heading_ang :  137.94550738067667
+turn left
+des_ang :  98.58339981858995
+heading_ang :  132.26878858021507
+turn left
+des_ang :  98.58339981858995
+heading_ang :  131.7038840274537
+turn left
+des_ang :  98.58339981858995
+heading_ang :  126.43502341981794
+turn left
+des_ang :  95.97432989026943
+heading_ang :  123.53955356525802
+turn left
+des_ang :  95.97432989026943
+heading_ang :  128.8337937645207
+turn left
+des_ang :  95.97432989026943
+heading_ang :  124.00109235502602
+turn left
+des_ang :  98.92131797122958
+heading_ang :  118.17859010995917
+turn left
+des_ang :  98.92131797122958
+heading_ang :  121.41300853409346
+turn left
+des_ang :  99.28669048334335
+heading_ang :  94.61064931866062
+forward
+stop
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 2.255341105086389
+Error : Cone not found
+des_ang :  109.2307249177436
+heading_ang :  157.36489951442297
+turn left
+des_ang :  109.2307249177436
+heading_ang :  150.71655124632832
+turn left
+des_ang :  109.2307249177436
+heading_ang :  153.53339508259424
+turn left
+des_ang :  104.66158723234126
+heading_ang :  146.38386247107215
+turn left
+des_ang :  104.66158723234126
+heading_ang :  146.4028846629348
+stuck
+stop
+Finish stuck processing
+turn left
+des_ang :  110.49349470116398
+heading_ang :  52.44871787382202
+turn right
+des_ang :  109.2307249177436
+heading_ang :  41.47854662307776
+turn right
+des_ang :  109.2307249177436
+heading_ang :  28.903645508350397
+turn right
+des_ang :  109.2307249177436
+heading_ang :  16.988954666994555
+stuck
+stop
+Finish stuck processing
+turn right
+des_ang :  111.04413247342944
+heading_ang :  41.96060043107308
+turn right
+des_ang :  112.23448982091423
+heading_ang :  18.254774009553795
+turn right
+des_ang :  112.23448982091423
+heading_ang :  13.804143778830609
+turn right
+des_ang :  112.23448982091423
+heading_ang :  7.315036399185053
+stuck
+stop
+Finish stuck processing
+turn right
+des_ang :  111.04413247342944
+heading_ang :  219.94617394993563
+turn left
+des_ang :  111.04413247342944
+heading_ang :  341.6169965658494
+turn right
+des_ang :  111.04413247342944
+heading_ang :  336.96565272636525
+turn right
+des_ang :  111.04413247342944
+heading_ang :  327.7949441206573
+stuck
+stop
+Finish stuck processing
+turn right
+des_ang :  106.209067507554
+heading_ang :  343.4097606846955
+turn right
+des_ang :  106.209067507554
+heading_ang :  334.36524507895524
+turn right
+des_ang :  106.209067507554
+heading_ang :  326.52546417027696
+turn right
+des_ang :  106.209067507554
+heading_ang :  337.3801350519596
+stuck
+stop
+Finish stuck processing
+turn right
+des_ang :  93.93857047293626
+heading_ang :  198.3015996932208
+turn left
+des_ang :  93.93857047293626
+heading_ang :  184.67348318211398
+turn left
+des_ang :  89.99998979115138
+heading_ang :  174.87821229519923
+turn left
+des_ang :  89.99998979115138
+heading_ang :  181.5403556320052
+Error : Can't get out of stack
+forward
+stop
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 2.7187826405946223
+Error : Cone not found
+des_ang :  70.03019766458993
+heading_ang :  214.32105280346485
+turn left
+des_ang :  70.03019766458993
+heading_ang :  196.09693159497021
+turn left
+des_ang :  66.4404806293739
+heading_ang :  184.25997492510794
+turn left
+des_ang :  66.4404806293739
+heading_ang :  180.4315984617098
+turn left
+des_ang :  65.21732362618015
+heading_ang :  175.06190783844957
+stuck
+stop
+Finish stuck processing
+turn left
+des_ang :  63.03652155657106
+heading_ang :  276.4224895627869
+turn right
+des_ang :  63.03652155657106
+heading_ang :  315.22236284030566
+turn right
+des_ang :  63.03652155657106
+heading_ang :  322.70468407121496
+turn right
+des_ang :  59.826389300140434
+heading_ang :  321.00900595749454
+stuck
+stop
+Finish stuck processing
+turn right
+des_ang :  56.812419410598295
+heading_ang :  216.49643777776802
+turn left
+des_ang :  56.812419410598295
+heading_ang :  200.70422362934198
+turn left
+des_ang :  61.154131609125514
+heading_ang :  183.36646066342982
+turn left
+des_ang :  61.154131609125514
+heading_ang :  179.1543672442804
+turn left
+des_ang :  61.154131609125514
+heading_ang :  178.10200401124112
+turn left
+des_ang :  61.154131609125514
+heading_ang :  166.78154450251986
+turn left
+des_ang :  61.154131609125514
+heading_ang :  172.7570912670361
+turn left
+des_ang :  61.154131609125514
+heading_ang :  174.76441033820157
+turn left
+des_ang :  58.21568669406196
+heading_ang :  172.35662192852044
+turn left
+des_ang :  58.21568669406196
+heading_ang :  165.59866517235835
+turn left
+des_ang :  58.21568669406196
+heading_ang :  149.2500326978036
+turn left
+des_ang :  58.21568669406196
+heading_ang :  153.34371358233798
+turn left
+des_ang :  58.21568669406196
+heading_ang :  149.81631934277766
+turn left
+des_ang :  52.86165421592144
+heading_ang :  143.8234353812514
+stuck
+stop
+Finish stuck processing
+turn left
+des_ang :  51.360409848013774
+heading_ang :  307.3978806685709
+turn right
+des_ang :  51.360409848013774
+heading_ang :  273.38451795230975
+turn right
+des_ang :  53.99234077878273
+heading_ang :  235.55261857434695
+turn right
+des_ang :  53.99234077878273
+heading_ang :  210.0208860341182
+Error : Can't get out of stack
+forward
+stop
+turn right
+stop
+Not Found
+percentage of cone in img :  0
+distance : 3.9702419138599163
+Error : Cone not found
+des_ang :  59.054523164421596
+heading_ang :  245.09523119190482
+turn right
+des_ang :  59.054523164421596
+heading_ang :  224.8808821268931
+turn left
+des_ang :  57.87490546363482
+heading_ang :  262.6039234402873
+turn right
+des_ang :  57.87490546363482
+heading_ang :  265.26092768148703
+turn right
+des_ang :  57.87490546363482
+heading_ang :  276.67095267425384
+turn right
+des_ang :  57.87490546363482
+heading_ang :  275.1944289077348
+turn right
+des_ang :  57.87490546363482
+heading_ang :  290.81506596636734
+turn right
+des_ang :  57.87490546363482
+heading_ang :  296.2545079875721
+turn right
+des_ang :  60.07597687696436
+heading_ang :  308.480198248343
+turn right
+des_ang :  60.07597687696436
+heading_ang :  272.24574256589506
+turn right
+des_ang :  60.07597687696436
+heading_ang :  2.2167943407401904
+turn right
+des_ang :  61.037851549635555
+heading_ang :  36.86989764584402
+turn right
+des_ang :  61.037851549635555
+heading_ang :  11.449337988500032
+turn right
+des_ang :  63.29154465164531
+heading_ang :  78.09394797805481
+forward
+stop
+turn right
+stop
+Right
+percentage of cone in img :  0.0027571614583333333
+distance : 3.992239996974172
+turn right
+forward
+stop
+Not Found
+percentage of cone in img :  0
+distance : 3.627006852610488
+Error : Cone not found
+des_ang :  78.17846029420929
+heading_ang :  158.1314208146275
+turn left
+des_ang :  77.70060434135934
+heading_ang :  129.42314135007618
+turn left
+des_ang :  77.70060434135934
+heading_ang :  123.15792388467223
+turn left
+des_ang :  77.70060434135934
+heading_ang :  106.38954033403479
+turn left
+des_ang :  77.70060434135934
+heading_ang :  114.0289059999062
+turn left
+des_ang :  77.70060434135934
+heading_ang :  147.22512267573578
+turn left
+des_ang :  80.31700486772003
+heading_ang :  125.57623483831632
+turn left
+des_ang :  80.31700486772003
+heading_ang :  114.89468773500259
+turn left
+des_ang :  80.31700486772003
+heading_ang :  99.3746470208913
+turn left
+des_ang :  80.31700486772003
+heading_ang :  105.20803919063532
+turn left
+des_ang :  80.31700486772003
+heading_ang :  77.47119229084849
+forward
+stop
+turn right
+stop
+Left
+percentage of cone in img :  0.00345703125
+distance : 3.073046434391717
+turn left
+forward
+stop
+Not Found
+percentage of cone in img :  0
+distance : 2.8405305036701396
+Error : Cone not found
+des_ang :  89.99998925193542
+heading_ang :  153.434948822922
+turn left
+des_ang :  89.99998925193542
+heading_ang :  142.25508599949762
+turn left
+des_ang :  89.99998871200697
+heading_ang :  139.6115415956062
+turn left
+des_ang :  89.99998871200697
+heading_ang :  130.2483023948863
+turn left
+des_ang :  89.99998871200697
+heading_ang :  135.27678905217778
+turn left
+des_ang :  86.25776350515575
+heading_ang :  123.73532484635656
+turn left
+des_ang :  86.25776350515575
+heading_ang :  131.0320818620131
+turn left
+des_ang :  86.25776350515575
+heading_ang :  127.55436530022241
+turn left
+des_ang :  86.25776350515575
+heading_ang :  124.866355550139
+turn left
+des_ang :  86.25776350515575
+heading_ang :  131.67324993169936
+turn left
+des_ang :  86.06140925151588
+heading_ang :  130.33418338894768
+turn left
+des_ang :  86.06140925151588
+heading_ang :  119.02437949513917
+turn left
+des_ang :  86.06140925151588
+heading_ang :  124.04593735660167
+turn left
+des_ang :  82.159703243703
+heading_ang :  117.36821042888826
+turn left
+des_ang :  82.159703243703
+heading_ang :  118.12004713038559
+stuck
+stop
+Finish stuck processing
+turn left
+des_ang :  81.2508550581336
+heading_ang :  59.13705705218149
+turn right
+des_ang :  81.2508550581336
+heading_ang :  55.168164759422574
+turn right
+des_ang :  81.730001608046
+heading_ang :  32.523956219002194

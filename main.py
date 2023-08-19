@@ -4,7 +4,7 @@
     
     Author : Yuzu
     Language : Python Ver.3.9.2
-    Last Update : 08/18/2023
+    Last Update : 08/19/2023
 """""""""""""""""""""""""""""""""""
 
 
@@ -19,7 +19,7 @@ import datetime
 import csv
 
 # destination point(lon, lat)
-DESTINATION = [139.98759166666667, 40.14266666666666]
+DESTINATION = [139.987610, 40.142635]
 
 
 print("Hello World!!")
@@ -70,7 +70,7 @@ while phase == 1:
         # Incorrect sensor value
         if altitude < -5:
             error_baro += 1
-            if error_baro >= 10:
+            if error_baro >= 15:
                 state = 'Error'
                 floating_log.state = 'Error'
                 error_log.baro_error_logger(phase, data)
@@ -95,7 +95,7 @@ while phase == 1:
         altitude = data[2]
         floating_log.floating_logger(data)
         print("Falling")
-        if altitude <= 5:
+        if altitude <= 4:
             state = 'Landing'
             floating_log.state = 'Landing'
             floating_log.end_of_floating_phase()
@@ -121,11 +121,13 @@ while phase == 1:
             break
         time.sleep(1)
     print("Landing")
-    time.sleep(8)
     drive.servo() # Separation mechanism activated
     break
 
 
+drive.forward()
+time.sleep(15)
+drive.stop()
 reach_goal = False
 # The flag that identifies abnormalities in the geomagnetic sensor
 error_mag = False
@@ -324,9 +326,9 @@ while not reach_goal:
     print("phase : ", phase)
     p = 0
     not_found = 0
-    if unfold_camera == False:
-        drive.unfold_camera()
-        unfold_camera = True
+    # if unfold_camera == False:
+    #     drive.unfold_camera()
+    #     unfold_camera = True
     while phase == 3 and error_img_proc == False:
         img_name = img_proc.take_picture()
         if img_name is not None:
@@ -359,17 +361,6 @@ while not reach_goal:
         print("distance :", distance)
         diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
         img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance)
-        stuck, diff_distance = ground.is_stuck(pre_gps, gps, data[13])
-        # Stuck Processing
-        if stuck:
-            img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance, 'Stuck judgment because the value of acceleration is {}m/s^2'.format(data[13]))
-            print('stuck')
-            drive.stuck()
-            pre_gps = gps
-            gps = GYSFDMAXB.read_GPSData()
-            distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
-            diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
-            continue
         # Goal judgment(Supports too close to the goal)
         if p > 0.12 or (pre_p - p >= 0.02 and cone_loc != "Not Found"):
             print("Reach the goal")
@@ -413,7 +404,24 @@ while not reach_goal:
                         gps = GYSFDMAXB.read_GPSData()
                         data = ground.is_heading_goal(gps, DESTINATION, pre_gps, error_mag)
                         error_log.not_found_error_logger(phase, img_name, proc_img_name, p, not_found, data, pre_gps, error_mag, error_heading)
+                        count = 0
                         while data[3] != True: # Not heading the goal
+                            count += 1
+                            if count % 5 == 0:
+                                stuck, diff_distance = ground.is_stuck(pre_gps, gps, data[13])
+                                # Stuck Processing
+                                if stuck:
+                                    img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance, 'Stuck judgment because the value of acceleration is {}m/s^2'.format(data[13]))
+                                    print('stuck')
+                                    drive.stuck()
+                                    pre_gps = gps
+                                    gps = GYSFDMAXB.read_GPSData()
+                                    distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+                                    diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
+                                    continue
+                            if count >= 30:
+                                print("Error : Can't get out of stack")
+                                break
                             if data[4] == 'Turn Right':
                                 drive.turn_right()
                             elif data[4] == 'Turn Left':
@@ -462,6 +470,17 @@ while not reach_goal:
             continue
         # Change the time to advance according to the proximity of the goal
         time.sleep(4) if p < 0.01 else time.sleep(2)
+        stuck, diff_distance = ground.is_stuck(pre_gps, gps, data[13])
+        # Stuck Processing
+        if stuck:
+            img_proc_log.img_proc_logger(img_name, proc_img_name, cone_loc, p, distance, gps, pre_gps, diff_distance, 'Stuck judgment because the value of acceleration is {}m/s^2'.format(data[13]))
+            print('stuck')
+            drive.stuck()
+            pre_gps = gps
+            gps = GYSFDMAXB.read_GPSData()
+            distance = ground.cal_distance(gps[0], gps[1], DESTINATION[0], DESTINATION[1])
+            diff_distance = ground.cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
+            continue
         drive.stop()
         
     if error_mag and error_heading >= ERROR_HEADING and error_img_proc:

@@ -1,6 +1,5 @@
 import pigpio
 import time
-import bno055
 import numpy as np
 
 # pigpio library : https://abyz.me.uk/rpi/pigpio/python.html
@@ -61,8 +60,6 @@ class Motor(object):
         Motor.pi.set_PWM_dutycycle(FRONT[1], 0) # Right
         Motor.pi.set_PWM_dutycycle(REAR[1], 100)
         time.sleep(3.7)
-        Motor.forward(self)
-        time.sleep(2)
         Motor.stop(self)
         print('Finish stuck processing')
         
