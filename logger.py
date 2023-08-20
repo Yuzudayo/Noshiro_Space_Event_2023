@@ -24,7 +24,7 @@ class FloatingLogger(object):
         with open(FloatingLogger.filename, 'w') as f:
             writer = csv.writer(f)
             writer.writerow([now.strftime('%Y%m%d %H:%M:%S')])
-            writer.writerow(['time', 'state', 'pressure', 'temperature', 'altitude', 'other description'])
+            writer.writerow(['time', 'state', 'pressure', 'temperature', 'altitude', 'description'])
         f.close()
     
     def floating_logger(self, data):

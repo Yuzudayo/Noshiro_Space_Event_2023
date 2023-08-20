@@ -1,0 +1,3 @@
+20230819 11:44:59
+time,phase,error description,data
+11:54:37,2,previous longtitude,139.98748833333335,previous latitude,40.14261166666667,longtitude,139.98748666666665,latitude,40.142606666666666,previous distance,10.686756231541782,distance,10.97073617253701,error geomagnetic sensor,False,error heading counter,1,The heading direction is not correct

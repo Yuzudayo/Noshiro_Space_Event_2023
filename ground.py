@@ -71,7 +71,7 @@ def is_heading_goal(gps, des, pre_gps=[0,0], err_mag=False):
 def is_stuck(pre_gps, gps, accel):
     diff_distance = cal_distance(pre_gps[0], pre_gps[1], gps[0], gps[1])
     # Changed to judgment of stuck by acceleration instead of displacement of position
-    if accel >= 4.5:
+    if accel >= 8:
         return True, diff_distance
     else:
         return False, diff_distance
