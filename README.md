@@ -66,9 +66,9 @@ Motor Driver               : BD6231F
 ### ２回目
 キャリアからスムーズに投下でき，着地判定も正常に動作してパラシュートを分離，走行を開始できた．しかし，パラシュート上でスタック処理をしたため，右側のタイヤがパラシュートに絡まり，走行不能とみなしてリタイアとなった．前進した際はパラシュートに絡まらないことや，パラシュートがパトロンの色と酷似しているため，パラシュートに対する処理を考慮していなかった．これを受け，地上から4m付近でパラシュートをすぐに分離し，パラシュートから距離をとるために15秒ほど前進する処理を追加した．
 
-<img src="https://github.com/Yuzudayo/Noshiro_Space_Event_2023/assets/89567103/7b029a0f-fac1-4bab-acb1-c3a1149a5c3c" width=450px>
+<img src="https://github.com/Yuzudayo/Noshiro_Space_Event_2023/assets/89567103/7b029a0f-fac1-4bab-acb1-c3a1149a5c3c" width=380px>
 
-<img src="https://github.com/Yuzudayo/Noshiro_Space_Event_2023/assets/89567103/a80d2084-e960-4618-b798-29e2f6f43e80" width=450px>
+<img src="https://github.com/Yuzudayo/Noshiro_Space_Event_2023/assets/89567103/a80d2084-e960-4618-b798-29e2f6f43e80" width=380px>
 
 ### ３回目
 
