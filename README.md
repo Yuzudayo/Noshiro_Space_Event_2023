@@ -1,4 +1,12 @@
-# Noshiro_Space_Event_2023  
+# Noshiro_Space_Event_2023 
+![](https://img.shields.io/badge/release_date-august_2023-yellow)
+![](https://img.shields.io/badge/python-v3.9.2-blue)
+![](https://img.shields.io/badge/OpenCV-v4.7.0-blue)
+![](https://img.shields.io/badge/os-linux11-blue)  
+![](https://img.shields.io/badge/-Python-F9DC3E.svg?logo=python&style=flat)
+![](https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat)
+![](https://img.shields.io/badge/-Raspberry%20Pi-C51A4A.svg?logo=raspberry-pi&style=flat)  
+
 2023年度能代宇宙イベントの缶サット，ランバック部門，チームAstrumのプロジェクトです． 
 
 <img src="https://github.com/Yuzudayo/Noshiro_Space_Event_2023/assets/89567103/7c5db797-3cff-414d-93f4-4a0ec769d8aa" width=450px>
